@@ -1,0 +1,58 @@
+{
+  "topic": "RGS stiffening rings and diaphragms",
+  "updated": "2026-05-08",
+  "engineering_practice": {
+    "shell_course_length_mm": 1490,
+    "default_end_clearance_mm": 500,
+    "rule": "In automatic mode, rings/diaphragms are placed at shell-course joints. Joints too close to heads are skipped. Strength calculation may require additional rings."
+  },
+  "standards": [
+    {
+      "id": "GOST_17032_2022",
+      "title": "Reservoirs steel horizontal for petroleum products. Technical specifications",
+      "role": "Base product standard for horizontal steel tanks; refers strength calculations to vessel strength standards.",
+      "url": "https://docs.cntd.ru/document/1200193632",
+      "calculator_use": [
+        "RGS tank scope",
+        "design documentation references",
+        "link from RGS type selection and normative report"
+      ]
+    },
+    {
+      "id": "GOST_14249",
+      "title": "Vessels and apparatus. Norms and methods of strength calculation",
+      "role": "Legacy/reference calculation basis for shells under internal and external pressure.",
+      "url": "https://docs.cntd.ru/document/1200002431",
+      "calculator_use": [
+        "shell effective thickness",
+        "internal pressure check",
+        "external pressure stability check between stiffeners"
+      ]
+    },
+    {
+      "id": "GOST_34233_2_2017",
+      "title": "Vessels and apparatus. Norms and methods of strength calculation. Cylindrical and conical shells, convex and flat bottoms and covers",
+      "role": "Modern strength calculation line for cylindrical shells and stiffening elements.",
+      "url": "https://docs.cntd.ru/document/1200146027",
+      "calculator_use": [
+        "external pressure shell stability",
+        "future required moment of inertia for stiffening rings",
+        "future ring section selection"
+      ]
+    },
+    {
+      "id": "SP_20_13330",
+      "title": "Loads and actions",
+      "role": "General load combinations and environmental load basis.",
+      "url": "https://docs.cntd.ru/document/456044318",
+      "calculator_use": [
+        "load combinations",
+        "future transport/installation/load-case expansion"
+      ]
+    }
+  ],
+  "implementation_notes": [
+    "Current code checks shell external pressure capacity between rings and uses 1490 mm shell-course layout as the automatic minimum.",
+    "Next step is to calculate required ring stiffness/section and compare it with selected profile properties, not only ring count."
+  ]
+}

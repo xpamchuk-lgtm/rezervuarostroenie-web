@@ -39,6 +39,8 @@ STANDARD_STRAP_THICKNESS_MM = [6, 8, 10, 12, 14]
 STANDARD_STRAP_WIDTH_MM = [40, 50, 60, 80, 100, 120, 140, 160, 180, 200]
 DEFAULT_RING_SECTION_CM2 = 10.34  # калибровка по примеру Пассат РГСП-15
 DEFAULT_RING_MASS_FACTOR = 1.0
+DEFAULT_SHELL_COURSE_MM = 1490.0
+DEFAULT_RING_END_CLEARANCE_MM = 500.0
 
 
 @dataclass(slots=True)
@@ -338,6 +340,34 @@ def infer_ring_count(shell_length_m: float, offset_m: float, t_nominal_mm: float
     return max_ring_count, best_eval
 
 
+def fabrication_ring_layout(shell_length_m: float, shell_course_mm: float, end_clearance_mm: float) -> dict[str, Any]:
+    shell_length_mm = max(0.0, shell_length_m * 1000.0)
+    pitch_mm = max(100.0, shell_course_mm)
+    clearance_mm = clamp(end_clearance_mm, 0.0, max(0.0, shell_length_mm / 2.0))
+    positions_mm: list[float] = []
+    position_mm = pitch_mm
+    while position_mm < shell_length_mm:
+        if position_mm >= clearance_mm and shell_length_mm - position_mm >= clearance_mm:
+            positions_mm.append(position_mm)
+        position_mm += pitch_mm
+    return {
+        "shell_course_mm": pitch_mm,
+        "end_clearance_mm": clearance_mm,
+        "ring_count": len(positions_mm),
+        "positions_mm": positions_mm,
+        "note": "Fabrication layout: rings/diaphragms at shell course joints; joints close to heads are skipped.",
+    }
+
+
+def evaluate_ring_count(shell_length_m: float, offset_m: float, ring_count: int, t_nominal_mm: float, allowances_mm: float, diameter_mm: float, sigma_mpa: float, e_mpa: float) -> dict[str, float]:
+    shell_length_mm = max(10.0, shell_length_m * 1000.0)
+    if ring_count <= 0:
+        spacing = shell_length_mm
+    else:
+        spacing = max(50.0, (shell_length_mm - 2.0 * offset_m * 1000.0) / (ring_count + 1))
+    return shell_external_allowable_mpa(diameter_mm, t_nominal_mm, allowances_mm, sigma_mpa, e_mpa, spacing)
+
+
 def recommended_shell_solution(
     diameter_mm: float,
     shell_length_m: float,
@@ -459,6 +489,8 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
     ring_mode = str(payload.get("ring_mode") or ("auto" if is_underground else "manual")).lower()
     manual_ring_count = max(0, safe_int(payload.get("ring_count"), 0))
     ring_offset_m = max(0.0, safe_float(payload.get("ring_offset_m"), 0.2 if is_underground else 0.0))
+    ring_shell_course_mm = max(100.0, safe_float(payload.get("ring_shell_course_mm"), DEFAULT_SHELL_COURSE_MM))
+    ring_end_clearance_mm = max(0.0, safe_float(payload.get("ring_end_clearance_mm"), DEFAULT_RING_END_CLEARANCE_MM))
     ring_section_cm2 = max(0.0, safe_float(payload.get("ring_section_cm2"), DEFAULT_RING_SECTION_CM2))
 
     rib_count = max(1, safe_int(payload.get("rib_count"), 8))
@@ -502,6 +534,9 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
     if shell_length_m <= 0.1:
         raise ValueError("Общая длина должна быть больше суммы вылетов днищ.")
 
+    fabrication_layout = fabrication_ring_layout(shell_length_m, ring_shell_course_mm, ring_end_clearance_mm)
+    fabrication_ring_count = safe_int(fabrication_layout["ring_count"], 0)
+
     fill_height_m, fill_fraction = horizontal_fill_fraction(d_m, fill_mode, fill_value)
     full_shell_volume_m3 = circle_area(d_m) * shell_length_m
     full_head_volume_each_m3 = head_geo["internal_volume_each_m3"]
@@ -533,7 +568,7 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
     platform_mass_kg = 180.0 if platform else 0.0
     support_mass_kg = support_count * (85.0 if not is_underground else 45.0)
 
-    current_ring_count = max(0, manual_ring_count)
+    current_ring_count = max(0, manual_ring_count if ring_mode == "manual" else fabrication_ring_count)
     ring_mass_kg = 0.0
     if is_underground and ring_mode == "manual" and current_ring_count > 0:
         shell_od_m = d_m + 2.0 * shell_nominal_mm / 1000.0
@@ -611,6 +646,20 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
         ring_offset_m,
         max(math.ceil(allowances_shell_mm), math.ceil(shell_nominal_mm if payload.get("use_current_as_min") else 4)),
     )
+    if ring_mode != "manual" and recommended_shell["ring_count"] is not None:
+        fabrication_eval = evaluate_ring_count(
+            shell_length_m,
+            ring_offset_m,
+            fabrication_ring_count,
+            safe_float(recommended_shell["shell_nominal_mm"], shell_nominal_mm),
+            allowances_shell_mm,
+            d_m * 1000.0,
+            sigma_work,
+            e_mpa,
+        )
+        if fabrication_ring_count >= safe_int(recommended_shell["ring_count"], 0) or fabrication_eval["p_allow_mpa"] >= pressure_required_external_mpa - 1e-9:
+            recommended_shell["ring_count"] = fabrication_ring_count
+            recommended_shell["spacing_mm"] = fabrication_eval["spacing_mm"]
 
     head_note = ""
     if head_type == "flat":
@@ -849,6 +898,11 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             "recommended_ring_count": recommended_shell["ring_count"],
             "recommended_spacing_mm": recommended_shell["spacing_mm"],
             "minimum_nozzle_spacing_mm": min_distance_between_single_nozzles_mm(d_m * 1000.0, shell_nominal_mm, allowances_shell_mm),
+            "fabrication_ring_count": fabrication_ring_count,
+            "fabrication_shell_course_mm": fabrication_layout["shell_course_mm"],
+            "fabrication_end_clearance_mm": fabrication_layout["end_clearance_mm"],
+            "fabrication_ring_positions_mm": fabrication_layout["positions_mm"],
+            "fabrication_note": fabrication_layout["note"],
         },
         "head": {
             "nominal_mm": head_nominal_mm,

@@ -33,6 +33,16 @@ class RVSRequest(BaseModel):
 class RGSRequest(BaseModel):
     tank_type: RgsTankType = "rgsn"
     product_name: str = "Продукт"
+    site_region: str = ""
+    site_city: str = ""
+    wind_region: str = ""
+    w0_kpa: float = 0.0
+    snow_region: str = ""
+    sg_kpa: float = 0.0
+    t5_c: float = 0.0
+    tmin_abs_c: float = 0.0
+    seismic: str = ""
+    seis_level: str = "B"
     D: float = Field(..., description="Внутренний диаметр, м")
     total_length_m: float = Field(..., description="Общая длина резервуара, м")
     head_type: RgsHeadType = "flat"
@@ -66,6 +76,8 @@ class RGSRequest(BaseModel):
     ring_mode: RgsRingMode = "manual"
     ring_count: int = 0
     ring_offset_m: float = 0.2
+    ring_shell_course_mm: float = 1490.0
+    ring_end_clearance_mm: float = 500.0
     ring_section_cm2: float = 10.34
 
     rib_count: int = 8

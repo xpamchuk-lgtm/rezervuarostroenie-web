@@ -9,6 +9,17 @@ type RingMode = "auto" | "manual";
 type SoilPreset = "sand_coarse" | "sand_medium" | "sand_fine" | "loam" | "clay";
 type SectionId = "type" | "main" | "characteristics" | "equipment" | "results";
 type SiteOptions = Record<string, string[]>;
+type SiteLookupState = "idle" | "loading" | "done" | "error";
+
+type SiteNormsResponse = {
+  wind_region?: string;
+  w0?: string;
+  snow_region?: string;
+  sg?: string;
+  seismic?: string;
+  t5?: string;
+  tmin_abs?: string;
+};
 
 type CheckItem = {
   code: string;
@@ -99,6 +110,11 @@ type DetailsResult = {
     recommended_ring_count?: number | null;
     recommended_spacing_mm?: number | null;
     minimum_nozzle_spacing_mm?: number;
+    fabrication_ring_count?: number;
+    fabrication_shell_course_mm?: number;
+    fabrication_end_clearance_mm?: number;
+    fabrication_ring_positions_mm?: number[];
+    fabrication_note?: string;
   };
   head?: {
     nominal_mm?: number;
@@ -168,6 +184,14 @@ type RgsForm = {
   productName: string;
   region: string;
   city: string;
+  windRegion: string;
+  w0: string;
+  snowRegion: string;
+  sg: string;
+  t5: string;
+  tminAbs: string;
+  seismic: string;
+  seisLevel: "A" | "B" | "C";
   D: string;
   totalLengthM: string;
   headType: HeadType;
@@ -311,6 +335,14 @@ function createDefaultForm(type: TankType): RgsForm {
     productName: underground ? "Дизельное топливо" : "Вода",
     region: "",
     city: "",
+    windRegion: "II",
+    w0: "0.30",
+    snowRegion: "III",
+    sg: "1.80",
+    t5: "-25",
+    tminAbs: "-35",
+    seismic: "6",
+    seisLevel: "B",
     D: underground ? "2000" : "3200",
     totalLengthM: underground ? "4470" : "12000",
     headType: underground ? "flat" : "flat",
@@ -414,8 +446,13 @@ function headVolumeEachM3(headType: HeadType, diameterM: number, projectionM: nu
 
 function estimateRingCount(lengthMm: number): number {
   if (lengthMm <= 0) return 0;
-  if (lengthMm <= 3500) return 1;
-  return clampNumber(Math.ceil(lengthMm / 2500) - 1, 1, 8);
+  const shellCourseMm = 1490;
+  const endClearanceMm = 500;
+  let count = 0;
+  for (let position = shellCourseMm; position < lengthMm; position += shellCourseMm) {
+    if (position >= endClearanceMm && lengthMm - position >= endClearanceMm) count += 1;
+  }
+  return count;
 }
 
 function formatNumber(value: number | undefined | null, digits = 0): string {
@@ -488,6 +525,7 @@ export default function RgsCalc() {
   });
   const [results, setResults] = useState<Record<TankType, RgsResult | null>>(createResultMap<RgsResult | null>(null));
   const [loadingType, setLoadingType] = useState<TankType | null>(null);
+  const [siteLookupState, setSiteLookupState] = useState<SiteLookupState>("idle");
   const [error, setError] = useState<string>("");
 
   const form = forms[activeType];
@@ -526,6 +564,7 @@ export default function RgsCalc() {
   }
 
   function updateRegion(region: string) {
+    setSiteLookupState("idle");
     setForms((prev) => ({
       ...prev,
       [activeType]: {
@@ -536,8 +575,42 @@ export default function RgsCalc() {
     }));
   }
 
+  function updateCity(city: string) {
+    setSiteLookupState("idle");
+    updateForm("city", city);
+  }
+
+  async function applySiteNorms() {
+    if (!form.region || !form.city) return;
+    setSiteLookupState("loading");
+    const query = new URLSearchParams({ region: form.region, city: form.city });
+
+    try {
+      const response = await fetch(`/api/site/norms?${query.toString()}`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = (await response.json()) as SiteNormsResponse;
+      setForms((prev) => ({
+        ...prev,
+        [activeType]: {
+          ...prev[activeType],
+          windRegion: data.wind_region || prev[activeType].windRegion,
+          w0: data.w0 || prev[activeType].w0,
+          snowRegion: data.snow_region || prev[activeType].snowRegion,
+          sg: data.sg || prev[activeType].sg,
+          seismic: data.seismic || prev[activeType].seismic,
+          t5: data.t5 || prev[activeType].t5,
+          tminAbs: data.tmin_abs || prev[activeType].tminAbs,
+        },
+      }));
+      setSiteLookupState("done");
+    } catch {
+      setSiteLookupState("error");
+    }
+  }
+
   function updateTankType(tankType: TankType) {
     setActiveType(tankType);
+    setSiteLookupState("idle");
     setError("");
   }
 
@@ -552,11 +625,9 @@ export default function RgsCalc() {
           standardSizeKey: sizeKey,
           D: preset?.diameterMm ? String(preset.diameterMm) : current.D,
           totalLengthM: preset?.lengthMm ? String(preset.lengthMm) : current.totalLengthM,
-          ringCount: preset?.ringCount !== null && preset?.ringCount !== undefined
-            ? String(preset.ringCount)
-            : current.ringMode === "auto"
-              ? String(estimateRingCount(parseNumber(current.totalLengthM)))
-              : current.ringCount,
+          ringCount: current.ringMode === "auto" || preset?.lengthMm
+            ? String(estimateRingCount(preset?.lengthMm ?? parseNumber(current.totalLengthM)))
+            : current.ringCount,
         },
       };
     });
@@ -600,6 +671,7 @@ export default function RgsCalc() {
       ...prev,
       [activeType]: null,
     }));
+    setSiteLookupState("idle");
     setError("");
   }
 
@@ -615,6 +687,7 @@ export default function RgsCalc() {
     next.extraLiquidHeadM = "410";
     setForms((prev) => ({ ...prev, [activeType]: next }));
     setResults((prev) => ({ ...prev, [activeType]: null }));
+    setSiteLookupState("idle");
     setError("");
   }
 
@@ -627,6 +700,14 @@ export default function RgsCalc() {
       product_name: form.productName,
       site_region: form.region,
       site_city: form.city,
+      wind_region: form.windRegion,
+      w0_kpa: parseNumber(form.w0),
+      snow_region: form.snowRegion,
+      sg_kpa: parseNumber(form.sg),
+      t5_c: parseNumber(form.t5),
+      tmin_abs_c: parseNumber(form.tminAbs),
+      seismic: form.seismic,
+      seis_level: form.seisLevel,
       D: mmToM(form.D),
       total_length_m: mmToM(form.totalLengthM),
       head_type: form.headType,
@@ -831,72 +912,167 @@ export default function RgsCalc() {
               </div>
             </div>
 
-            <div id="rgs-main" className="card panel-card" style={{ scrollMarginTop: 96, display: activeSection === "main" ? undefined : "none" }}>
-              <div className="panel-title">2. Основные данные</div>
-              <div className="row4">
-                <div className="field">
-                  <label>Продукт</label>
-                  <select value={form.productName} onChange={(e) => updateProduct(e.target.value)}>
-                    {PRODUCT_OPTIONS.map((product) => (
-                      <option key={product.name} value={product.name}>{product.name}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="field">
-                  <label>Типоразмер / геометрический объём</label>
-                  <select value={form.standardSizeKey} onChange={(e) => updateStandardSize(e.target.value)}>
-                    {RGS_SIZE_PRESETS.map((preset) => (
-                      <option key={preset.key} value={preset.key}>{preset.label}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="field">
-                  <label>Геометрический объём</label>
-                  <div className="input-unit">
-                    <input value={formatNumber(livePreview.totalVolumeM3, 3)} readOnly />
-                    <span className="unit-chip">м³</span>
+            <div id="rgs-main" className="grid" style={{ gap: 16, scrollMarginTop: 96, display: activeSection === "main" ? undefined : "none" }}>
+              <div className="card panel-card">
+                <div className="panel-title">2. Основные данные</div>
+                <div className="muted">Среда, район установки и типоразмер резервуара.</div>
+              </div>
+
+              <div className="card panel-card">
+                <div className="panel-title">Среда</div>
+                <div className="row2">
+                  <div className="field">
+                    <label>Продукт</label>
+                    <select value={form.productName} onChange={(e) => updateProduct(e.target.value)}>
+                      {PRODUCT_OPTIONS.map((product) => (
+                        <option key={product.name} value={product.name}>{product.name}</option>
+                      ))}
+                    </select>
                   </div>
-                </div>
-                <div className="field">
-                  <label>Регион установки</label>
-                  <select value={form.region} onChange={(e) => updateRegion(e.target.value)}>
-                    <option value="">Не выбран</option>
-                    {regionOptions.map((region) => (
-                      <option key={region} value={region}>{region}</option>
-                    ))}
-                  </select>
+                  <div className="field">
+                    <label>Плотность продукта</label>
+                    <div className="input-unit">
+                      <input value={form.rho} onChange={(e) => updateForm("rho", e.target.value)} />
+                      <span className="unit-chip">кг/м³</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="row4" style={{ marginTop: 14 }}>
-                <div className="field">
-                  <label>Населённый пункт</label>
-                  <select value={form.city} onChange={(e) => updateForm("city", e.target.value)} disabled={!form.region}>
-                    <option value="">Не выбран</option>
-                    {cityOptions.map((city) => (
-                      <option key={city} value={city}>{city}</option>
-                    ))}
-                  </select>
-                </div>
-                <div className="field">
-                  <label>Диаметр D</label>
-                  <div className="input-unit">
-                    <input value={form.D} onChange={(e) => updateDimension("D", e.target.value)} />
-                    <span className="unit-chip">мм</span>
+              <div className="card panel-card">
+                <div className="panel-title">Регион установки</div>
+                <div className="row2">
+                  <div className="field">
+                    <label>Регион / субъект РФ</label>
+                    <select value={form.region} onChange={(e) => updateRegion(e.target.value)}>
+                      <option value="">Не выбран</option>
+                      {regionOptions.map((region) => (
+                        <option key={region} value={region}>{region}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="field">
+                    <label>Город / населённый пункт</label>
+                    <select value={form.city} onChange={(e) => updateCity(e.target.value)} disabled={!form.region}>
+                      <option value="">Не выбран</option>
+                      {cityOptions.map((city) => (
+                        <option key={city} value={city}>{city}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
-                <div className="field">
-                  <label>Общая длина</label>
-                  <div className="input-unit">
-                    <input value={form.totalLengthM} onChange={(e) => updateDimension("totalLengthM", e.target.value)} />
-                    <span className="unit-chip">мм</span>
+
+                <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 12, flexWrap: "wrap" }}>
+                  <button type="button" className="btn" onClick={applySiteNorms} disabled={!form.region || !form.city || siteLookupState === "loading"}>
+                    {siteLookupState === "loading" ? "Подстановка..." : "Подставить нормативы по региону/городу"}
+                  </button>
+                  {siteLookupState === "done" && <span className="muted">Нормативы обновлены.</span>}
+                  {siteLookupState === "error" && <span style={{ color: "#b42318", fontWeight: 700 }}>Не удалось найти нормативы для выбранного населённого пункта.</span>}
+                </div>
+
+                <div className="row3" style={{ marginTop: 12 }}>
+                  <div className="field">
+                    <label>Ветровой район</label>
+                    <select value={form.windRegion} onChange={(e) => updateForm("windRegion", e.target.value)}>
+                      {["Iа", "I", "II", "III", "IV", "V", "VI", "VII"].map((value) => <option key={value} value={value}>{value}</option>)}
+                    </select>
+                  </div>
+                  <div className="field">
+                    <label>Ветровая нагрузка</label>
+                    <div className="input-unit">
+                      <input value={form.w0} onChange={(e) => updateForm("w0", e.target.value)} />
+                      <span className="unit-chip">кПа</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Снеговой район</label>
+                    <select value={form.snowRegion} onChange={(e) => updateForm("snowRegion", e.target.value)}>
+                      {["I", "II", "III", "IV", "V", "VI", "VII", "VIII"].map((value) => <option key={value} value={value}>{value}</option>)}
+                    </select>
                   </div>
                 </div>
-                <div className="field">
-                  <label>Колец жесткости / диафрагм</label>
-                  <div className="input-unit">
-                    <input value={form.ringCount} onChange={(e) => updateForm("ringCount", e.target.value)} />
-                    <span className="unit-chip">шт.</span>
+
+                <div className="row3" style={{ marginTop: 12 }}>
+                  <div className="field">
+                    <label>Снеговая нагрузка</label>
+                    <div className="input-unit">
+                      <input value={form.sg} onChange={(e) => updateForm("sg", e.target.value)} />
+                      <span className="unit-chip">кПа</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Минус пятидневки</label>
+                    <div className="input-unit">
+                      <input value={form.t5} onChange={(e) => updateForm("t5", e.target.value)} />
+                      <span className="unit-chip">°C</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Абсолютный минус</label>
+                    <div className="input-unit">
+                      <input value={form.tminAbs} onChange={(e) => updateForm("tminAbs", e.target.value)} />
+                      <span className="unit-chip">°C</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row2" style={{ marginTop: 12 }}>
+                  <div className="field">
+                    <label>Сейсмичность района</label>
+                    <select value={form.seismic} onChange={(e) => updateForm("seismic", e.target.value)}>
+                      {["5", "6", "7", "8", "9"].map((value) => <option key={value} value={value}>{value}</option>)}
+                    </select>
+                  </div>
+                  <div className="field">
+                    <label>Степень сейсмоопасности ОСР-97</label>
+                    <select value={form.seisLevel} onChange={(e) => updateForm("seisLevel", e.target.value as RgsForm["seisLevel"])}>
+                      {["A", "B", "C"].map((value) => <option key={value} value={value}>{value}</option>)}
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card panel-card">
+                <div className="panel-title">Типоразмеры</div>
+                <div className="row3">
+                  <div className="field">
+                    <label>Типоразмер</label>
+                    <select value={form.standardSizeKey} onChange={(e) => updateStandardSize(e.target.value)}>
+                      {RGS_SIZE_PRESETS.map((preset) => (
+                        <option key={preset.key} value={preset.key}>{preset.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="field">
+                    <label>Геометрический объём</label>
+                    <div className="input-unit">
+                      <input value={formatNumber(livePreview.totalVolumeM3, 3)} readOnly />
+                      <span className="unit-chip">м³</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Колец жёсткости / диафрагм</label>
+                    <div className="input-unit">
+                      <input value={form.ringCount} onChange={(e) => updateForm("ringCount", e.target.value)} />
+                      <span className="unit-chip">шт.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row2" style={{ marginTop: 14 }}>
+                  <div className="field">
+                    <label>Диаметр D</label>
+                    <div className="input-unit">
+                      <input value={form.D} onChange={(e) => updateDimension("D", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Общая длина</label>
+                    <div className="input-unit">
+                      <input value={form.totalLengthM} onChange={(e) => updateDimension("totalLengthM", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1082,14 +1258,7 @@ export default function RgsCalc() {
 
               <div className="card panel-card">
               <div className="panel-title">Среда и режим работы</div>
-              <div className="row4">
-                <div className="field">
-                  <label>Плотность продукта</label>
-                  <div className="input-unit">
-                    <input value={form.rho} onChange={(e) => updateForm("rho", e.target.value)} />
-                    <span className="unit-chip">кг/м³</span>
-                  </div>
-                </div>
+              <div className="row3">
                 <div className="field">
                   <label>Температура</label>
                   <div className="input-unit">
@@ -1491,14 +1660,16 @@ export default function RgsCalc() {
 
             {error ? <div className="warn-inline">{error}</div> : null}
 
-            <div className="section-actions">
-              <button className="btn primary" type="button" onClick={calculate} disabled={loadingType === activeType}>
-                {loadingType === activeType ? "Расчёт..." : "Сформировать расчёт"}
-              </button>
-              <button className="btn" type="button" onClick={resetCurrentForm} disabled={loadingType === activeType}>
-                Сбросить значения
-              </button>
-            </div>
+            {activeSection !== "type" && activeSection !== "main" ? (
+              <div className="section-actions">
+                <button className="btn primary" type="button" onClick={calculate} disabled={loadingType === activeType}>
+                  {loadingType === activeType ? "Расчёт..." : "Сформировать расчёт"}
+                </button>
+                <button className="btn" type="button" onClick={resetCurrentForm} disabled={loadingType === activeType}>
+                  Сбросить значения
+                </button>
+              </div>
+            ) : null}
           </main>
 
           <aside className="grid sticky-side" style={{ gap: 16 }}>
@@ -1575,7 +1746,7 @@ export default function RgsCalc() {
             <div className="card pad">
               <div style={{ fontWeight: 900, fontSize: 18, marginBottom: 12 }}>Ключевые показатели</div>
               <div className="kpi">
-                <span className="muted">Длина обечайки</span>
+                <span className="muted">Цилиндрическая часть</span>
                 <b>{formatNumber((geometry?.shell_length_m ?? livePreview.shellLengthM) * 1000, 0)} мм</b>
               </div>
               <div className="kpi">
