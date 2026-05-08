@@ -1,0 +1,31 @@
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+
+export default function Topbar() {
+  return (
+    <header className="topbar">
+      <div className="topbar-inner">
+        <Link to="/" className="brand">
+          <img
+            src="/logo.png"
+            alt="Резервуаростроение"
+            className="topbar-logo"
+          />
+          <div className="brand-text">
+            <div className="brand-title">Резервуаростроение</div>
+            <small>Инженерные калькуляторы резервуаров</small>
+          </div>
+        </Link>
+
+        <nav className="nav" aria-label="Основная навигация">
+          <NavLink to="/" end>
+            Калькуляторы
+          </NavLink>
+          <a href="/baza-znaniy/">База знаний</a>
+          <a href="/#workflow">Как пользоваться</a>
+          <a href="/#norms">Нормативная база</a>
+        </nav>
+      </div>
+    </header>
+  );
+}

@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+.venv/
+venv/
+env/
+
+# build output
+frontend/dist/
+backend/dist/
+dist/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# environment and local config
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# temporary archives
+*.tar.gz
+*.zip

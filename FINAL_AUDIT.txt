@@ -1,0 +1,23 @@
+FINAL AUDIT: rezervuarostroenie.ru
+Date: 2026-03-25
+
+KB pages checked: 101
+HTTP references left: 0
+Pages without favicon block: 0
+Pages without theme-color: 0
+Pages without canonical: 0
+Pages without og:url: 0
+Duplicate titles: 0
+Duplicate descriptions: 0
+
+robots.txt exists: True
+sitemap.xml exists: True
+404.html exists: True
+index.html exists: True
+favicon.ico exists: True
+robots.txt uses HTTPS sitemap: True
+sitemap.xml contains HTTP domain: False
+
+Nginx config validated with nginx -t: OK
+Vite production build: OK
+Local route checks: / 200, /calc/rvs 200, /baza-znaniy/ 200, missing paths 404
