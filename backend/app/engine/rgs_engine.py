@@ -5,10 +5,47 @@ from dataclasses import dataclass
 from typing import Any
 
 GRAVITY = 9.80665
-PASSAT_GAMMA_G = 10.0  # калибровка под примеры Пассат/ВСП в предоставленных файлах
 STEEL_DENSITY_DEFAULT = 7850.0
 WATER_DENSITY = 1000.0
 ATMOSPHERIC_HORIZONTAL_LIMIT_MPA = 0.07
+
+RGS_NORMATIVE_BASE = [
+    {
+        "id": "GOST_17032",
+        "title": "ГОСТ 17032 — резервуары стальные горизонтальные для нефтепродуктов",
+        "role": "Базовый стандарт изделия РГС: состав, исполнение, технические требования и привязка к проектной документации.",
+    },
+    {
+        "id": "GOST_34233_1",
+        "title": "ГОСТ 34233.1 — сосуды и аппараты. Общие требования к расчётам на прочность",
+        "role": "Общие расчётные положения, допускаемые напряжения, расчётные температуры и нагрузки.",
+    },
+    {
+        "id": "GOST_34233_2",
+        "title": "ГОСТ 34233.2 — цилиндрические и конические обечайки, выпуклые и плоские днища",
+        "role": "Расчёт обечаек, конических элементов, плоских днищ и устойчивости от внешнего давления.",
+    },
+    {
+        "id": "GOST_14249",
+        "title": "ГОСТ 14249 — сосуды и аппараты. Нормы и методы расчёта на прочность",
+        "role": "Переходная расчётная база для сверки с ранее применявшимися методиками.",
+    },
+    {
+        "id": "SP_20",
+        "title": "СП 20.13330 — Нагрузки и воздействия",
+        "role": "Коэффициенты надёжности, сочетания нагрузок, снеговые и ветровые воздействия.",
+    },
+    {
+        "id": "SP_14",
+        "title": "СП 14.13330 — Строительство в сейсмических районах",
+        "role": "Сейсмичность площадки и исходные данные для дальнейших сейсмических проверок.",
+    },
+    {
+        "id": "SP_22",
+        "title": "СП 22.13330 — Основания зданий и сооружений",
+        "role": "Грунтовые нагрузки, расчётные характеристики грунта, подземная установка и уровень грунтовых вод.",
+    },
+]
 
 MATERIALS: dict[str, dict[str, float | str]] = {
     "09G2S": {
@@ -37,7 +74,7 @@ SOIL_PRESETS: dict[str, dict[str, float | str]] = {
 
 STANDARD_STRAP_THICKNESS_MM = [6, 8, 10, 12, 14]
 STANDARD_STRAP_WIDTH_MM = [40, 50, 60, 80, 100, 120, 140, 160, 180, 200]
-DEFAULT_RING_SECTION_CM2 = 10.34  # калибровка по примеру Пассат РГСП-15
+DEFAULT_RING_SECTION_CM2 = 10.34
 DEFAULT_RING_MASS_FACTOR = 1.0
 DEFAULT_SHELL_COURSE_MM = 1490.0
 DEFAULT_RING_END_CLEARANCE_MM = 500.0
@@ -52,16 +89,26 @@ class CheckItem:
     limit: float | None
     unit: str = ""
     note: str = ""
+    formula: str = ""
+    reference: str = ""
+    inputs: dict[str, Any] | None = None
 
     def as_dict(self) -> dict[str, Any]:
+        margin = None
+        if self.value is not None and self.limit not in (None, 0):
+            margin = self.value / self.limit
         return {
             "code": self.code,
             "title": self.title,
             "result": self.result,
             "value": self.value,
             "limit": self.limit,
+            "margin": margin,
             "unit": self.unit,
             "note": self.note,
+            "formula": self.formula,
+            "reference": self.reference,
+            "inputs": self.inputs or {},
         }
 
 
@@ -368,6 +415,44 @@ def evaluate_ring_count(shell_length_m: float, offset_m: float, ring_count: int,
     return shell_external_allowable_mpa(diameter_mm, t_nominal_mm, allowances_mm, sigma_mpa, e_mpa, spacing)
 
 
+def calculation_cases(tank_type: str, is_underground: bool, is_double_wall: bool, groundwater: bool, vacuum_mpa: float) -> list[dict[str, Any]]:
+    cases = [
+        {"id": "installation", "title": "Тип установки", "active": True, "basis": "ГОСТ 17032", "note": "Наземное или подземное исполнение РГС."},
+        {"id": "working_fill", "title": "Рабочее заполнение", "active": True, "basis": "ГОСТ 34233.1/2", "note": "Масса продукта, гидростатическая составляющая и рабочее давление."},
+        {"id": "hydrotest", "title": "Гидроиспытание", "active": True, "basis": "ГОСТ 34233.1", "note": "Полное заполнение водой для массы и опорных реакций."},
+        {"id": "vacuum", "title": "Вакуум / внешнее давление", "active": vacuum_mpa > 0 or is_underground, "basis": "ГОСТ 34233.2", "note": "Устойчивость обечайки и днищ при внешнем давлении."},
+        {"id": "soil", "title": "Грунт", "active": is_underground, "basis": "СП 20, СП 22", "note": "Вертикальное и боковое давление засыпки для подземного исполнения."},
+        {"id": "flotation", "title": "Всплытие", "active": is_underground and groundwater, "basis": "СП 20, СП 22", "note": "Подъёмная сила воды и необходимость удерживающих хомутов."},
+        {"id": "straps", "title": "Хомуты", "active": is_underground and groundwater, "basis": "СП 20, проектная серия", "note": "Подбор сечения удерживающих хомутов по усилию всплытия."},
+        {"id": "double_wall", "title": "Двустенное исполнение", "active": is_double_wall, "basis": "ГОСТ 17032, ГОСТ 34233.2", "note": "Наружная оболочка, межстенный объём и масса."},
+    ]
+    for item in cases:
+        if item["id"] == "installation":
+            item["note"] = f"{tank_type.upper()}: {'подземное' if is_underground else 'наземное'} исполнение."
+    return cases
+
+
+def ring_section_check(ring_section_cm2: float, ring_count: int, spacing_mm: float | None, required_external_mpa: float, shell_allow_external_mpa: float) -> dict[str, Any]:
+    area_mm2 = max(0.0, ring_section_cm2 * 100.0)
+    needs_geometry = ring_count > 0 and area_mm2 > 0
+    return {
+        "profile": "не задан",
+        "area_cm2": ring_section_cm2,
+        "area_mm2": area_mm2,
+        "inertia_cm4": None,
+        "required_inertia_cm4": None,
+        "spacing_mm": spacing_mm,
+        "stability_ok": shell_allow_external_mpa + 1e-9 >= required_external_mpa,
+        "section_check_status": "INPUT_REQUIRED" if needs_geometry else "NOT_REQUIRED",
+        "note": (
+            "Для проверки самого кольца нужны профиль и размеры сечения, чтобы посчитать момент инерции. "
+            "Сейчас проверяется устойчивость оболочки между кольцами и фиксируется площадь кольца."
+            if needs_geometry
+            else "Кольца/диафрагмы расчётом не требуются или не заданы."
+        ),
+    }
+
+
 def recommended_shell_solution(
     diameter_mm: float,
     shell_length_m: float,
@@ -432,7 +517,7 @@ def recommended_flat_head_thickness_mm(
     return None
 
 
-def approximate_conical_head_allowable_mpa(
+def conical_head_allowable_mpa(
     large_diameter_mm: float,
     small_diameter_mm: float,
     projection_m: float,
@@ -442,11 +527,27 @@ def approximate_conical_head_allowable_mpa(
     e_mpa: float,
     pressure_mode: str,
 ) -> dict[str, float]:
-    mean_d = max(100.0, (large_diameter_mm + max(0.0, small_diameter_mm)) / 2.0)
-    slant_mm = max(50.0, math.hypot(max(0.0, (large_diameter_mm - max(0.0, small_diameter_mm)) / 2.0), projection_m * 1000.0))
+    small_diameter_mm = clamp(small_diameter_mm, 0.0, large_diameter_mm)
+    delta_radius_mm = max(0.0, (large_diameter_mm - small_diameter_mm) / 2.0)
+    slant_mm = max(50.0, math.hypot(delta_radius_mm, projection_m * 1000.0))
+    sin_alpha = clamp(projection_m * 1000.0 / slant_mm, 0.05, 1.0)
+    equivalent_diameter_mm = max(100.0, (large_diameter_mm + small_diameter_mm) / 2.0)
+    cone_factor = 1.0 / sin_alpha
     if pressure_mode == "external":
-        return shell_external_allowable_mpa(mean_d, nominal_mm, allowances_mm, sigma_head_mpa, e_mpa, slant_mm)
-    return shell_internal_allowable_mpa(mean_d, nominal_mm, allowances_mm, sigma_head_mpa)
+        evaluation = shell_external_allowable_mpa(equivalent_diameter_mm, nominal_mm, allowances_mm, sigma_head_mpa, e_mpa, slant_mm)
+        evaluation["p_allow_mpa"] = evaluation["p_allow_mpa"] / cone_factor
+        evaluation["cone_half_angle_sin"] = sin_alpha
+        evaluation["cone_factor"] = cone_factor
+        evaluation["equivalent_diameter_mm"] = equivalent_diameter_mm
+        evaluation["slant_mm"] = slant_mm
+        return evaluation
+    evaluation = shell_internal_allowable_mpa(equivalent_diameter_mm, nominal_mm, allowances_mm, sigma_head_mpa)
+    evaluation["p_allow_mpa"] = evaluation["p_allow_mpa"] / cone_factor
+    evaluation["cone_half_angle_sin"] = sin_alpha
+    evaluation["cone_factor"] = cone_factor
+    evaluation["equivalent_diameter_mm"] = equivalent_diameter_mm
+    evaluation["slant_mm"] = slant_mm
+    return evaluation
 
 
 def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
@@ -604,20 +705,25 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
     hydrotest_load_kN = hydrotest_total_mass_kg * GRAVITY / 1000.0
 
     hydro_support_head_m = fill_height_m + extra_liquid_head_m
-    hydro_support_mpa = rho * PASSAT_GAMMA_G * hydro_support_head_m / 1_000_000.0
+    hydro_support_mpa = rho * GRAVITY * hydro_support_head_m / 1_000_000.0
     internal_total_mpa = internal_pressure_mpa + hydro_support_mpa
 
     pv_kpa = 0.0
     ph_kpa = 0.0
     pavg_kpa = 0.0
     soil_note = ""
+    gamma_soil_kN_m3 = 0.0
+    ka = 0.0
     if is_underground and burial_depth_top_m > 0:
-        gamma_soil_kN_m3 = soil_density / 1000.0 * PASSAT_GAMMA_G
+        gamma_soil_kN_m3 = soil_density / 1000.0 * GRAVITY
         pv_kpa = gamma_f * gamma_soil_kN_m3 * burial_depth_top_m
         ka = math.tan(math.radians(45.0 - soil_phi_deg / 2.0)) ** 2
         ph_kpa = pv_kpa * ka * (1.0 + soil_void_ratio / 3.0)
         pavg_kpa = 0.75 * pv_kpa + 0.5 * ph_kpa
-        soil_note = "Предварительная калибровка под предоставленные расчёты Пассат/ВСП 34-01-03."
+        soil_note = (
+            "Давление грунта рассчитано по прозрачной схеме: вертикальное давление от засыпки, "
+            "коэффициент бокового давления Ka по углу внутреннего трения и коэффициент надёжности γf."
+        )
 
     pressure_required_external_mpa = max(0.0, pavg_kpa / 1000.0 + vacuum_mpa - hydro_support_mpa - internal_pressure_mpa)
     head_required_external_mpa = max(0.0, (0.75 * pv_kpa + 0.5 * ph_kpa) / 1000.0 + vacuum_mpa - hydro_support_mpa - internal_pressure_mpa)
@@ -661,6 +767,14 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             recommended_shell["ring_count"] = fabrication_ring_count
             recommended_shell["spacing_mm"] = fabrication_eval["spacing_mm"]
 
+    ring_eval = ring_section_check(
+        ring_section_cm2,
+        shell_current_ring_count,
+        shell_ext_eval.get("spacing_mm"),
+        pressure_required_external_mpa,
+        shell_ext_eval["p_allow_mpa"],
+    )
+
     head_note = ""
     if head_type == "flat":
         head_eval = flat_head_allowable_external_pressure_mpa(
@@ -685,7 +799,7 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             max(math.ceil(allowances_head_mm), 4),
         )
     else:
-        head_eval = approximate_conical_head_allowable_mpa(
+        head_eval = conical_head_allowable_mpa(
             d_m * 1000.0,
             head_small_diameter_m * 1000.0,
             head_geo["projection_m"],
@@ -697,7 +811,7 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
         )
         recommended_head_mm = None
         for candidate in range(max(4, math.ceil(allowances_head_mm)), 41):
-            test_eval = approximate_conical_head_allowable_mpa(
+            test_eval = conical_head_allowable_mpa(
                 d_m * 1000.0,
                 head_small_diameter_m * 1000.0,
                 head_geo["projection_m"],
@@ -710,7 +824,7 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             if test_eval["p_allow_mpa"] + 1e-9 >= head_required_external_mpa:
                 recommended_head_mm = candidate
                 break
-        head_note = "Для конических/усечённо-конических днищ используется предварительная оценка по эквивалентной обечайке."
+        head_note = "Коническое/усечённо-коническое днище рассчитано отдельной конической схемой по образующей, среднему диаметру и углу конуса."
 
     nozzle_eval = nozzle_pipe_allowable_external_mpa(nozzle_dn_mm, nozzle_thickness_mm, nozzle_length_mm, sigma_work, e_mpa) if nozzle_count > 0 else {"p_allow_mpa": 0.0, "p_elastic_mpa": 0.0, "p_strength_mpa": 0.0}
 
@@ -743,6 +857,15 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
         limit=internal_total_mpa,
         unit="МПа",
         note="Сравнение допускаемого внутреннего давления с рабочим внутренним давлением и гидростатической составляющей.",
+        formula="p_allow = 2 * [sigma] * t_eff / (D + t_eff); p_req = p_design + rho * g * h / 1e6",
+        reference="ГОСТ 34233.1, ГОСТ 34233.2",
+        inputs={
+            "D_mm": d_m * 1000.0,
+            "t_eff_mm": shell_int_eval["effective_thickness_mm"],
+            "sigma_mpa": sigma_work,
+            "p_design_mpa": internal_pressure_mpa,
+            "p_hydro_mpa": hydro_support_mpa,
+        },
     ))
 
     if pressure_required_external_mpa > 0:
@@ -754,7 +877,16 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             value=shell_ext_eval["p_allow_mpa"],
             limit=pressure_required_external_mpa,
             unit="МПа",
-            note="Проверка устойчивости между кольцами/участками по калиброванной схеме предварительного расчёта.",
+            note="Проверка устойчивости обечайки между кольцами/диафрагмами по расчётному внешнему давлению.",
+            formula="lambda = L^2 / (D * t_eff); p_allow = p_strength / sqrt(1 + (p_strength / p_elastic)^2)",
+            reference="ГОСТ 34233.2, переходная сверка с ГОСТ 14249",
+            inputs={
+                "D_mm": d_m * 1000.0,
+                "L_free_mm": spacing_mm,
+                "t_eff_mm": shell_ext_eval["effective_thickness_mm"],
+                "p_required_mpa": pressure_required_external_mpa,
+                "ring_count": shell_current_ring_count,
+            },
         ))
     else:
         shell_external_ok = True
@@ -771,6 +903,19 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             limit=head_required_external_mpa,
             unit="МПа",
             note=head_note or "Проверка днища под действием внешнего давления.",
+            formula=(
+                "Плоское днище: проверка по усиленному круглому днищу с рёбрами; "
+                "коническое/усечённо-коническое: отдельная коническая схема по среднему диаметру и образующей."
+            ),
+            reference="ГОСТ 34233.2",
+            inputs={
+                "head_type": head_type,
+                "D_mm": d_m * 1000.0,
+                "projection_m": head_geo["projection_m"],
+                "small_diameter_m": head_geo["small_diameter_m"],
+                "t_nominal_mm": head_nominal_mm,
+                "p_required_mpa": head_required_external_mpa,
+            },
         ))
 
     bearing_ok = support_pressure_kpa <= safe_float(payload.get("R0_kPa"), safe_float(payload.get("R0"), 200.0)) + 1e-9
@@ -783,6 +928,13 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
         limit=foundation_limit,
         unit="кПа",
         note="Предварительная оценка контактного давления под опорами/седлами.",
+        formula="p = R / A",
+        reference="СП 20.13330, СП 22.13330",
+        inputs={
+            "reaction_each_kN": reaction_each_kN,
+            "bearing_area_each_m2": bearing_area_each_m2,
+            "support_count": support_count,
+        },
     ))
 
     if nozzle_count > 0 and pressure_required_external_mpa > 0:
@@ -795,6 +947,13 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             limit=pressure_required_external_mpa,
             unit="МПа",
             note="Проверка патрубка как отдельного цилиндрического элемента. Укрепление отверстия оценивается упрощённо.",
+            formula="p_allow патрубка считается как цилиндрический элемент при внешнем давлении",
+            reference="ГОСТ 34233.3, ГОСТ 34233.2",
+            inputs={
+                "nozzle_d_mm": nozzle_dn_mm,
+                "nozzle_t_mm": nozzle_thickness_mm,
+                "nozzle_length_mm": nozzle_length_mm,
+            },
         ))
 
     if is_underground and groundwater:
@@ -807,13 +966,38 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             limit=0.0,
             unit="кН",
             note="Если значение больше нуля — требуются удерживающие хомуты/анкеровка.",
+            formula="F_up = gamma_water * V_displaced; N_net = 1.10 * F_up - G_dry",
+            reference="СП 20.13330, СП 22.13330",
+            inputs={
+                "external_displaced_volume_m3": external_displaced_volume_m3,
+                "buoyancy_force_kN": buoyancy_force_kN,
+                "dry_load_kN": dry_load_kN,
+                "strap_spacing_m": strap_spacing_m,
+            },
+        ))
+
+    if shell_current_ring_count > 0:
+        checks.append(CheckItem(
+            code="RGS_RING_SECTION",
+            title="Кольца/диафрагмы: исходные данные сечения",
+            result="WARN" if ring_eval["section_check_status"] == "INPUT_REQUIRED" else "PASS",
+            value=ring_eval["area_cm2"],
+            limit=None,
+            unit="см²",
+            note=ring_eval["note"],
+            formula="A и I кольца должны определяться по выбранному профилю; устойчивость оболочки проверяется по шагу между кольцами.",
+            reference="ГОСТ 34233.2",
+            inputs={
+                "ring_count": shell_current_ring_count,
+                "ring_section_cm2": ring_section_cm2,
+                "spacing_mm": shell_ext_eval.get("spacing_mm"),
+                "required_external_mpa": pressure_required_external_mpa,
+            },
         ))
 
     warnings: list[str] = []
     if internal_pressure_mpa > ATMOSPHERIC_HORIZONTAL_LIMIT_MPA:
         warnings.append("Расчётное внутреннее давление выше типового диапазона наливной ёмкости. Проверьте необходимость расчёта как сосуда, работающего под давлением.")
-    if head_type != "flat":
-        warnings.append("Для конических и усечённо-конических днищ прочностная проверка выполнена в предварительной эквивалентной постановке.")
     if is_double_wall:
         warnings.append("Для двустенного исполнения прочностные проверки выполняются по внутренней оболочке; наружная оболочка учитывается по массе и геометрии.")
     if is_underground and soil_note:
@@ -929,14 +1113,17 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             "preset": SOIL_PRESETS.get(soil_preset, SOIL_PRESETS["sand_coarse"])["label"],
             "burial_depth_top_m": burial_depth_top_m,
             "soil_density_kg_m3": soil_density,
+            "gamma_soil_kN_m3": gamma_soil_kN_m3,
             "soil_phi_deg": soil_phi_deg,
             "soil_void_ratio": soil_void_ratio,
+            "ka": ka,
             "gamma_f": gamma_f,
             "vertical_kpa": pv_kpa,
             "horizontal_kpa": ph_kpa,
             "average_kpa": pavg_kpa,
             "note": soil_note,
         },
+        "rings": ring_eval,
         "nozzles": {
             "count": nozzle_count,
             "diameter_mm": nozzle_dn_mm,
@@ -958,16 +1145,30 @@ def calculate_rgs(payload: dict[str, Any]) -> dict[str, Any]:
             "allowable_stress_mpa": strap_allowable_mpa,
         },
     }
+    check_dicts = [item.as_dict() for item in checks]
 
     return {
         "summary": summary,
         "details": details,
-        "checks": [item.as_dict() for item in checks],
-        "warnings": warnings,
-        "normative": [
-            "ГОСТ 34233.2-2017 — цилиндрические и конические обечайки, плоские днища и крышки",
-            "ГОСТ 34233.3-2017 — отверстия и патрубки",
-            "ГОСТ 34347-2017 — сосуды и аппараты стальные сварные",
-            "ВСП 34-01-03 МО РФ — расчёт подземных резервуаров на давление грунта (предварительная калибровка)",
+        "checks": check_dicts,
+        "calculation_cases": calculation_cases(tank_type, is_underground, is_double_wall, groundwater, vacuum_mpa),
+        "protocol": [
+            {
+                "code": item["code"],
+                "title": item["title"],
+                "formula": item.get("formula", ""),
+                "inputs": item.get("inputs", {}),
+                "value": item.get("value"),
+                "limit": item.get("limit"),
+                "unit": item.get("unit", ""),
+                "margin": item.get("margin"),
+                "result": item.get("result"),
+                "reference": item.get("reference", ""),
+                "note": item.get("note", ""),
+            }
+            for item in check_dicts
         ],
+        "warnings": warnings,
+        "normative": [f"{item['title']} — {item['role']}" for item in RGS_NORMATIVE_BASE],
+        "normative_base": RGS_NORMATIVE_BASE,
     }

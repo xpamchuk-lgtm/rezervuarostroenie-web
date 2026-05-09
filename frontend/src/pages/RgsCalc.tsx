@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Seo from "../components/Seo";
 
 type TankType = "РГСН" | "РГСП" | "РГСНД" | "РГСПД";
@@ -27,7 +27,33 @@ type CheckItem = {
   result: string;
   value: number | null;
   limit: number | null;
+  margin?: number | null;
   unit: string;
+  note?: string;
+  formula?: string;
+  reference?: string;
+  inputs?: Record<string, unknown>;
+};
+
+type CalculationCase = {
+  id: string;
+  title: string;
+  active: boolean;
+  basis: string;
+  note: string;
+};
+
+type ProtocolItem = {
+  code: string;
+  title: string;
+  formula?: string;
+  inputs?: Record<string, unknown>;
+  value?: number | null;
+  limit?: number | null;
+  unit?: string;
+  margin?: number | null;
+  result?: string;
+  reference?: string;
   note?: string;
 };
 
@@ -175,6 +201,8 @@ type RgsResult = {
   summary?: SummaryResult;
   details?: DetailsResult;
   checks?: CheckItem[];
+  calculation_cases?: CalculationCase[];
+  protocol?: ProtocolItem[];
   warnings?: string[];
   normative?: string[];
 };
@@ -196,6 +224,7 @@ type RgsForm = {
   totalLengthM: string;
   headType: HeadType;
   headProjectionM: string;
+  headConeAngleDeg: string;
   headSmallDiameterM: string;
   material: Material;
   shellNominalMm: string;
@@ -347,6 +376,7 @@ function createDefaultForm(type: TankType): RgsForm {
     totalLengthM: underground ? "4470" : "12000",
     headType: underground ? "flat" : "flat",
     headProjectionM: underground ? "0" : "0",
+    headConeAngleDeg: "45",
     headSmallDiameterM: "400",
     material: "09G2S",
     shellNominalMm: underground ? "7" : "8",
@@ -444,6 +474,15 @@ function headVolumeEachM3(headType: HeadType, diameterM: number, projectionM: nu
   return Math.PI * h * (r1 * r1 + r1 * Math.min(r1, r2) + Math.min(r1, r2) ** 2) / 3;
 }
 
+function calculatedHeadProjectionMm(headType: HeadType, diameterMm: number, smallDiameterMm: number, coneAngleDeg: number): number {
+  if (headType === "flat") return 0;
+  const largeRadiusMm = Math.max(0, diameterMm / 2);
+  const smallRadiusMm = headType === "truncated_cone" ? clampNumber(smallDiameterMm / 2, 0, largeRadiusMm) : 0;
+  const deltaRadiusMm = Math.max(0, largeRadiusMm - smallRadiusMm);
+  const angleRad = clampNumber(coneAngleDeg, 5, 85) * Math.PI / 180;
+  return deltaRadiusMm / Math.tan(angleRad);
+}
+
 function estimateRingCount(lengthMm: number): number {
   if (lengthMm <= 0) return 0;
   const shellCourseMm = 1490;
@@ -482,6 +521,13 @@ function boolBadge(value?: boolean | null): string {
   if (value === true) return "OK";
   if (value === false) return "НЕ ОК";
   return "—";
+}
+
+function formatProtocolValue(value: unknown): string {
+  if (typeof value === "number") return Number.isFinite(value) ? formatNumber(value, 4) : "—";
+  if (typeof value === "boolean") return value ? "да" : "нет";
+  if (value === null || value === undefined || value === "") return "—";
+  return String(value);
 }
 
 function useTypeFlags(type: TankType) {
@@ -527,6 +573,7 @@ export default function RgsCalc() {
   const [loadingType, setLoadingType] = useState<TankType | null>(null);
   const [siteLookupState, setSiteLookupState] = useState<SiteLookupState>("idle");
   const [error, setError] = useState<string>("");
+  const calculationRequestId = useRef(0);
 
   const form = forms[activeType];
   const result = results[activeType];
@@ -536,6 +583,15 @@ export default function RgsCalc() {
   const regionOptions = useMemo(() => Object.keys(siteOptions), [siteOptions]);
   const cityOptions = useMemo(() => (form.region ? siteOptions[form.region] ?? [] : []), [form.region, siteOptions]);
   const visibleSections = RGS_SECTIONS;
+  const calculatedHeadDepthMm = useMemo(
+    () => calculatedHeadProjectionMm(
+      form.headType,
+      parseNumber(form.D),
+      parseNumber(form.headSmallDiameterM),
+      parseNumber(form.headConeAngleDeg, 45),
+    ),
+    [form.D, form.headConeAngleDeg, form.headSmallDiameterM, form.headType],
+  );
 
   function goToSection(sectionId: SectionId) {
     setActiveSection(sectionId);
@@ -691,11 +747,8 @@ export default function RgsCalc() {
     setError("");
   }
 
-  async function calculate() {
-    setLoadingType(activeType);
-    setError("");
-
-    const payload = {
+  function buildPayload() {
+    return {
       tank_type: activeMeta.api,
       product_name: form.productName,
       site_region: form.region,
@@ -711,8 +764,8 @@ export default function RgsCalc() {
       D: mmToM(form.D),
       total_length_m: mmToM(form.totalLengthM),
       head_type: form.headType,
-      head_projection_m: mmToM(form.headProjectionM),
-      head_small_diameter_m: mmToM(form.headSmallDiameterM),
+      head_projection_m: calculatedHeadDepthMm / 1000,
+      head_small_diameter_m: form.headType === "truncated_cone" ? mmToM(form.headSmallDiameterM) : 0,
       material: form.material,
       shell_nominal_mm: parseNumber(form.shellNominalMm),
       head_nominal_mm: parseNumber(form.headNominalMm),
@@ -763,6 +816,14 @@ export default function RgsCalc() {
       outer_shell_gap_m: mmToM(form.outerShellGapM),
       outer_shell_nominal_mm: parseNumber(form.outerShellNominalMm),
     };
+  }
+
+  async function calculate() {
+    const requestId = ++calculationRequestId.current;
+    const targetType = activeType;
+    setLoadingType(targetType);
+    setError("");
+    const payload = buildPayload();
 
     try {
       const response = await fetch("/api/calc/rgs", {
@@ -777,17 +838,31 @@ export default function RgsCalc() {
       }
 
       const data = await response.json();
+      if (requestId !== calculationRequestId.current) return;
       setResults((prev) => ({
         ...prev,
-        [activeType]: data?.result ?? null,
+        [targetType]: data?.result ?? null,
       }));
     } catch (err) {
+      if (requestId !== calculationRequestId.current) return;
       const message = err instanceof Error ? err.message : "Не удалось выполнить расчёт.";
       setError(message);
     } finally {
-      setLoadingType(null);
+      if (requestId === calculationRequestId.current) {
+        setLoadingType(null);
+      }
     }
   }
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      void calculate();
+    }, 500);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [activeType, form]);
 
   const summary = result?.summary;
   const geometry = result?.details?.geometry;
@@ -800,19 +875,28 @@ export default function RgsCalc() {
   const nozzles = result?.details?.nozzles;
   const flotation = result?.details?.flotation;
   const checks = result?.checks ?? [];
+  const calculationCases = result?.calculation_cases ?? [];
+  const protocol = result?.protocol ?? [];
   const warnings = result?.warnings ?? [];
   const normative = result?.normative ?? [];
+  const headReinforcementStatus = useMemo(() => {
+    if (form.headType === "flat") return "";
+    if (!head || !pressures) return "после расчёта";
+    return (head.allow_external_mpa ?? 0) + 1e-9 < (pressures.head_external_required_mpa ?? 0)
+      ? "требуются"
+      : "не требуются";
+  }, [form.headType, head, pressures]);
   const livePreview = useMemo(() => {
     const diameterM = Math.max(0, mmToM(form.D));
     const totalLengthM = Math.max(0, mmToM(form.totalLengthM));
-    const projectionM = form.headType === "flat" ? 0 : Math.max(0, mmToM(form.headProjectionM));
+    const projectionM = calculatedHeadDepthMm / 1000;
     const shellLengthM = Math.max(0, totalLengthM - 2 * projectionM);
     const cylinderVolumeM3 = circleAreaM2(diameterM) * shellLengthM;
     const totalVolumeM3 = cylinderVolumeM3 + 2 * headVolumeEachM3(
       form.headType,
       diameterM,
       projectionM,
-      mmToM(form.headSmallDiameterM),
+      form.headType === "truncated_cone" ? mmToM(form.headSmallDiameterM) : 0,
     );
     const rawFillValue = parseNumber(form.fillValue);
     const fillHeightM = form.fillMode === "level"
@@ -831,7 +915,7 @@ export default function RgsCalc() {
       fillHeightM,
       productVolumeM3,
     };
-  }, [form]);
+  }, [form, calculatedHeadDepthMm]);
 
   return (
     <div className="container">
@@ -846,8 +930,8 @@ export default function RgsCalc() {
           <div style={{ fontWeight: 900, fontSize: 28 }}>Калькулятор РГС</div>
           <div className="muted" style={{ marginTop: 8 }}>
             Раздел встроен в существующий сайт и работает через <b>Python backend</b>. На странице только ввод данных,
-            запрос к API и выдача инженерного результата. Базовые проверки калиброваны на предоставленные расчёты
-            <b> Пассат</b> по РГСП-15 на 6 мм и 7 мм.
+            запрос к API и выдача инженерного результата. Расчётная база ведётся по ГОСТ 17032, серии ГОСТ 34233,
+            СП 20, СП 14 и грунтовой методике для подземной установки.
           </div>
         </div>
 
@@ -877,7 +961,7 @@ export default function RgsCalc() {
 
             {flags.underground ? (
               <div className="hint-block" style={{ marginTop: 10 }}>
-                <div style={{ fontWeight: 800, marginBottom: 6 }}>Калибровка по примерам</div>
+                <div style={{ fontWeight: 800, marginBottom: 6 }}>Проверочные примеры</div>
                 <div className="stack">
                   <button type="button" className="btn mini-btn" onClick={() => loadPassatExample(6)}>
                     РГСП-15 · 6 мм (пример FAIL)
@@ -1034,7 +1118,7 @@ export default function RgsCalc() {
 
               <div className="card panel-card">
                 <div className="panel-title">Типоразмеры</div>
-                <div className="row3">
+                <div className="row2">
                   <div className="field">
                     <label>Типоразмер</label>
                     <select value={form.standardSizeKey} onChange={(e) => updateStandardSize(e.target.value)}>
@@ -1048,13 +1132,6 @@ export default function RgsCalc() {
                     <div className="input-unit">
                       <input value={formatNumber(livePreview.totalVolumeM3, 3)} readOnly />
                       <span className="unit-chip">м³</span>
-                    </div>
-                  </div>
-                  <div className="field">
-                    <label>Колец жёсткости / диафрагм</label>
-                    <div className="input-unit">
-                      <input value={form.ringCount} onChange={(e) => updateForm("ringCount", e.target.value)} />
-                      <span className="unit-chip">шт.</span>
                     </div>
                   </div>
                 </div>
@@ -1076,248 +1153,262 @@ export default function RgsCalc() {
                   </div>
                 </div>
               </div>
+
+              <div className="card panel-card">
+                <div className="panel-title">Режим работы</div>
+                <div className="row3">
+                  <div className="field">
+                    <label>Температура</label>
+                    <div className="input-unit">
+                      <input value={form.temperatureC} onChange={(e) => updateForm("temperatureC", e.target.value)} />
+                      <span className="unit-chip">°C</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Внутреннее давление</label>
+                    <div className="input-unit">
+                      <input value={form.designPressureMpa} onChange={(e) => updateForm("designPressureMpa", e.target.value)} />
+                      <span className="unit-chip">МПа</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Вакуум / внешнее давление</label>
+                    <div className="input-unit">
+                      <input value={form.vacuumMpa} onChange={(e) => updateForm("vacuumMpa", e.target.value)} />
+                      <span className="unit-chip">МПа</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row3" style={{ marginTop: 14 }}>
+                  <div className="field">
+                    <label>Режим заполнения</label>
+                    <div className="segmented">
+                      <button
+                        type="button"
+                        className={form.fillMode === "percent" ? "segmented-item active" : "segmented-item"}
+                        onClick={() => updateForm("fillMode", "percent")}
+                      >
+                        По уровню, %
+                      </button>
+                      <button
+                        type="button"
+                        className={form.fillMode === "level" ? "segmented-item active" : "segmented-item"}
+                        onClick={() => updateForm("fillMode", "level")}
+                      >
+                        По уровню, мм
+                      </button>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>{form.fillMode === "percent" ? "Процент от диаметра" : "Высота продукта"}</label>
+                    <div className="input-unit">
+                      <input value={form.fillValue} onChange={(e) => updateForm("fillValue", e.target.value)} />
+                      <span className="unit-chip">{fillUnit}</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Доп. столб продукта / горловина</label>
+                    <div className="input-unit">
+                      <input value={form.extraLiquidHeadM} onChange={(e) => updateForm("extraLiquidHeadM", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div id="rgs-characteristics" className="grid" style={{ gap: 16, display: activeSection === "characteristics" ? undefined : "none" }}>
               <div className="card panel-card">
-              <div className="panel-title">3. Основные характеристики</div>
-              <div className="row4" style={{ marginTop: 14 }}>
-                <div className="field">
-                  <label>Тип днища</label>
-                  <select value={form.headType} onChange={(e) => updateForm("headType", e.target.value as HeadType)}>
-                    <option value="flat">Плоские</option>
-                    <option value="cone">Конические</option>
-                    <option value="truncated_cone">Усечённо-конические</option>
-                  </select>
-                </div>
-                <div className="field">
-                  <label>Вылет одного днища</label>
-                  <div className="input-unit">
-                    <input
-                      value={form.headProjectionM}
-                      onChange={(e) => updateForm("headProjectionM", e.target.value)}
-                      disabled={form.headType === "flat"}
-                    />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Диаметр малого основания</label>
-                  <div className="input-unit">
-                    <input
-                      value={form.headSmallDiameterM}
-                      onChange={(e) => updateForm("headSmallDiameterM", e.target.value)}
-                      disabled={form.headType !== "truncated_cone"}
-                    />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Материал</label>
-                  <select value={form.material} onChange={(e) => updateForm("material", e.target.value as Material)}>
-                    <option value="09G2S">09Г2С</option>
-                    <option value="St3">Ст3</option>
-                  </select>
-                </div>
+                <div className="panel-title">3. Основные характеристики</div>
+                <div className="muted">Расчётные минимальные толщины, желаемые толщины и параметры проверки.</div>
               </div>
-
-              <div className="row4">
-                <div className="field">
-                  <label>Обечайка, текущая толщина</label>
-                  <div className="input-unit">
-                    <input value={form.shellNominalMm} onChange={(e) => updateForm("shellNominalMm", e.target.value)} />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Днище, текущая толщина</label>
-                  <div className="input-unit">
-                    <input value={form.headNominalMm} onChange={(e) => updateForm("headNominalMm", e.target.value)} />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Коррозионная прибавка</label>
-                  <div className="input-unit">
-                    <input value={form.corrMm} onChange={(e) => updateForm("corrMm", e.target.value)} />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Минусовой допуск</label>
-                  <div className="input-unit">
-                    <input value={form.minusToleranceMm} onChange={(e) => updateForm("minusToleranceMm", e.target.value)} />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="row4" style={{ marginTop: 14 }}>
-                <div className="field">
-                  <label>Прибавка для днища</label>
-                  <div className="input-unit">
-                    <input value={form.headAllowancesMm} onChange={(e) => updateForm("headAllowancesMm", e.target.value)} />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Режим колец жёсткости</label>
-                  <select value={form.ringMode} onChange={(e) => updateRingMode(e.target.value as RingMode)}>
-                    <option value="auto">Авто-рекомендация</option>
-                    <option value="manual">Фиксированное число</option>
-                  </select>
-                </div>
-                <div className="field">
-                  <label>Количество колец</label>
-                  <div className="input-unit">
-                    <input
-                      value={form.ringCount}
-                      onChange={(e) => updateForm("ringCount", e.target.value)}
-                    />
-                    <span className="unit-chip">шт.</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Отступ кольца от торца</label>
-                  <div className="input-unit">
-                    <input value={form.ringOffsetM} onChange={(e) => updateForm("ringOffsetM", e.target.value)} />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="row4" style={{ marginTop: 14 }}>
-                <div className="field">
-                  <label>Сечение кольца</label>
-                  <div className="input-unit">
-                    <input value={form.ringSectionCm2} onChange={(e) => updateForm("ringSectionCm2", e.target.value)} />
-                    <span className="unit-chip">см²</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Рёбер на плоском днище</label>
-                  <div className="input-unit">
-                    <input
-                      value={form.ribCount}
-                      onChange={(e) => updateForm("ribCount", e.target.value)}
-                      disabled={form.headType !== "flat"}
-                    />
-                    <span className="unit-chip">шт.</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Высота ребра</label>
-                  <div className="input-unit">
-                    <input
-                      value={form.ribHeightMm}
-                      onChange={(e) => updateForm("ribHeightMm", e.target.value)}
-                      disabled={form.headType !== "flat"}
-                    />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Ширина/полка ребра</label>
-                  <div className="input-unit">
-                    <input
-                      value={form.ribWidthMm}
-                      onChange={(e) => updateForm("ribWidthMm", e.target.value)}
-                      disabled={form.headType !== "flat"}
-                    />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="row3" style={{ marginTop: 14 }}>
-                <div className="field">
-                  <label>Толщина ребра</label>
-                  <div className="input-unit">
-                    <input
-                      value={form.ribThicknessMm}
-                      onChange={(e) => updateForm("ribThicknessMm", e.target.value)}
-                      disabled={form.headType !== "flat"}
-                    />
-                    <span className="unit-chip">мм</span>
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Толщина для подбора считать от текущей</label>
-                  <div className="hint-block" style={{ minHeight: 42 }}>
-                    Рекомендуемая толщина определяется автоматически в Python по текущей геометрии и нагрузкам.
-                  </div>
-                </div>
-                <div className="field">
-                  <label>Тип расчёта</label>
-                  <div className="hint-block" style={{ minHeight: 42 }}>
-                    Проверка ведётся по внутреннему и внешнему давлению, а для подземного исполнения — ещё и по давлению грунта.
-                  </div>
-                </div>
-              </div>
-            </div>
 
               <div className="card panel-card">
-              <div className="panel-title">Среда и режим работы</div>
-              <div className="row3">
-                <div className="field">
-                  <label>Температура</label>
-                  <div className="input-unit">
-                    <input value={form.temperatureC} onChange={(e) => updateForm("temperatureC", e.target.value)} />
-                    <span className="unit-chip">°C</span>
+                <div className="panel-title">Материал и припуски</div>
+                <div className="row4">
+                  <div className="field">
+                    <label>Материал</label>
+                    <select value={form.material} onChange={(e) => updateForm("material", e.target.value as Material)}>
+                      <option value="09G2S">09Г2С</option>
+                      <option value="St3">Ст3</option>
+                    </select>
                   </div>
-                </div>
-                <div className="field">
-                  <label>Внутреннее давление</label>
-                  <div className="input-unit">
-                    <input value={form.designPressureMpa} onChange={(e) => updateForm("designPressureMpa", e.target.value)} />
-                    <span className="unit-chip">МПа</span>
+                  <div className="field">
+                    <label>Коррозионная прибавка</label>
+                    <div className="input-unit">
+                      <input value={form.corrMm} onChange={(e) => updateForm("corrMm", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
                   </div>
-                </div>
-                <div className="field">
-                  <label>Вакуум / внешнее давление</label>
-                  <div className="input-unit">
-                    <input value={form.vacuumMpa} onChange={(e) => updateForm("vacuumMpa", e.target.value)} />
-                    <span className="unit-chip">МПа</span>
+                  <div className="field">
+                    <label>Минусовой допуск</label>
+                    <div className="input-unit">
+                      <input value={form.minusToleranceMm} onChange={(e) => updateForm("minusToleranceMm", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Прибавка для днища</label>
+                    <div className="input-unit">
+                      <input value={form.headAllowancesMm} onChange={(e) => updateForm("headAllowancesMm", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="row3" style={{ marginTop: 14 }}>
-                <div className="field">
-                  <label>Режим заполнения</label>
-                  <div className="segmented">
-                    <button
-                      type="button"
-                      className={form.fillMode === "percent" ? "segmented-item active" : "segmented-item"}
-                      onClick={() => updateForm("fillMode", "percent")}
-                    >
-                      По уровню, %
-                    </button>
-                    <button
-                      type="button"
-                      className={form.fillMode === "level" ? "segmented-item active" : "segmented-item"}
-                      onClick={() => updateForm("fillMode", "level")}
-                    >
-                      По уровню, мм
-                    </button>
+              <div className="card panel-card">
+                <div className="panel-title">Обечайка</div>
+                <div className="row4">
+                  <div className="field">
+                    <label>t min расч.</label>
+                    <div className="input-unit">
+                      <input value={shell?.recommended_nominal_mm ? formatNumber(shell.recommended_nominal_mm, 0) : "после расчёта"} readOnly />
+                      <span className="unit-chip">мм</span>
+                    </div>
                   </div>
-                </div>
-                <div className="field">
-                  <label>{form.fillMode === "percent" ? "Процент от диаметра" : "Высота продукта"}</label>
-                  <div className="input-unit">
-                    <input value={form.fillValue} onChange={(e) => updateForm("fillValue", e.target.value)} />
-                    <span className="unit-chip">{fillUnit}</span>
+                  <div className="field">
+                    <label>t желаемая</label>
+                    <div className="input-unit">
+                      <input value={form.shellNominalMm} onChange={(e) => updateForm("shellNominalMm", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
                   </div>
-                </div>
-                <div className="field">
-                  <label>Доп. столб продукта / горловина</label>
-                  <div className="input-unit">
-                    <input value={form.extraLiquidHeadM} onChange={(e) => updateForm("extraLiquidHeadM", e.target.value)} />
-                    <span className="unit-chip">мм</span>
+                  <div className="field">
+                    <label>Эффективная t</label>
+                    <div className="input-unit">
+                      <input value={shell?.effective_mm ? formatNumber(shell.effective_mm, 2) : "после расчёта"} readOnly />
+                      <span className="unit-chip">мм</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>Свободный пролёт</label>
+                    <div className="input-unit">
+                      <input value={shell?.spacing_mm ? formatNumber(shell.spacing_mm, 0) : "после расчёта"} readOnly />
+                      <span className="unit-chip">мм</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+
+              <div className="card panel-card">
+                <div className="panel-title">Днища</div>
+                <div className="row4">
+                  <div className="field">
+                    <label>Тип днища</label>
+                    <select value={form.headType} onChange={(e) => updateForm("headType", e.target.value as HeadType)}>
+                      <option value="flat">Плоские</option>
+                      <option value="cone">Конические</option>
+                      <option value="truncated_cone">Усечённо-конические</option>
+                    </select>
+                  </div>
+                  <div className="field">
+                    <label>t min расч.</label>
+                    <div className="input-unit">
+                      <input value={head?.recommended_nominal_mm ? formatNumber(head.recommended_nominal_mm, 0) : "после расчёта"} readOnly />
+                      <span className="unit-chip">мм</span>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <label>t желаемая</label>
+                    <div className="input-unit">
+                      <input value={form.headNominalMm} onChange={(e) => updateForm("headNominalMm", e.target.value)} />
+                      <span className="unit-chip">мм</span>
+                    </div>
+                  </div>
+                  {form.headType !== "flat" ? (
+                    <div className="field">
+                      <label>Угол конуса к оси</label>
+                      <div className="input-unit">
+                        <input value={form.headConeAngleDeg} onChange={(e) => updateForm("headConeAngleDeg", e.target.value)} />
+                        <span className="unit-chip">°</span>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+                <div className="row2" style={{ marginTop: 14 }}>
+                  {form.headType === "truncated_cone" ? (
+                    <div className="field">
+                      <label>Малое основание</label>
+                      <div className="input-unit">
+                        <input value={form.headSmallDiameterM} onChange={(e) => updateForm("headSmallDiameterM", e.target.value)} />
+                        <span className="unit-chip">мм</span>
+                      </div>
+                    </div>
+                  ) : null}
+                  {form.headType !== "flat" ? (
+                    <div className="field">
+                      <label>Расч. глубина днища</label>
+                      <div className="input-unit">
+                        <input value={formatNumber(calculatedHeadDepthMm, 0)} readOnly />
+                        <span className="unit-chip">мм</span>
+                      </div>
+                    </div>
+                  ) : null}
+                  <div className="field">
+                    <label>Допускаемое внешнее давление</label>
+                    <div className="input-unit">
+                      <input value={head?.allow_external_mpa ? formatNumber(head.allow_external_mpa, 4) : "после расчёта"} readOnly />
+                      <span className="unit-chip">МПа</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {form.headType === "flat" ? (
+                <div className="card panel-card">
+                  <div className="panel-title">Рёбра усиления плоского днища</div>
+                  <div className="row4">
+                    <div className="field">
+                      <label>Количество рёбер</label>
+                      <div className="input-unit">
+                        <input value={form.ribCount} onChange={(e) => updateForm("ribCount", e.target.value)} />
+                        <span className="unit-chip">шт.</span>
+                      </div>
+                    </div>
+                    <div className="field">
+                      <label>Высота ребра</label>
+                      <div className="input-unit">
+                        <input value={form.ribHeightMm} onChange={(e) => updateForm("ribHeightMm", e.target.value)} />
+                        <span className="unit-chip">мм</span>
+                      </div>
+                    </div>
+                    <div className="field">
+                      <label>Ширина/полка ребра</label>
+                      <div className="input-unit">
+                        <input value={form.ribWidthMm} onChange={(e) => updateForm("ribWidthMm", e.target.value)} />
+                        <span className="unit-chip">мм</span>
+                      </div>
+                    </div>
+                    <div className="field">
+                      <label>Толщина ребра</label>
+                      <div className="input-unit">
+                        <input value={form.ribThicknessMm} onChange={(e) => updateForm("ribThicknessMm", e.target.value)} />
+                        <span className="unit-chip">мм</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="card panel-card">
+                  <div className="panel-title">Рёбра усиления днища</div>
+                  <div className="row2">
+                    <div className="field">
+                      <label>Необходимость рёбер</label>
+                      <div className="input-unit">
+                        <input value={headReinforcementStatus} readOnly />
+                      </div>
+                    </div>
+                    <div className="field">
+                      <label>Критерий</label>
+                      <div className="hint-block" style={{ minHeight: 42 }}>
+                        По расчётному внешнему давлению и несущей способности выбранного днища.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
             </div>
 
@@ -1566,7 +1657,7 @@ export default function RgsCalc() {
                 <div className="field">
                   <label>Нормативная логика</label>
                   <div className="hint-block" style={{ minHeight: 42 }}>
-                    Давление грунта и внешняя устойчивость откалиброваны на загруженные расчёты Пассат по РГСП-15.
+                    Давление грунта считается прозрачно: вертикальная засыпка, боковое давление, γf и уровень грунтовых вод.
                   </div>
                 </div>
               </div>
@@ -1605,6 +1696,20 @@ export default function RgsCalc() {
               <div id="rgs-results" className="grid" style={{ gap: 16 }}>
                 <div className="card panel-card">
                   <div className="panel-title">Результаты расчёта</div>
+                  {calculationCases.length ? (
+                    <div className="check-grid" style={{ marginBottom: 16 }}>
+                      {calculationCases.map((item) => (
+                        <div key={item.id} className="hint-block">
+                          <div style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
+                            <b>{item.title}</b>
+                            <span className={item.active ? "pill pass" : "pill warn"}>{item.active ? "активен" : "не применяется"}</span>
+                          </div>
+                          <div className="muted" style={{ fontSize: 13, marginTop: 6 }}>{item.basis}</div>
+                          <div className="muted" style={{ fontSize: 13, marginTop: 6 }}>{item.note}</div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   {checks.length ? (
                     <div className="check-grid">
                       {checks.map((check) => (
@@ -1619,12 +1724,45 @@ export default function RgsCalc() {
                           <div className="muted" style={{ fontSize: 13, marginTop: 8 }}>
                             {formatNumber(check.value, 4)} {check.unit} / требуемо {formatNumber(check.limit, 4)} {check.unit}
                           </div>
+                          {check.margin ? (
+                            <div className="muted" style={{ fontSize: 13, marginTop: 6 }}>Запас: {formatNumber(check.margin, 2)}</div>
+                          ) : null}
+                          {check.reference ? <div className="muted" style={{ fontSize: 13, marginTop: 6 }}>{check.reference}</div> : null}
                           {check.note ? <div className="muted" style={{ fontSize: 13, marginTop: 8 }}>{check.note}</div> : null}
                         </div>
                       ))}
                     </div>
                   ) : (
                     <div className="hint-block">После расчёта здесь появятся статусы по обечайке, днищам, опорам, патрубкам и всплытию.</div>
+                  )}
+                </div>
+
+                <div className="card panel-card">
+                  <div className="panel-title">Протокол расчёта</div>
+                  {protocol.length ? (
+                    <div className="stack">
+                      {protocol.map((item) => (
+                        <div key={item.code} className="hint-block">
+                          <div style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
+                            <b>{item.title}</b>
+                            <span className={checkClass(item.result)}>{checkLabel(item.result)}</span>
+                          </div>
+                          {item.formula ? <div style={{ marginTop: 8, fontFamily: "monospace", fontSize: 13 }}>{item.formula}</div> : null}
+                          <div className="muted" style={{ fontSize: 13, marginTop: 8 }}>
+                            Результат: {formatNumber(item.value, 4)} {item.unit || ""} · Допустимо/требуется: {formatNumber(item.limit, 4)} {item.unit || ""} · Запас: {formatNumber(item.margin, 2)}
+                          </div>
+                          {item.inputs && Object.keys(item.inputs).length ? (
+                            <div className="muted" style={{ fontSize: 13, marginTop: 8 }}>
+                              Входные данные: {Object.entries(item.inputs).map(([key, value]) => `${key}=${formatProtocolValue(value)}`).join("; ")}
+                            </div>
+                          ) : null}
+                          {item.reference ? <div className="muted" style={{ fontSize: 13, marginTop: 8 }}>{item.reference}</div> : null}
+                          {item.note ? <div className="muted" style={{ fontSize: 13, marginTop: 8 }}>{item.note}</div> : null}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="hint-block">После расчёта здесь появятся формулы, исходные данные, результат, запас и нормативная ссылка.</div>
                   )}
                 </div>
 
