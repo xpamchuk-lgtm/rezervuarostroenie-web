@@ -1,1122 +1,1122 @@
-[
-  {
-    "slug": "tipovye-oshibki-proektirovaniya-rvs-po-gost-31385-2023",
-    "url": "/articles/tipovye-oshibki-proektirovaniya-rvs-po-gost-31385-2023/index.html",
-    "title": "Типовые ошибки проектирования РВС по ГОСТ 31385-2023",
-    "description": "Проектирование резервуара - это не только расчёт толщины стенки. Большинство серьёзных проблем возникает не в одном узле, а в цепочке ошибок: неполное ТЗ →...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/7"
-    ],
-    "publishedAt": "2026-02-25T08:54:16+00:00"
-  },
-  {
-    "slug": "ustoychivost-rvs-obolochka-oprokidyvanie-ankera-i-seysmika-chto-realno-kritich",
-    "url": "/articles/ustoychivost-rvs-obolochka-oprokidyvanie-ankera-i-seysmika-chto-realno-kritich/index.html",
-    "title": "Устойчивость РВС: оболочка, опрокидывание, анкера и сейсмика (что реально критично)",
-    "description": "В устойчивости РВС важно разделять два разных вопроса: устойчивость оболочки (работа стенки и колец жёсткости при внешних воздействиях), общая...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/8"
-    ],
-    "publishedAt": "2026-02-25T09:15:42+00:00"
-  },
-  {
-    "slug": "chto-chashche-vsego-zabyvayut-v-tz-na-proektirovanie-rvs",
-    "url": "/articles/chto-chashche-vsego-zabyvayut-v-tz-na-proektirovanie-rvs/index.html",
-    "title": "Что чаще всего забывают в ТЗ на проектирование РВС",
-    "description": "Большинство серьёзных ошибок закладывается не в расчёте, а в исходных данных. ГОСТ прямо требует проектировать на основании ТЗ заказчика с определённым...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/14"
-    ],
-    "publishedAt": "2026-02-25T10:47:10+00:00"
-  },
-  {
-    "slug": "kak-pravilno-zapolnyat-tz-na-proektirovanie-rvs-po-gost-31385",
-    "url": "/articles/kak-pravilno-zapolnyat-tz-na-proektirovanie-rvs-po-gost-31385/index.html",
-    "title": "Как правильно заполнять ТЗ на проектирование РВС (по ГОСТ 31385)",
-    "description": "Ниже не пересказ формы, а пояснение - что именно вы задаёте проектировщику, когда заполняете каждый пункт. 1. Общие данные Здесь всё кажется формальностью,...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/15"
-    ],
-    "publishedAt": "2026-02-25T11:40:34+00:00"
-  },
-  {
-    "slug": "naznachenie-raschetnoy-temperatury-metalla-rvs-gde-chashche-vsego-oshibayutsya",
-    "url": "/articles/naznachenie-raschetnoy-temperatury-metalla-rvs-gde-chashche-vsego-oshibayutsya/index.html",
-    "title": "Назначение расчётной температуры металла РВС - где чаще всего ошибаются",
-    "description": "Очень часто вижу одну и ту же ситуацию. Берут температуру наиболее холодных суток по СП. И автоматически принимают её как расчётную температуру металла. На...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/18"
-    ],
-    "publishedAt": "2026-02-25T16:02:33+00:00"
-  },
-  {
-    "slug": "esli-govorit-po-praktike-v-rezervuarostroenii-chashche-vsego-primenyayutsya-dv",
-    "url": "/articles/esli-govorit-po-praktike-v-rezervuarostroenii-chashche-vsego-primenyayutsya-dv/index.html",
-    "title": "Если говорить по практике, в резервуаростроении чаще всего применяются две марки",
-    "description": "Выбор стали 09Г2С или Ст3сп5 - где действительно есть разница : - 09Г2С - Ст3сп5 И вокруг этого выбора всегда начинается «экономика». Давайте честно....",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/19"
-    ],
-    "publishedAt": "2026-02-26T05:03:18+00:00"
-  },
-  {
-    "slug": "kogda-obsuzhdayut-marku-stali-obychno-govoryat-v-celom-pro-rezervuar",
-    "url": "/articles/kogda-obsuzhdayut-marku-stali-obychno-govoryat-v-celom-pro-rezervuar/index.html",
-    "title": "Когда обсуждают марку стали, обычно говорят в целом про резервуар",
-    "description": "В каких узлах резервуара выбор стали действительно критичен . Но если смотреть по конструкции - не все элементы одинаково чувствительны к выбору стали....",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/20"
-    ],
-    "publishedAt": "2026-02-26T07:21:22+00:00"
-  },
-  {
-    "slug": "ankerovka-rvs-gde-deystvitelno-nuzhna-a-gde-eto-prosto-perestrahovka",
-    "url": "/articles/ankerovka-rvs-gde-deystvitelno-nuzhna-a-gde-eto-prosto-perestrahovka/index.html",
-    "title": "Анкеровка РВС - где действительно нужна, а где это просто перестраховка",
-    "description": "Про анкера обычно вспоминают в двух случаях: - объект в сейсмике - сильный ветер Во всех остальных - часто спорят: “Нужны или нет?” Разберём спокойно. 1....",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/21"
-    ],
-    "publishedAt": "2026-02-26T08:29:47+00:00"
-  },
-  {
-    "slug": "pochemu-dnishche-rezervuara-chashche-vsego-vyhodit-iz-stroya-pervym",
-    "url": "/articles/pochemu-dnishche-rezervuara-chashche-vsego-vyhodit-iz-stroya-pervym/index.html",
-    "title": "Почему днище резервуара чаще всего выходит из строя первым",
-    "description": "Если смотреть статистику ремонтов, в большинстве случаев первым страдает именно днище. И дело не в «плохом металле». 1. Контакт с основанием Днище работает...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/25"
-    ],
-    "publishedAt": "2026-02-26T10:53:47+00:00"
-  },
-  {
-    "slug": "tolshchina-dnishcha-rvs-po-gost-31385-2023",
-    "url": "/articles/tolshchina-dnishcha-rvs-po-gost-31385-2023/index.html",
-    "title": "Толщина днища РВС по ГОСТ 31385-2023",
-    "description": "(что реально нужно считать, а не «брать по привычке») С 01.08.2023 действует ГОСТ 31385-2023 взамен ГОСТ 31385-2016. И по днищу логика простая: оно не...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/26"
-    ],
-    "publishedAt": "2026-02-26T11:15:20+00:00"
-  },
-  {
-    "slug": "dnishche-rvs-s-okraykami-ili-bez-i-chto-delat-s-razuklonkoy",
-    "url": "/articles/dnishche-rvs-s-okraykami-ili-bez-i-chto-delat-s-razuklonkoy/index.html",
-    "title": "Днище РВС: с окрайками или без? И что делать с разуклонкой",
-    "description": "Вопрос, который регулярно возникает: Когда делать днище с кольцевыми окрайками, а когда можно обойтись без них? И второй момент - разуклонка. Нужна ли она...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/27"
-    ],
-    "publishedAt": "2026-02-26T11:48:39+00:00"
-  },
-  {
-    "slug": "fundament-rvs-chto-imenno-zadaet-km-po-gost-31385-2023",
-    "url": "/articles/fundament-rvs-chto-imenno-zadaet-km-po-gost-31385-2023/index.html",
-    "title": "Фундамент РВС: что именно задаёт КМ по ГОСТ 31385-2023",
-    "description": "Часто говорят: «Фундамент - это КЖ, к резервуару не относится». Это неверная логика. По ГОСТ 31385-2023 расчёт резервуара выполняется с учётом основания, а...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/29"
-    ],
-    "publishedAt": "2026-02-27T03:32:30+00:00"
-  },
-  {
-    "slug": "fundamenty-pod-rvs-kakie-byvayut-i-gde-chto-primenyat",
-    "url": "/articles/fundamenty-pod-rvs-kakie-byvayut-i-gde-chto-primenyat/index.html",
-    "title": "Фундаменты под РВС: какие бывают и где что применять",
-    "description": "Фундамент под резервуар - это не «просто бетонное кольцо». Тип основания выбирается не по привычке, а исходя из: - объёма резервуара - нагрузки - грунтов -...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/30"
-    ],
-    "publishedAt": "2026-02-27T05:34:00+00:00"
-  },
-  {
-    "slug": "vnutrennee-davlenie-i-vakuum-v-rvs-formalnost-ili-realnaya-nagruzka",
-    "url": "/articles/vnutrennee-davlenie-i-vakuum-v-rvs-formalnost-ili-realnaya-nagruzka/index.html",
-    "title": "Внутреннее давление и вакуум в РВС - формальность или реальная нагрузка",
-    "description": "? В ТЗ часто пишут: Избыточное давление - нет. Вакуум - нет. И на этом вопрос закрывается. Но по факту даже резервуар «без давления» работает под...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/31"
-    ],
-    "publishedAt": "2026-02-27T07:14:29+00:00"
-  },
-  {
-    "slug": "kogda-schitayut-rvs-osnovnoy-akcent-vsegda-na-gidrostatiku",
-    "url": "/articles/kogda-schitayut-rvs-osnovnoy-akcent-vsegda-na-gidrostatiku/index.html",
-    "title": "Когда считают РВС, основной акцент всегда на гидростатику",
-    "description": "Почему устойчивость при вакууме иногда критичнее, чем прочность по гидростатике . И это логично. Столб жидкости даёт максимальные напряжения в нижнем...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/32"
-    ],
-    "publishedAt": "2026-02-27T07:17:01+00:00"
-  },
-  {
-    "slug": "ovalnost-rvs-meloch-ili-realnaya-problema",
-    "url": "/articles/ovalnost-rvs-meloch-ili-realnaya-problema/index.html",
-    "title": "Овальность РВС - мелочь или реальная проблема",
-    "description": "? На этапе монтажа иногда слышу: «Ну есть небольшая овальность, ничего страшного». На самом деле - не всё так просто. РВС рассчитывается как цилиндрическая...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/33"
-    ],
-    "publishedAt": "2026-02-27T08:53:03+00:00"
-  },
-  {
-    "slug": "utornyy-uzel-rvs-samaya-napryazhennaya-zona-konstrukcii",
-    "url": "/articles/utornyy-uzel-rvs-samaya-napryazhennaya-zona-konstrukcii/index.html",
-    "title": "Уторный узел РВС - самая напряжённая зона конструкции",
-    "description": "Если говорить честно, самая «рабочая» зона резервуара - это не середина стенки. Это уторный узел. Место, где сходятся: - стенка - днище - нагрузка от...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/35"
-    ],
-    "publishedAt": "2026-02-28T02:36:28+00:00"
-  },
-  {
-    "slug": "sochetaniya-nagruzok-v-rvs-pochemu-schitat-po-odnoy-nagruzke-nepravilno",
-    "url": "/articles/sochetaniya-nagruzok-v-rvs-pochemu-schitat-po-odnoy-nagruzke-nepravilno/index.html",
-    "title": "Сочетания нагрузок в РВС - почему считать “по одной нагрузке” неправильно",
-    "description": "Иногда расчёт ведут по отдельности: - гидростатика - ветер - снег - вакуум И на этом останавливаются. Но резервуар не работает по одной нагрузке. Он...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/36"
-    ],
-    "publishedAt": "2026-02-28T04:56:23+00:00"
-  },
-  {
-    "slug": "kakoy-rezhim-chashche-vsego-opredelyaet-raschet-ankerov-rvs",
-    "url": "/articles/kakoy-rezhim-chashche-vsego-opredelyaet-raschet-ankerov-rvs/index.html",
-    "title": "Какой режим чаще всего определяет расчёт анкеров РВС",
-    "description": "Многие считают, что анкера нужны «из-за ветра». Но если разбирать расчёт, всё не так однозначно. Определяющим становится не просто ветер, а конкретное...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/38"
-    ],
-    "publishedAt": "2026-02-28T15:25:53+00:00"
-  },
-  {
-    "slug": "kogda-smotrish-na-tipovoy-proekt-rvs-kazhetsya-chto-mnogoe-sdelano-prosto-tak",
-    "url": "/articles/kogda-smotrish-na-tipovoy-proekt-rvs-kazhetsya-chto-mnogoe-sdelano-prosto-tak/index.html",
-    "title": "Когда смотришь на типовой проект РВС, кажется, что многое сделано «просто так»",
-    "description": "Факты о стенке РВС, которые продиктованы не «удобством», а нормами и технологией . На самом деле - почти каждое решение имеет нормативную или...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/40"
-    ],
-    "publishedAt": "2026-03-01T03:25:55+00:00"
-  },
-  {
-    "slug": "serpovidnost-lista-v-rvs-melkiy-defekt-ili-realnaya-problema",
-    "url": "/articles/serpovidnost-lista-v-rvs-melkiy-defekt-ili-realnaya-problema/index.html",
-    "title": "Серповидность листа в РВС - мелкий дефект или реальная проблема",
-    "description": "? Когда лист приходит с проката, серповидность - обычная история. 6000 мм длины. 1500 мм ширины. И небольшое отклонение по кромке. На складе это выглядит...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/41"
-    ],
-    "publishedAt": "2026-03-01T08:58:17+00:00"
-  },
-  {
-    "slug": "pochemu-rvs-2000-m-i-bolee-delayut-iz-dvuh-i-bolee-poloten",
-    "url": "/articles/pochemu-rvs-2000-m-i-bolee-delayut-iz-dvuh-i-bolee-poloten/index.html",
-    "title": "Почему РВС 2000 м³ и более делают из двух и более полотен",
-    "description": "Часто спрашивают: Почему нельзя сделать резервуар 2000-5000 м³ из одного рулонного полотна? Ответ простой - ограничения геометрии и технологии. 1....",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/42"
-    ],
-    "publishedAt": "2026-03-01T14:23:41+00:00"
-  },
-  {
-    "slug": "v-rezervuarostroenii-primenyayutsya-dva-osnovnyh-sposoba-montazha-stenki",
-    "url": "/articles/v-rezervuarostroenii-primenyayutsya-dva-osnovnyh-sposoba-montazha-stenki/index.html",
-    "title": "В резервуаростроении применяются два основных способа монтажа стенки",
-    "description": "Рулонный метод или полистовая сборка - где что рациональнее : - рулонный метод - полистовая сборка И выбор - это не вопрос «кто как привык», а условия...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/43"
-    ],
-    "publishedAt": "2026-03-02T10:17:46+00:00"
-  },
-  {
-    "slug": "kogda-rulonnyy-metod-stanovitsya-neracionalnym-dazhe-pri-srednem-obeme",
-    "url": "/articles/kogda-rulonnyy-metod-stanovitsya-neracionalnym-dazhe-pri-srednem-obeme/index.html",
-    "title": "Когда рулонный метод становится нерациональным даже при среднем объёме",
-    "description": "Принято считать: Малые и средние объёмы - рулонный метод. Большие - уже смотрим по ситуации. Но на практике даже при 2000-5000 м³ рулон может быть не...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/44"
-    ],
-    "publishedAt": "2026-03-02T17:01:08+00:00"
-  },
-  {
-    "slug": "pochemu-u-rvs-chasto-tipovye-diametry-i-otkuda-oni-berutsya",
-    "url": "/articles/pochemu-u-rvs-chasto-tipovye-diametry-i-otkuda-oni-berutsya/index.html",
-    "title": "Почему у РВС часто типовые диаметры и откуда они берутся",
-    "description": "Иногда заказчик говорит: «Нам нужен объём 5000 м³, а диаметр сделайте любой - как удобнее». Но диаметр в РВС - это не произвольная цифра. Он напрямую...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/46"
-    ],
-    "publishedAt": "2026-03-03T07:07:44+00:00"
-  },
-  {
-    "slug": "chto-vygodnee-uvelichit-diametr-ili-uvelichit-vysotu-pri-odnom-obeme",
-    "url": "/articles/chto-vygodnee-uvelichit-diametr-ili-uvelichit-vysotu-pri-odnom-obeme/index.html",
-    "title": "Что выгоднее: увеличить диаметр или увеличить высоту при одном объёме",
-    "description": "? Когда задают объём, например 5000 м³, его можно получить разными способами: - больше диаметр, меньше высота - меньше диаметр, больше высота На бумаге...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/47"
-    ],
-    "publishedAt": "2026-03-03T10:11:39+00:00"
-  },
-  {
-    "slug": "pochemu-bolshie-diametry-rvs-rezko-uvelichivayut-trebovaniya-k-ustoychivosti",
-    "url": "/articles/pochemu-bolshie-diametry-rvs-rezko-uvelichivayut-trebovaniya-k-ustoychivosti/index.html",
-    "title": "Почему большие диаметры РВС резко увеличивают требования к устойчивости",
-    "description": "Иногда кажется: увеличили диаметр - просто получили больше объём. Но для оболочки резервуара это серьёзное изменение работы конструкции. 1. Жёсткость...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/48"
-    ],
-    "publishedAt": "2026-03-04T04:52:43+00:00"
-  },
-  {
-    "slug": "vakuum-v-rvs-pochemu-net-v-tz-ne-osvobozhdaet-ot-trebovaniy-gost-31385-2023",
-    "url": "/articles/vakuum-v-rvs-pochemu-net-v-tz-ne-osvobozhdaet-ot-trebovaniy-gost-31385-2023/index.html",
-    "title": "Вакуум в РВС: почему «нет» в ТЗ не освобождает от требований ГОСТ 31385-2023",
-    "description": "В большинстве технических заданий встречается запись: Вакуум - нет. И кажется, что вопрос закрыт. На деле же ГОСТ 31385-2023 не допускает такой «плюшки»....",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/49",
-      "https://t.me/rvs_pro/50"
-    ],
-    "publishedAt": "2026-03-04T13:25:33+00:00"
-  },
-  {
-    "slug": "kolca-zhestkosti-v-rvs-kogda-oni-obyazatelny-i-kak-ih-pravilno-rasschitat",
-    "url": "/articles/kolca-zhestkosti-v-rvs-kogda-oni-obyazatelny-i-kak-ih-pravilno-rasschitat/index.html",
-    "title": "Кольца жёсткости в РВС: когда они обязательны и как их правильно рассчитать",
-    "description": "Нормативные требования ГОСТ 31385-2023 (п. 5.3.2) - если λ = D / t > 260 (при t ≤ 8 мм) - минимум одно кольцо в каждой зоне : верхний пояс, промежуточный...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/51"
-    ],
-    "publishedAt": "2026-03-05T04:35:52+00:00"
-  },
-  {
-    "slug": "seysmicheskiy-raschet-rvs-pochemu-eto-obyazatelno-i-kak-pravilno",
-    "url": "/articles/seysmicheskiy-raschet-rvs-pochemu-eto-obyazatelno-i-kak-pravilno/index.html",
-    "title": "Сейсмический расчёт РВС: почему это обязательно и как правильно",
-    "description": "Сейсмическая нагрузка для резервуаров вертикальных стальных (РВС) часто недооценивается. Однако нормативы прямо требуют её учитывать в сейсмоопасных...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/52"
-    ],
-    "publishedAt": "2026-03-05T04:45:30+00:00"
-  },
-  {
-    "slug": "snegovaya-nagruzka-v-raschete-rvs-chto-vazhno-uchityvat",
-    "url": "/articles/snegovaya-nagruzka-v-raschete-rvs-chto-vazhno-uchityvat/index.html",
-    "title": "Снеговая нагрузка в расчёте РВС: что важно учитывать",
-    "description": "При расчёте вертикальных стальных резервуаров (РВС) снеговая нагрузка - обязательный режим для большинства климатических зон. Ошибки в её учёте могут...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/53"
-    ],
-    "publishedAt": "2026-03-05T07:00:01+00:00"
-  },
-  {
-    "slug": "korrozionnaya-zashchita-rvs-kak-pravilno-vybrat-pokrytie-i-kontrolirovat-ego-s",
-    "url": "/articles/korrozionnaya-zashchita-rvs-kak-pravilno-vybrat-pokrytie-i-kontrolirovat-ego-s/index.html",
-    "title": "Коррозионная защита РВС: как правильно выбрать покрытие и контролировать его состояние",
-    "description": "Коррозия для резервуара вертикального стального (РВС) - это не косметический дефект. Потеря даже долей миллиметра толщины стенки со временем снижает...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/54"
-    ],
-    "publishedAt": "2026-03-05T09:26:27+00:00"
-  },
-  {
-    "slug": "temperaturnye-deformacii-rvs-pochemu-ih-nelzya-ignorirovat",
-    "url": "/articles/temperaturnye-deformacii-rvs-pochemu-ih-nelzya-ignorirovat/index.html",
-    "title": "Температурные деформации РВС: почему их нельзя игнорировать",
-    "description": "Про температуру в расчёте резервуаров часто вспоминают в последнюю очередь. А зря. Даже обычный перепад температуры может дать миллиметры деформации и...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/55"
-    ],
-    "publishedAt": "2026-03-06T05:11:49+00:00"
-  },
-  {
-    "slug": "pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy",
-    "url": "/articles/pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy/index.html",
-    "title": "Почему вертикальные швы стенки РВС делают с разбежкой",
-    "description": "Если посмотреть на чертежи резервуаров, можно заметить одну вещь: вертикальные швы соседних поясов никогда не совпадают по одной линии. Это не случайность...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/56"
-    ],
-    "publishedAt": "2026-03-06T15:18:23+00:00"
-  },
-  {
-    "slug": "pochemu-vysota-poyasov-rvs-obychno-1490-mm",
-    "url": "/articles/pochemu-vysota-poyasov-rvs-obychno-1490-mm/index.html",
-    "title": "Почему высота поясов РВС обычно ≈1490 мм",
-    "description": "Если открыть чертежи резервуаров, можно заметить одну закономерность: высота поясов стенки почти всегда около 1490 мм. Это не требование ГОСТ и не «удобная...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/58"
-    ],
-    "publishedAt": "2026-03-07T08:40:35+00:00"
-  },
-  {
-    "slug": "dyhatelnaya-armatura-rvs-zachem-ona-nuzhna-i-kak-ee-rasschityvayut",
-    "url": "/articles/dyhatelnaya-armatura-rvs-zachem-ona-nuzhna-i-kak-ee-rasschityvayut/index.html",
-    "title": "Дыхательная арматура РВС: зачем она нужна и как её рассчитывают",
-    "description": "В резервуаре постоянно происходит обмен газовой среды. При закачке продукта давление растёт. При откачке или охлаждении возникает вакуум. Если газ не...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/59"
-    ],
-    "publishedAt": "2026-03-08T02:20:33+00:00"
-  },
-  {
-    "slug": "pochemu-v-rvs-pochti-vsegda-ispolzuyut-dva-tipa-stali-09g2s-i-st3",
-    "url": "/articles/pochemu-v-rvs-pochti-vsegda-ispolzuyut-dva-tipa-stali-09g2s-i-st3/index.html",
-    "title": "Почему в РВС почти всегда используют два типа стали: 09Г2С и Ст3",
-    "description": "Если посмотреть проекты резервуаров, почти везде встречаются одни и те же марки стали: 09Г2С Ст3сп5 Это не случайность и не «традиция проектировщиков». Эти...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/60"
-    ],
-    "publishedAt": "2026-03-08T13:38:13+00:00"
-  },
-  {
-    "slug": "pochemu-dnishche-rvs-chashche-vsego-delayut-s-razuklonkoy",
-    "url": "/articles/pochemu-dnishche-rvs-chashche-vsego-delayut-s-razuklonkoy/index.html",
-    "title": "Почему днище РВС чаще всего делают с разуклонкой",
-    "description": "Если посмотреть чертежи резервуаров, можно заметить: днище почти всегда имеет разуклонку от центра к стенке. Это не конструктивная «особенность», а...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/61"
-    ],
-    "publishedAt": "2026-03-08T17:45:12+00:00"
-  },
-  {
-    "slug": "gost-31385-2023-osnovnoy-normativ-dlya-proektirovaniya-i-stroitelstva-vertikal",
-    "url": "/articles/gost-31385-2023-osnovnoy-normativ-dlya-proektirovaniya-i-stroitelstva-vertikal/index.html",
-    "title": "ГОСТ 31385-2023 - основной норматив для проектирования и строительства вертикальных стальных резервуаров",
-    "description": "ГОСТ 31385-2023: что должен знать каждый специалист по РВС . Если работаете с РВС - этот документ определяет почти всё: от ТЗ до испытаний. 1⃣ Область...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/62"
-    ],
-    "publishedAt": "2026-03-09T04:22:19+00:00"
-  },
-  {
-    "slug": "kolca-zhestkosti-odin-iz-klyuchevyh-elementov-ustoychivosti-rezervuara",
-    "url": "/articles/kolca-zhestkosti-odin-iz-klyuchevyh-elementov-ustoychivosti-rezervuara/index.html",
-    "title": "Кольца жёсткости - один из ключевых элементов устойчивости резервуара",
-    "description": "Кольца жёсткости в РВС: зачем они нужны . Они предотвращают: • потерю устойчивости стенки • деформации при ветре • локальное смятие верхних поясов. 1⃣...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/64"
-    ],
-    "publishedAt": "2026-03-10T04:35:12+00:00"
-  },
-  {
-    "slug": "pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy-65",
-    "url": "/articles/pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy-65/index.html",
-    "title": "Почему вертикальные швы стенки РВС делают с разбежкой",
-    "description": "Если посмотреть на развертку стенки резервуара, можно заметить одну особенность: вертикальные швы соседних поясов не совпадают по одной линии. Это не...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/65"
-    ],
-    "publishedAt": "2026-03-10T14:12:53+00:00"
-  },
-  {
-    "slug": "dnishche-rezervuara-kogda-primenyayut-kolcevye-okrayki-a-kogda-mozhno-oboytis",
-    "url": "/articles/dnishche-rezervuara-kogda-primenyayut-kolcevye-okrayki-a-kogda-mozhno-oboytis/index.html",
-    "title": "Днище резервуара: когда применяют кольцевые окрайки, а когда можно обойтись без них",
-    "description": "При проектировании РВС один из первых конструктивных вопросов - тип днища. Используют два варианта: • днище с кольцевыми окрайками • днище без окраек...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/66"
-    ],
-    "publishedAt": "2026-03-11T04:59:46+00:00"
-  },
-  {
-    "slug": "kak-vybirayut-tolshchinu-dnishcha-rvs-i-pochemu-centralnaya-chast-i-okrayka-ot",
-    "url": "/articles/kak-vybirayut-tolshchinu-dnishcha-rvs-i-pochemu-centralnaya-chast-i-okrayka-ot/index.html",
-    "title": "Как выбирают толщину днища РВС и почему центральная часть и окрайка отличаются",
-    "description": "При проектировании резервуара днище никогда не рассматривают как один элемент. По ГОСТ 31385 оно делится на две зоны: • центральная часть (поле днища) •...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/67"
-    ],
-    "publishedAt": "2026-03-11T05:13:07+00:00"
-  },
-  {
-    "slug": "pochemu-v-rezervuarah-pochti-vsegda-ispolzuyut-tipovye-diametry",
-    "url": "/articles/pochemu-v-rezervuarah-pochti-vsegda-ispolzuyut-tipovye-diametry/index.html",
-    "title": "Почему в резервуарах почти всегда используют типовые диаметры",
-    "description": "Если открыть проекты РВС, можно заметить одну закономерность. Диаметры резервуаров почти всегда повторяются: 9 м 12 м 15 м 18 м 22.8 м 28.5 м 34.2 м 45.6 м...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/68"
-    ],
-    "publishedAt": "2026-03-11T08:27:08+00:00"
-  },
-  {
-    "slug": "pochemu-rezervuary-2000-m-inogda-delayut-iz-dvuh-poloten",
-    "url": "/articles/pochemu-rezervuary-2000-m-inogda-delayut-iz-dvuh-poloten/index.html",
-    "title": "Почему резервуары 2000+ м³ иногда делают из двух полотен",
-    "description": "Если посмотреть проекты РВС небольших объёмов, стенка обычно выполняется из одного полотна. Но начиная примерно с 2000 м³ часто можно встретить резервуары,...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/69"
-    ],
-    "publishedAt": "2026-03-12T04:44:50+00:00"
-  },
-  {
-    "slug": "gidroispytaniya-rvs-chto-na-samom-dele-proveryayut-krome-germetichnosti",
-    "url": "/articles/gidroispytaniya-rvs-chto-na-samom-dele-proveryayut-krome-germetichnosti/index.html",
-    "title": "Гидроиспытания РВС: что на самом деле проверяют кроме герметичности",
-    "description": "На практике гидроиспытания иногда воспринимают слишком упрощённо: залили резервуар водой, посмотрели - течи нет, значит всё нормально. Но для РВС это...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/70"
-    ],
-    "publishedAt": "2026-03-13T11:11:22+00:00"
-  },
-  {
-    "slug": "pochemu-rezervuary-chashche-vsego-razrushayutsya-ne-po-stenke",
-    "url": "/articles/pochemu-rezervuary-chashche-vsego-razrushayutsya-ne-po-stenke/index.html",
-    "title": "Почему резервуары чаще всего разрушаются не по стенке",
-    "description": "Когда говорят о прочности РВС, большинство сразу думает о стенке. Толщина поясов, ветровая устойчивость, вакуум, кольца жёсткости. Но статистика дефектов...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/71"
-    ],
-    "publishedAt": "2026-03-13T11:29:44+00:00"
-  },
-  {
-    "slug": "pochemu-vakuum-odna-iz-samyh-opasnyh-nagruzok-dlya-rvs",
-    "url": "/articles/pochemu-vakuum-odna-iz-samyh-opasnyh-nagruzok-dlya-rvs/index.html",
-    "title": "Почему вакуум - одна из самых опасных нагрузок для РВС",
-    "description": "Когда говорят о нагрузках на резервуар, чаще вспоминают: - гидростатическое давление - снег - ветер - сейсмику Но есть нагрузка, которая может обрушить...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/72"
-    ],
-    "publishedAt": "2026-03-13T11:38:09+00:00"
-  },
-  {
-    "slug": "inogda-posle-zaversheniya-montazha-rvs-mozhno-zametit",
-    "url": "/articles/inogda-posle-zaversheniya-montazha-rvs-mozhno-zametit/index.html",
-    "title": "Иногда после завершения монтажа РВС можно заметить",
-    "description": "Почему резервуары иногда «ведёт» после монтажа : - небольшие отклонения по вертикали - локальные выпучивания - неидеальную геометрию стенки И часто...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/73"
-    ],
-    "publishedAt": "2026-03-13T11:50:18+00:00"
-  },
-  {
-    "slug": "pochemu-u-rezervuarov-poyavlyayutsya-skladki-na-stenke",
-    "url": "/articles/pochemu-u-rezervuarov-poyavlyayutsya-skladki-na-stenke/index.html",
-    "title": "Почему у резервуаров появляются «складки» на стенке",
-    "description": "Иногда на резервуарах можно увидеть характерные вертикальные или диагональные складки на стенке. На первый взгляд кажется, что это дефект металла или...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/74"
-    ],
-    "publishedAt": "2026-03-14T04:04:01+00:00"
-  },
-  {
-    "slug": "kakie-metody-svarki-ispolzuyut-pri-stroitelstve-rezervuarov",
-    "url": "/articles/kakie-metody-svarki-ispolzuyut-pri-stroitelstve-rezervuarov/index.html",
-    "title": "Какие методы сварки используют при строительстве резервуаров",
-    "description": "Резервуары РВС - это десятки метров сварных швов. От качества сварки напрямую зависит герметичность и прочность всей конструкции. На практике при...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/75"
-    ],
-    "publishedAt": "2026-03-15T02:59:57+00:00"
-  },
-  {
-    "slug": "zapustil-sayt-kalkulyator-po-rezervuarostroeniyu",
-    "url": "/articles/zapustil-sayt-kalkulyator-po-rezervuarostroeniyu/index.html",
-    "title": "Запустил сайт-калькулятор по резервуаростроению",
-    "description": "Сделал отдельный сайт-калькулятор для тех, кто работает с резервуарами и хочет быстрее получать предварительные параметры без постоянных ручных прикидок....",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/76"
-    ],
-    "publishedAt": "2026-03-15T08:56:49+00:00"
-  },
-  {
-    "slug": "rulonirovanie-rvs-gde-zakanchivaetsya-tehnologiya-i-nachinayutsya-oshibki-v-do",
-    "url": "/articles/rulonirovanie-rvs-gde-zakanchivaetsya-tehnologiya-i-nachinayutsya-oshibki-v-do/index.html",
-    "title": "Рулонирование РВС: где заканчивается технология и начинаются ошибки в документах",
-    "description": "Вокруг рулонирования до сих пор много путаницы. Кто-то до сих пор считает, что это «старый» метод. Кто-то пытается оформить на него отдельный акт, как...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/77"
-    ],
-    "publishedAt": "2026-03-16T04:45:45+00:00"
-  },
-  {
-    "slug": "nerazrushayushchiy-kontrol-pri-izgotovlenii-rvs",
-    "url": "/articles/nerazrushayushchiy-kontrol-pri-izgotovlenii-rvs/index.html",
-    "title": "Неразрушающий контроль при изготовлении РВС",
-    "description": ": где заканчивается формальность и начинается реальное качество Когда говорят о качестве резервуара, многие до сих пор сводят всё к одной фразе: «Швы...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/78"
-    ],
-    "publishedAt": "2026-03-16T07:10:10+00:00"
-  },
-  {
-    "slug": "laboratoriya-nk-pri-izgotovlenii-rvs-chto-proveryayut-gde-proveryayut-i-v-kako",
-    "url": "/articles/laboratoriya-nk-pri-izgotovlenii-rvs-chto-proveryayut-gde-proveryayut-i-v-kako/index.html",
-    "title": "Лаборатория НК при изготовлении РВС: что проверяют, где проверяют и в каком объёме",
-    "description": "Когда в резервуаростроении говорят: «лаборатория всё проверила», обычно это звучит слишком обобщённо. На практике у лаборатории НК по РВС есть вполне...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/79",
-      "https://t.me/rvs_pro/80"
-    ],
-    "publishedAt": "2026-03-16T09:21:00+00:00"
-  },
-  {
-    "slug": "kakie-zony-rvs-laboratoriya-dolzhna-kontrolirovat-osobenno-vnimatelno",
-    "url": "/articles/kakie-zony-rvs-laboratoriya-dolzhna-kontrolirovat-osobenno-vnimatelno/index.html",
-    "title": "Какие зоны РВС лаборатория должна контролировать особенно внимательно",
-    "description": "Когда говорят о неразрушающем контроле резервуара, часто создаётся ощущение, что все швы одинаково важны. Но на практике это не так. В РВС есть зоны, где...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/81"
-    ],
-    "publishedAt": "2026-03-17T05:19:21+00:00"
-  },
-  {
-    "slug": "kogda-po-rezervuaru-govoryat",
-    "url": "/articles/kogda-po-rezervuaru-govoryat/index.html",
-    "title": "Когда по резервуару говорят",
-    "description": "5 ошибок лаборатории НК при контроле РВС : «лаборатория всё проверила», это ещё вообще ничего не значит. Потому что сам факт контроля не гарантирует...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/82"
-    ],
-    "publishedAt": "2026-03-17T14:55:14+00:00"
-  },
-  {
-    "slug": "pochemu-gorizontalnyy-rezervuar-eto-ne-prosto-malenkiy-rvs",
-    "url": "/articles/pochemu-gorizontalnyy-rezervuar-eto-ne-prosto-malenkiy-rvs/index.html",
-    "title": "Почему горизонтальный резервуар - это не “просто маленький РВС”",
-    "description": "Когда речь заходит о резервуарах, многие по привычке мыслят через РВС. Но горизонтальный резервуар работает совсем по-другому. И главная ошибка здесь -...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/83"
-    ],
-    "publishedAt": "2026-03-18T04:26:50+00:00"
-  },
-  {
-    "slug": "opory-gorizontalnogo-rezervuara-uzel-na-kotorom-chasto-ekonomyat-zrya",
-    "url": "/articles/opory-gorizontalnogo-rezervuara-uzel-na-kotorom-chasto-ekonomyat-zrya/index.html",
-    "title": "Опоры горизонтального резервуара: узел, на котором часто экономят зря",
-    "description": "Когда смотрят на горизонтальный резервуар, чаще всего обсуждают: - толщину корпуса - сварные швы - патрубки - объём Но очень часто недооценивают именно...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/84"
-    ],
-    "publishedAt": "2026-03-18T08:22:36+00:00"
-  },
-  {
-    "slug": "pochemu-rezervuar-na-bumage-normalnyy-a-na-montazhe-nachinayutsya-problemy",
-    "url": "/articles/pochemu-rezervuar-na-bumage-normalnyy-a-na-montazhe-nachinayutsya-problemy/index.html",
-    "title": "Почему резервуар “на бумаге” нормальный, а на монтаже начинаются проблемы",
-    "description": "Одна из частых ошибок в резервуаростроении - рассматривать проект, изготовление и монтаж как отдельные этапы, а не как одну систему. На стадии расчёта и КМ...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/85"
-    ],
-    "publishedAt": "2026-03-20T11:27:47+00:00"
-  },
-  {
-    "slug": "v-rezervuarostroenii-chasto-osnovnoe-vnimanie-uhodit-na-raschet-metall-svarku",
-    "url": "/articles/v-rezervuarostroenii-chasto-osnovnoe-vnimanie-uhodit-na-raschet-metall-svarku/index.html",
-    "title": "В резервуаростроении часто основное внимание уходит на расчёт, металл, сварку и монтаж",
-    "description": "Почему ошибки в исполнительной документации вспоминают слишком поздно . Это понятно: именно там виден “физический” результат работы. Но на практике один из...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/86"
-    ],
-    "publishedAt": "2026-03-21T05:38:31+00:00"
-  },
-  {
-    "slug": "pochemu-dazhe-horoshiy-proekt-rvs-mozhet-sozdat-problemy-v-cehu",
-    "url": "/articles/pochemu-dazhe-horoshiy-proekt-rvs-mozhet-sozdat-problemy-v-cehu/index.html",
-    "title": "Почему даже хороший проект РВС может создать проблемы в цеху",
-    "description": "В проектной документации всё может выглядеть правильно: толщины подобраны, узлы проработаны, требования норм учтены. Но когда документация доходит до...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/87"
-    ],
-    "publishedAt": "2026-03-21T11:55:34+00:00"
-  },
-  {
-    "slug": "pochemu-raschet-rvs-sam-po-sebe-eshche-ne-garantiruet-horoshiy-proekt",
-    "url": "/articles/pochemu-raschet-rvs-sam-po-sebe-eshche-ne-garantiruet-horoshiy-proekt/index.html",
-    "title": "Почему расчёт РВС сам по себе ещё не гарантирует хороший проект",
-    "description": "В инженерной практике иногда есть опасная иллюзия: если расчёт выполнен корректно, значит проект уже можно считать хорошим. Но в резервуаростроении этого...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/88"
-    ],
-    "publishedAt": "2026-03-22T02:27:52+00:00"
-  },
-  {
-    "slug": "gorizontalnye-rezervuary-po-kakim-normam-ih-voobshche-pravilno-proektirovat",
-    "url": "/articles/gorizontalnye-rezervuary-po-kakim-normam-ih-voobshche-pravilno-proektirovat/index.html",
-    "title": "Горизонтальные резервуары: по каким нормам их вообще правильно проектировать",
-    "description": "Когда речь заходит о горизонтальных резервуарах, на практике часто возникает путаница: кто-то смотрит только на конструкцию, кто-то только на пожарные...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/89",
-      "https://t.me/rvs_pro/90"
-    ],
-    "publishedAt": "2026-03-23T05:06:25+00:00"
-  },
-  {
-    "slug": "gorizontalnyy-rezervuar-gde-chashche-vsego-oshibayutsya-eshche-do-rascheta",
-    "url": "/articles/gorizontalnyy-rezervuar-gde-chashche-vsego-oshibayutsya-eshche-do-rascheta/index.html",
-    "title": "Горизонтальный резервуар: где чаще всего ошибаются ещё до расчёта",
-    "description": "Одна из самых частых проблем в работе с горизонтальными резервуарами начинается не на стадии расчёта толщин и не на стадии выпуска чертежей. Она начинается...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/91"
-    ],
-    "publishedAt": "2026-03-24T06:04:13+00:00"
-  },
-  {
-    "slug": "gorizontalnye-rezervuary-s-chego-pravilno-nachinat-proektirovanie",
-    "url": "/articles/gorizontalnye-rezervuary-s-chego-pravilno-nachinat-proektirovanie/index.html",
-    "title": "Горизонтальные резервуары: с чего правильно начинать проектирование",
-    "description": "При работе с горизонтальными резервуарами важна не только сама конструкция, но и правильный порядок принятия решений на старте проекта. На практике хороший...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/92"
-    ],
-    "publishedAt": "2026-03-25T05:31:05+00:00"
-  },
-  {
-    "slug": "gorizontalnye-rezervuary-pochemu-opory-nuzhno-produmyvat-v-sostave-vsey-konstr",
-    "url": "/articles/gorizontalnye-rezervuary-pochemu-opory-nuzhno-produmyvat-v-sostave-vsey-konstr/index.html",
-    "title": "Горизонтальные резервуары: почему опоры нужно продумывать в составе всей конструкции",
-    "description": "При проектировании горизонтального резервуара опоры часто воспринимают как вспомогательный элемент: есть корпус, есть днища, есть патрубки - значит опоры...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/93"
-    ],
-    "publishedAt": "2026-03-26T04:54:31+00:00"
-  },
-  {
-    "slug": "raschet-tolshchiny-obechayki-gorizontalnogo-rezervuara-pod-vnutrennim-davlenie",
-    "url": "/articles/raschet-tolshchiny-obechayki-gorizontalnogo-rezervuara-pod-vnutrennim-davlenie/index.html",
-    "title": "Расчет толщины обечайки горизонтального резервуара под внутренним давлением",
-    "description": "При работе с горизонтальными резервуарами важно сразу правильно определить нормативную ветку расчета. Если речь идет об атмосферном горизонтальном...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/96",
-      "https://t.me/rvs_pro/97"
-    ],
-    "publishedAt": "2026-03-27T05:14:50+00:00"
-  },
-  {
-    "slug": "ellipticheskie-dnishcha-gorizontalnogo-rezervuara-pochemu-ih-tozhe-nelzya-osta",
-    "url": "/articles/ellipticheskie-dnishcha-gorizontalnogo-rezervuara-pochemu-ih-tozhe-nelzya-osta/index.html",
-    "title": "Эллиптические днища горизонтального резервуара: почему их тоже нельзя “оставлять на потом”",
-    "description": "При расчете горизонтального резервуара под внутренним избыточным давлением внимание часто в первую очередь уходит на обечайку. Это логично: именно...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/98"
-    ],
-    "publishedAt": "2026-03-28T08:10:45+00:00"
-  },
-  {
-    "slug": "kak-schitat-tolshchinu-ellipticheskogo-dnishcha-gorizontalnogo-rezervuara",
-    "url": "/articles/kak-schitat-tolshchinu-ellipticheskogo-dnishcha-gorizontalnogo-rezervuara/index.html",
-    "title": "Как считать толщину эллиптического днища горизонтального резервуара",
-    "description": "Когда рассчитывают горизонтальный резервуар под внутренним избыточным давлением, важно проверять не только обечайку, но и эллиптические днища. Если...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/99"
-    ],
-    "publishedAt": "2026-03-29T05:58:25+00:00"
-  },
-  {
-    "slug": "kak-ocenit-nagruzku-ot-grunta-na-obechayku-podzemnogo-rezervuara",
-    "url": "/articles/kak-ocenit-nagruzku-ot-grunta-na-obechayku-podzemnogo-rezervuara/index.html",
-    "title": "Как оценить нагрузку от грунта на обечайку подземного резервуара",
-    "description": "Когда проектируют подземный горизонтальный резервуар, важно учитывать не только внутреннее давление, но и наружную нагрузку от грунта. На практике это один...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/100"
-    ],
-    "publishedAt": "2026-03-30T05:27:45+00:00"
-  },
-  {
-    "slug": "kakie-dnishcha-byvayut-u-gorizontalnogo-rezervuara-i-ot-chego-zavisit-ih-vybor",
-    "url": "/articles/kakie-dnishcha-byvayut-u-gorizontalnogo-rezervuara-i-ot-chego-zavisit-ih-vybor/index.html",
-    "title": "Какие днища бывают у горизонтального резервуара и от чего зависит их выбор",
-    "description": "При проектировании горизонтального резервуара днище - это не просто элемент, который закрывает корпус. Тип днища влияет сразу на несколько вещей: -...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/101",
-      "https://t.me/rvs_pro/102"
-    ],
-    "publishedAt": "2026-03-31T04:46:42+00:00"
-  },
-  {
-    "slug": "kak-schitayutsya-homuty-ot-vsplytiya-podzemnogo-rezervuara",
-    "url": "/articles/kak-schitayutsya-homuty-ot-vsplytiya-podzemnogo-rezervuara/index.html",
-    "title": "Как считаются хомуты от всплытия подземного резервуара",
-    "description": "Для подземного горизонтального резервуара хомуты нужны тогда, когда есть риск всплытия пустого или частично заполненного резервуара при высоком уровне...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/105",
-      "https://t.me/rvs_pro/106"
-    ],
-    "publishedAt": "2026-04-01T05:16:26+00:00"
-  },
-  {
-    "slug": "kak-proveryat-mestnuyu-prochnost-obechayki-v-zone-ustanovki-homuta",
-    "url": "/articles/kak-proveryat-mestnuyu-prochnost-obechayki-v-zone-ustanovki-homuta/index.html",
-    "title": "Как проверять местную прочность обечайки в зоне установки хомута",
-    "description": "Когда подземный резервуар защищают от всплытия хомутами, недостаточно посчитать только общую выталкивающую силу воды и усилие в ленте. Следующий важный...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/107"
-    ],
-    "publishedAt": "2026-04-02T04:11:52+00:00"
-  },
-  {
-    "slug": "kogda-pod-homuty-ot-vsplytiya-nuzhny-usilivayushchie-nakladki",
-    "url": "/articles/kogda-pod-homuty-ot-vsplytiya-nuzhny-usilivayushchie-nakladki/index.html",
-    "title": "Когда под хомуты от всплытия нужны усиливающие накладки",
-    "description": "При проектировании подземного резервуара хомуты от всплытия часто сначала рассматривают как отдельный элемент: посчитали усилие, подобрали ленту, назначили...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/108",
-      "https://t.me/rvs_pro/109"
-    ],
-    "publishedAt": "2026-04-03T04:53:04+00:00"
-  },
-  {
-    "slug": "kogda-ankera-ot-vsplytiya-ne-reshayut-zadachu",
-    "url": "/articles/kogda-ankera-ot-vsplytiya-ne-reshayut-zadachu/index.html",
-    "title": "Когда анкера от всплытия не решают задачу",
-    "description": "При расчете подземного резервуара борьбу со всплытием часто упрощают: посчитали выталкивающую силу → подобрали анкера или балласт → считают, что вопрос...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/110"
-    ],
-    "publishedAt": "2026-04-04T16:59:24+00:00"
-  },
-  {
-    "slug": "kak-na-samom-dele-schitaetsya-obechayka-vertikalnogo-rezervuara",
-    "url": "/articles/kak-na-samom-dele-schitaetsya-obechayka-vertikalnogo-rezervuara/index.html",
-    "title": "Как на самом деле считается обечайка вертикального резервуара",
-    "description": "Когда говорят: «посчитали стенку резервуара», чаще всего по факту имеют в виду только гидростатику. То есть: посчитали давление от столба продукта →...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/111"
-    ],
-    "publishedAt": "2026-04-05T04:09:07+00:00"
-  },
-  {
-    "slug": "pochemu-minimalnaya-tolshchina-po-gost-eto-ne-zapas",
-    "url": "/articles/pochemu-minimalnaya-tolshchina-po-gost-eto-ne-zapas/index.html",
-    "title": "Почему минимальная толщина по ГОСТ - это не “запас”",
-    "description": "Очень часто вижу одну и ту же логику: если по ГОСТ минимальная толщина 4 мм или 6 мм, значит этого и достаточно. Но это не совсем так. Потому что в...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/112"
-    ],
-    "publishedAt": "2026-04-06T06:37:51+00:00"
-  },
-  {
-    "slug": "vidy-obogreva-rezervuara-i-produkta-chto-realno-rabotaet-a-chto-sozdaet-novye",
-    "url": "/articles/vidy-obogreva-rezervuara-i-produkta-chto-realno-rabotaet-a-chto-sozdaet-novye/index.html",
-    "title": "Виды обогрева резервуара и продукта: что реально работает, а что создает новые проблемы",
-    "description": "Когда говорят про обогрев резервуара, очень часто все сводят к одной фразе: “Нужно просто подогреть продукт”. Но на практике вопрос стоит шире. Нужно...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/113",
-      "https://t.me/rvs_pro/114"
-    ],
-    "publishedAt": "2026-04-08T06:30:07+00:00"
-  },
-  {
-    "slug": "kak-rasschitat-vnutrenniy-zmeevik-obogreva-rezervuara",
-    "url": "/articles/kak-rasschitat-vnutrenniy-zmeevik-obogreva-rezervuara/index.html",
-    "title": "Как рассчитать внутренний змеевик обогрева резервуара",
-    "description": "Когда говорят: “Поставим внутрь змеевик и все будет греться”, обычно забывают главный вопрос: а какая именно тепловая мощность нужна? Потому что внутренний...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/115",
-      "https://t.me/rvs_pro/116"
-    ],
-    "publishedAt": "2026-04-09T09:22:46+00:00"
-  },
-  {
-    "slug": "pochemu-obogrev-produkta-rabotaet-a-rezervuar-vse-ravno-ne-vyhodit-na-rezhim",
-    "url": "/articles/pochemu-obogrev-produkta-rabotaet-a-rezervuar-vse-ravno-ne-vyhodit-na-rezhim/index.html",
-    "title": "Почему обогрев продукта работает, а резервуар все равно не выходит на режим",
-    "description": "Очень часто на объекте говорят так: “Подогрев есть, теплоноситель идет, а продукт все равно греется слишком долго”. И дальше обычно начинают искать...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/117"
-    ],
-    "publishedAt": "2026-04-11T06:50:12+00:00"
-  },
-  {
-    "slug": "kak-rasschitat-obogrev-rezervuara-greyushchim-kabelem",
-    "url": "/articles/kak-rasschitat-obogrev-rezervuara-greyushchim-kabelem/index.html",
-    "title": "Как рассчитать обогрев резервуара греющим кабелем",
-    "description": "Когда говорят: “Поставим кабель на стенку резервуара и все будет греться”, обычно пропускают главный этап: сначала считается не кабель, а тепловая задача....",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/118"
-    ],
-    "publishedAt": "2026-04-13T04:24:01+00:00"
-  },
-  {
-    "slug": "molniepriemnik-na-rezervuare-kogda-on-realno-rabotaet-a-kogda-eto-prosto-shtyr",
-    "url": "/articles/molniepriemnik-na-rezervuare-kogda-on-realno-rabotaet-a-kogda-eto-prosto-shtyr/index.html",
-    "title": "Молниеприемник на резервуаре: когда он реально работает, а когда это просто “штырь для галочки”",
-    "description": "Когда в проекте доходят до молниезащиты резервуара, очень часто логика такая: “Поставим молниеприемник - и вопрос закрыт”. Но по факту сам по себе...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/119"
-    ],
-    "publishedAt": "2026-04-14T16:44:46+00:00"
-  },
-  {
-    "slug": "kak-rasschityvaetsya-vysota-molniepriemnika-na-rezervuare",
-    "url": "/articles/kak-rasschityvaetsya-vysota-molniepriemnika-na-rezervuare/index.html",
-    "title": "Как рассчитывается высота молниеприемника на резервуаре",
-    "description": "Очень часто по молниезащите логика простая: “Поставим штырь 2-3 метра, и этого хватит”. Но высота молниеприемника не назначается “на глаз”. Она...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/120"
-    ],
-    "publishedAt": "2026-04-16T05:22:41+00:00"
-  },
-  {
-    "slug": "bandazhi-na-bakah-akkumulyatorah-goryachey-vody-zachem-oni-nuzhny-i-chem-otlic",
-    "url": "/articles/bandazhi-na-bakah-akkumulyatorah-goryachey-vody-zachem-oni-nuzhny-i-chem-otlic/index.html",
-    "title": "Бандажи на баках-аккумуляторах горячей воды: зачем они нужны и чем отличаются от колец жесткости",
-    "description": "Есть элементы, которые внешне можно принять за кольца жесткости. Но по факту они работают совсем по другой логике. Один из таких элементов - бандажи на...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/121",
-      "https://t.me/rvs_pro/122"
-    ],
-    "publishedAt": "2026-04-19T03:48:38+00:00"
-  },
-  {
-    "slug": "bandazhi-na-bake-akkumulyatore-kak-opredelit-kolichestvo-i-otmetki-ustanovki",
-    "url": "/articles/bandazhi-na-bake-akkumulyatore-kak-opredelit-kolichestvo-i-otmetki-ustanovki/index.html",
-    "title": "Бандажи на баке-аккумуляторе: как определить количество и отметки установки",
-    "description": "После того как конструкция бандажа понятна, появляется следующий вопрос: сколько бандажей ставить и на каких отметках? Вот здесь не стоит идти по пути:...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/123",
-      "https://t.me/rvs_pro/124"
-    ],
-    "publishedAt": "2026-04-20T13:28:23+00:00"
-  },
-  {
-    "slug": "lestnicy-na-vertikalnyh-rezervuarah-pochemu-eto-ne-prosto-dostup-na-kryshu",
-    "url": "/articles/lestnicy-na-vertikalnyh-rezervuarah-pochemu-eto-ne-prosto-dostup-na-kryshu/index.html",
-    "title": "Лестницы на вертикальных резервуарах: почему это не просто “доступ на крышу”",
-    "description": "Лестницу на резервуаре часто воспринимают как второстепенный элемент. Основное внимание обычно уходит на: - стенку; - днище; - крышу; - патрубки; - анкера;...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/125",
-      "https://t.me/rvs_pro/126"
-    ],
-    "publishedAt": "2026-04-22T04:45:54+00:00"
-  },
-  {
-    "slug": "okrayka-dnishcha-zachem-ona-voobshche-nuzhna-i-pochemu-eto-ne-prosto-list-poto",
-    "url": "/articles/okrayka-dnishcha-zachem-ona-voobshche-nuzhna-i-pochemu-eto-ne-prosto-list-poto/index.html",
-    "title": "Окрайка днища: зачем она вообще нужна и почему это не просто “лист потолще под стенкой”",
-    "description": "Когда смотрят на днище резервуара, часто думают так: есть центральная часть, есть край под стенкой, ну значит по краю просто положили металл потолще. Но...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/127",
-      "https://t.me/rvs_pro/128"
-    ],
-    "publishedAt": "2026-04-23T19:09:31+00:00"
-  },
-  {
-    "slug": "patrubki-v-stenke-rezervuara-pochemu-eto-ne-prosto-vyrezat-otverstie-i-vvarit",
-    "url": "/articles/patrubki-v-stenke-rezervuara-pochemu-eto-ne-prosto-vyrezat-otverstie-i-vvarit/index.html",
-    "title": "Патрубки в стенке резервуара: почему это не просто “вырезать отверстие и вварить трубу”",
-    "description": "Очень часто к патрубкам в стенке относятся слишком просто. Логика обычно такая: нужен ввод или вывод продукта → делаем отверстие в стенке → ввариваем...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/129",
-      "https://t.me/rvs_pro/130"
-    ],
-    "publishedAt": "2026-04-27T04:29:42+00:00"
-  },
-  {
-    "slug": "neravnomernaya-osadka-rezervuara-pochemu-problema-chasto-nachinaetsya-ne-v-met",
-    "url": "/articles/neravnomernaya-osadka-rezervuara-pochemu-problema-chasto-nachinaetsya-ne-v-met/index.html",
-    "title": "Неравномерная осадка резервуара: почему проблема часто начинается не в металле, а в основании",
-    "description": "Когда на резервуаре появляются: - перекосы; - овальность; - локальные деформации; - напряженные зоны у днища и стенки; - проблемы с патрубками и...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/131",
-      "https://t.me/rvs_pro/132"
-    ],
-    "publishedAt": "2026-04-28T04:50:19+00:00"
-  },
-  {
-    "slug": "rulonnaya-ili-polistovaya-sborka-rvs-gde-kakaya-shema-deystvitelno-umestna",
-    "url": "/articles/rulonnaya-ili-polistovaya-sborka-rvs-gde-kakaya-shema-deystvitelno-umestna/index.html",
-    "title": "Рулонная или полистовая сборка РВС: где какая схема действительно уместна",
-    "description": "Когда обсуждают изготовление резервуара, часто вопрос звучит очень просто: “Делаем рулонкой или полистово?” Но на практике это не просто выбор технологии....",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/133",
-      "https://t.me/rvs_pro/134"
-    ],
-    "publishedAt": "2026-04-29T04:32:23+00:00"
-  },
-  {
-    "slug": "lyuki-lazy-v-rezervuare-pochemu-eto-ne-prosto-otverstie-dlya-dostupa",
-    "url": "/articles/lyuki-lazy-v-rezervuare-pochemu-eto-ne-prosto-otverstie-dlya-dostupa/index.html",
-    "title": "Люки-лазы в резервуаре: почему это не просто “отверстие для доступа”",
-    "description": "Люк-лаз в резервуаре часто воспринимают как обычный эксплуатационный элемент. Нужен доступ внутрь резервуара → поставили люк → закрыли вопрос. Но на...",
-    "category": "rgs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/135"
-    ],
-    "publishedAt": "2026-04-30T08:53:57+00:00"
-  },
-  {
-    "slug": "lyuk-i-teploizolyaciya-rezervuara",
-    "url": "/articles/lyuk-i-teploizolyaciya-rezervuara/index.html",
-    "title": "Люк и теплоизоляция резервуара",
-    "description": "Люк и теплоизоляция Если резервуар утепленный, люк-лаз становится еще сложнее. Нужно продумать: - как обходится теплоизоляция; - как открыть крышку; - как...",
-    "category": "rvs",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/136"
-    ],
-    "publishedAt": "2026-04-30T08:53:57+00:00"
-  },
-  {
-    "slug": "sug-eto-uzhe-ne-obychnyy-rezervuar-a-sosud-pod-davleniem",
-    "url": "/articles/sug-eto-uzhe-ne-obychnyy-rezervuar-a-sosud-pod-davleniem/index.html",
-    "title": "СУГ - это уже не обычный резервуар, а сосуд под давлением",
-    "description": "Когда говорят: “Нужно сделать емкость под СУГ”, очень часто слово “емкость” сбивает с толку. Потому что у многих сразу в голове появляется обычный...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/137",
-      "https://t.me/rvs_pro/138"
-    ],
-    "publishedAt": "2026-05-02T15:55:01+00:00"
-  },
-  {
-    "slug": "opory-gorizontalnoy-emkosti-pochemu-eto-ne-prosto-dve-sedlovye-podstavki",
-    "url": "/articles/opory-gorizontalnoy-emkosti-pochemu-eto-ne-prosto-dve-sedlovye-podstavki/index.html",
-    "title": "Опоры горизонтальной емкости: почему это не просто “две седловые подставки”",
-    "description": "Когда проектируют горизонтальную емкость, например под СУГ, часто внимание уходит на корпус: - обечайку; - днища; - штуцера; - толщину стенки; - расчетное...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/139",
-      "https://t.me/rvs_pro/140"
-    ],
-    "publishedAt": "2026-05-05T07:15:26+00:00"
-  },
-  {
-    "slug": "ispytaniya-emkosti-sug-chto-proveryayut-i-v-kakom-obeme",
-    "url": "/articles/ispytaniya-emkosti-sug-chto-proveryayut-i-v-kakom-obeme/index.html",
-    "title": "Испытания емкости СУГ: что проверяют и в каком объеме",
-    "description": "Когда речь идет про емкость для СУГ, нельзя воспринимать ее как обычный резервуар. СУГ хранится под избыточным давлением. А значит, емкость работает как...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/141"
-    ],
-    "publishedAt": "2026-05-07T05:24:47+00:00"
-  },
-  {
-    "slug": "chto-smotryat-pri-gidroispytanii",
-    "url": "/articles/chto-smotryat-pri-gidroispytanii/index.html",
-    "title": "Что смотрят при гидроиспытании",
-    "description": "Во время испытания проверяют: - нет ли течи; - нет ли потения швов; - нет ли видимых деформаций; - нет ли падения давления; - нет ли остаточных деформаций...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/142"
-    ],
-    "publishedAt": "2026-05-07T05:24:47+00:00"
-  },
-  {
-    "slug": "chto-oformlyaetsya-posle-ispytaniy",
-    "url": "/articles/chto-oformlyaetsya-posle-ispytaniy/index.html",
-    "title": "Что оформляется после испытаний",
-    "description": "После испытаний должны быть оформлены: - протоколы контроля сварных соединений; - результаты ВИК; - результаты УЗК или РК; - протокол гидравлического или...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/143"
-    ],
-    "publishedAt": "2026-05-07T05:24:47+00:00"
-  },
-  {
-    "slug": "diafragmy-i-kolca-zhestkosti-na-rgs-zachem-oni-nuzhny-i-gde-chashche-vsego-osh",
-    "url": "/articles/diafragmy-i-kolca-zhestkosti-na-rgs-zachem-oni-nuzhny-i-gde-chashche-vsego-osh/index.html",
-    "title": "Диафрагмы и кольца жесткости на РГС: зачем они нужны и где чаще всего ошибаются",
-    "description": "В горизонтальных стальных резервуарах часто встречаются два элемента: - диафрагмы; - кольца жесткости. Внешне для неспециалиста это просто “усиление внутри...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/145",
-      "https://t.me/rvs_pro/146"
-    ],
-    "publishedAt": "2026-05-13T04:49:01+00:00"
-  },
-  {
-    "slug": "kak-rasschityvayutsya-diafragmy-na-rgs",
-    "url": "/articles/kak-rasschityvayutsya-diafragmy-na-rgs/index.html",
-    "title": "Как рассчитываются диафрагмы на РГС",
-    "description": "После того как мы разобрали, зачем на РГС применяют диафрагмы, логичный вопрос: а как их вообще считать? Здесь важно сразу разделить два момента. Диафрагма...",
-    "category": "sug",
-    "sourceUrls": [
-      "https://t.me/rvs_pro/147",
-      "https://t.me/rvs_pro/148"
-    ],
-    "publishedAt": "2026-05-14T02:34:45+00:00"
-  }
+﻿[
+    {
+        "slug":  "tipovye-oshibki-proektirovaniya-rvs-po-gost-31385-2023",
+        "url":  "/articles/tipovye-oshibki-proektirovaniya-rvs-po-gost-31385-2023/index.html",
+        "title":  "Типовые ошибки проектирования РВС по ГОСТ 31385-2023",
+        "description":  "Проектирование резервуара - это не только расчёт толщины стенки. Большинство серьёзных проблем возникает не в одном узле, а в цепочке ошибок: неполное ТЗ →...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/7"
+                       ],
+        "publishedAt":  "2026-02-25T08:54:16+00:00"
+    },
+    {
+        "slug":  "ustoychivost-rvs-obolochka-oprokidyvanie-ankera-i-seysmika-chto-realno-kritich",
+        "url":  "/articles/ustoychivost-rvs-obolochka-oprokidyvanie-ankera-i-seysmika-chto-realno-kritich/index.html",
+        "title":  "Устойчивость РВС: оболочка, опрокидывание, анкера и сейсмика (что реально критично)",
+        "description":  "В устойчивости РВС важно разделять два разных вопроса: устойчивость оболочки (работа стенки и колец жёсткости при внешних воздействиях), общая...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/8"
+                       ],
+        "publishedAt":  "2026-02-25T09:15:42+00:00"
+    },
+    {
+        "slug":  "chto-chashche-vsego-zabyvayut-v-tz-na-proektirovanie-rvs",
+        "url":  "/articles/chto-chashche-vsego-zabyvayut-v-tz-na-proektirovanie-rvs/index.html",
+        "title":  "Что чаще всего забывают в ТЗ на проектирование РВС",
+        "description":  "Большинство серьёзных ошибок закладывается не в расчёте, а в исходных данных. ГОСТ прямо требует проектировать на основании ТЗ заказчика с определённым...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/14"
+                       ],
+        "publishedAt":  "2026-02-25T10:47:10+00:00"
+    },
+    {
+        "slug":  "kak-pravilno-zapolnyat-tz-na-proektirovanie-rvs-po-gost-31385",
+        "url":  "/articles/kak-pravilno-zapolnyat-tz-na-proektirovanie-rvs-po-gost-31385/index.html",
+        "title":  "Как правильно заполнять ТЗ на проектирование РВС (по ГОСТ 31385)",
+        "description":  "Ниже не пересказ формы, а пояснение - что именно вы задаёте проектировщику, когда заполняете каждый пункт. 1. Общие данные Здесь всё кажется формальностью,...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/15"
+                       ],
+        "publishedAt":  "2026-02-25T11:40:34+00:00"
+    },
+    {
+        "slug":  "naznachenie-raschetnoy-temperatury-metalla-rvs-gde-chashche-vsego-oshibayutsya",
+        "url":  "/articles/naznachenie-raschetnoy-temperatury-metalla-rvs-gde-chashche-vsego-oshibayutsya/index.html",
+        "title":  "Назначение расчётной температуры металла РВС - где чаще всего ошибаются",
+        "description":  "Очень часто вижу одну и ту же ситуацию. Берут температуру наиболее холодных суток по СП. И автоматически принимают её как расчётную температуру металла. На...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/18"
+                       ],
+        "publishedAt":  "2026-02-25T16:02:33+00:00"
+    },
+    {
+        "slug":  "esli-govorit-po-praktike-v-rezervuarostroenii-chashche-vsego-primenyayutsya-dv",
+        "url":  "/articles/esli-govorit-po-praktike-v-rezervuarostroenii-chashche-vsego-primenyayutsya-dv/index.html",
+        "title":  "Если говорить по практике, в резервуаростроении чаще всего применяются две марки",
+        "description":  "Выбор стали 09Г2С или Ст3сп5 - где действительно есть разница : - 09Г2С - Ст3сп5 И вокруг этого выбора всегда начинается «экономика». Давайте честно....",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/19"
+                       ],
+        "publishedAt":  "2026-02-26T05:03:18+00:00"
+    },
+    {
+        "slug":  "kogda-obsuzhdayut-marku-stali-obychno-govoryat-v-celom-pro-rezervuar",
+        "url":  "/articles/kogda-obsuzhdayut-marku-stali-obychno-govoryat-v-celom-pro-rezervuar/index.html",
+        "title":  "Когда обсуждают марку стали, обычно говорят в целом про резервуар",
+        "description":  "В каких узлах резервуара выбор стали действительно критичен . Но если смотреть по конструкции - не все элементы одинаково чувствительны к выбору стали....",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/20"
+                       ],
+        "publishedAt":  "2026-02-26T07:21:22+00:00"
+    },
+    {
+        "slug":  "ankerovka-rvs-gde-deystvitelno-nuzhna-a-gde-eto-prosto-perestrahovka",
+        "url":  "/articles/ankerovka-rvs-gde-deystvitelno-nuzhna-a-gde-eto-prosto-perestrahovka/index.html",
+        "title":  "Анкеровка РВС - где действительно нужна, а где это просто перестраховка",
+        "description":  "Про анкера обычно вспоминают в двух случаях: - объект в сейсмике - сильный ветер Во всех остальных - часто спорят: “Нужны или нет?” Разберём спокойно. 1....",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/21"
+                       ],
+        "publishedAt":  "2026-02-26T08:29:47+00:00"
+    },
+    {
+        "slug":  "pochemu-dnishche-rezervuara-chashche-vsego-vyhodit-iz-stroya-pervym",
+        "url":  "/articles/pochemu-dnishche-rezervuara-chashche-vsego-vyhodit-iz-stroya-pervym/index.html",
+        "title":  "Почему днище резервуара чаще всего выходит из строя первым",
+        "description":  "Если смотреть статистику ремонтов, в большинстве случаев первым страдает именно днище. И дело не в «плохом металле». 1. Контакт с основанием Днище работает...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/25"
+                       ],
+        "publishedAt":  "2026-02-26T10:53:47+00:00"
+    },
+    {
+        "slug":  "tolshchina-dnishcha-rvs-po-gost-31385-2023",
+        "url":  "/articles/tolshchina-dnishcha-rvs-po-gost-31385-2023/index.html",
+        "title":  "Толщина днища РВС по ГОСТ 31385-2023",
+        "description":  "(что реально нужно считать, а не «брать по привычке») С 01.08.2023 действует ГОСТ 31385-2023 взамен ГОСТ 31385-2016. И по днищу логика простая: оно не...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/26"
+                       ],
+        "publishedAt":  "2026-02-26T11:15:20+00:00"
+    },
+    {
+        "slug":  "dnishche-rvs-s-okraykami-ili-bez-i-chto-delat-s-razuklonkoy",
+        "url":  "/articles/dnishche-rvs-s-okraykami-ili-bez-i-chto-delat-s-razuklonkoy/index.html",
+        "title":  "Днище РВС: с окрайками или без? И что делать с разуклонкой",
+        "description":  "Вопрос, который регулярно возникает: Когда делать днище с кольцевыми окрайками, а когда можно обойтись без них? И второй момент - разуклонка. Нужна ли она...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/27"
+                       ],
+        "publishedAt":  "2026-02-26T11:48:39+00:00"
+    },
+    {
+        "slug":  "fundament-rvs-chto-imenno-zadaet-km-po-gost-31385-2023",
+        "url":  "/articles/fundament-rvs-chto-imenno-zadaet-km-po-gost-31385-2023/index.html",
+        "title":  "Фундамент РВС: что именно задаёт КМ по ГОСТ 31385-2023",
+        "description":  "Часто говорят: «Фундамент - это КЖ, к резервуару не относится». Это неверная логика. По ГОСТ 31385-2023 расчёт резервуара выполняется с учётом основания, а...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/29"
+                       ],
+        "publishedAt":  "2026-02-27T03:32:30+00:00"
+    },
+    {
+        "slug":  "fundamenty-pod-rvs-kakie-byvayut-i-gde-chto-primenyat",
+        "url":  "/articles/fundamenty-pod-rvs-kakie-byvayut-i-gde-chto-primenyat/index.html",
+        "title":  "Фундаменты под РВС: какие бывают и где что применять",
+        "description":  "Фундамент под резервуар - это не «просто бетонное кольцо». Тип основания выбирается не по привычке, а исходя из: - объёма резервуара - нагрузки - грунтов -...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/30"
+                       ],
+        "publishedAt":  "2026-02-27T05:34:00+00:00"
+    },
+    {
+        "slug":  "vnutrennee-davlenie-i-vakuum-v-rvs-formalnost-ili-realnaya-nagruzka",
+        "url":  "/articles/vnutrennee-davlenie-i-vakuum-v-rvs-formalnost-ili-realnaya-nagruzka/index.html",
+        "title":  "Внутреннее давление и вакуум в РВС - формальность или реальная нагрузка",
+        "description":  "? В ТЗ часто пишут: Избыточное давление - нет. Вакуум - нет. И на этом вопрос закрывается. Но по факту даже резервуар «без давления» работает под...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/31"
+                       ],
+        "publishedAt":  "2026-02-27T07:14:29+00:00"
+    },
+    {
+        "slug":  "kogda-schitayut-rvs-osnovnoy-akcent-vsegda-na-gidrostatiku",
+        "url":  "/articles/kogda-schitayut-rvs-osnovnoy-akcent-vsegda-na-gidrostatiku/index.html",
+        "title":  "Когда считают РВС, основной акцент всегда на гидростатику",
+        "description":  "Почему устойчивость при вакууме иногда критичнее, чем прочность по гидростатике . И это логично. Столб жидкости даёт максимальные напряжения в нижнем...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/32"
+                       ],
+        "publishedAt":  "2026-02-27T07:17:01+00:00"
+    },
+    {
+        "slug":  "ovalnost-rvs-meloch-ili-realnaya-problema",
+        "url":  "/articles/ovalnost-rvs-meloch-ili-realnaya-problema/index.html",
+        "title":  "Овальность РВС - мелочь или реальная проблема",
+        "description":  "? На этапе монтажа иногда слышу: «Ну есть небольшая овальность, ничего страшного». На самом деле - не всё так просто. РВС рассчитывается как цилиндрическая...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/33"
+                       ],
+        "publishedAt":  "2026-02-27T08:53:03+00:00"
+    },
+    {
+        "slug":  "utornyy-uzel-rvs-samaya-napryazhennaya-zona-konstrukcii",
+        "url":  "/articles/utornyy-uzel-rvs-samaya-napryazhennaya-zona-konstrukcii/index.html",
+        "title":  "Уторный узел РВС - самая напряжённая зона конструкции",
+        "description":  "Если говорить честно, самая «рабочая» зона резервуара - это не середина стенки. Это уторный узел. Место, где сходятся: - стенка - днище - нагрузка от...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/35"
+                       ],
+        "publishedAt":  "2026-02-28T02:36:28+00:00"
+    },
+    {
+        "slug":  "sochetaniya-nagruzok-v-rvs-pochemu-schitat-po-odnoy-nagruzke-nepravilno",
+        "url":  "/articles/sochetaniya-nagruzok-v-rvs-pochemu-schitat-po-odnoy-nagruzke-nepravilno/index.html",
+        "title":  "Сочетания нагрузок в РВС - почему считать “по одной нагрузке” неправильно",
+        "description":  "Иногда расчёт ведут по отдельности: - гидростатика - ветер - снег - вакуум И на этом останавливаются. Но резервуар не работает по одной нагрузке. Он...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/36"
+                       ],
+        "publishedAt":  "2026-02-28T04:56:23+00:00"
+    },
+    {
+        "slug":  "kakoy-rezhim-chashche-vsego-opredelyaet-raschet-ankerov-rvs",
+        "url":  "/articles/kakoy-rezhim-chashche-vsego-opredelyaet-raschet-ankerov-rvs/index.html",
+        "title":  "Какой режим чаще всего определяет расчёт анкеров РВС",
+        "description":  "Многие считают, что анкера нужны «из-за ветра». Но если разбирать расчёт, всё не так однозначно. Определяющим становится не просто ветер, а конкретное...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/38"
+                       ],
+        "publishedAt":  "2026-02-28T15:25:53+00:00"
+    },
+    {
+        "slug":  "kogda-smotrish-na-tipovoy-proekt-rvs-kazhetsya-chto-mnogoe-sdelano-prosto-tak",
+        "url":  "/articles/kogda-smotrish-na-tipovoy-proekt-rvs-kazhetsya-chto-mnogoe-sdelano-prosto-tak/index.html",
+        "title":  "Когда смотришь на типовой проект РВС, кажется, что многое сделано «просто так»",
+        "description":  "Факты о стенке РВС, которые продиктованы не «удобством», а нормами и технологией . На самом деле - почти каждое решение имеет нормативную или...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/40"
+                       ],
+        "publishedAt":  "2026-03-01T03:25:55+00:00"
+    },
+    {
+        "slug":  "serpovidnost-lista-v-rvs-melkiy-defekt-ili-realnaya-problema",
+        "url":  "/articles/serpovidnost-lista-v-rvs-melkiy-defekt-ili-realnaya-problema/index.html",
+        "title":  "Серповидность листа в РВС - мелкий дефект или реальная проблема",
+        "description":  "? Когда лист приходит с проката, серповидность - обычная история. 6000 мм длины. 1500 мм ширины. И небольшое отклонение по кромке. На складе это выглядит...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/41"
+                       ],
+        "publishedAt":  "2026-03-01T08:58:17+00:00"
+    },
+    {
+        "slug":  "pochemu-rvs-2000-m-i-bolee-delayut-iz-dvuh-i-bolee-poloten",
+        "url":  "/articles/pochemu-rvs-2000-m-i-bolee-delayut-iz-dvuh-i-bolee-poloten/index.html",
+        "title":  "Почему РВС 2000 м³ и более делают из двух и более полотен",
+        "description":  "Часто спрашивают: Почему нельзя сделать резервуар 2000-5000 м³ из одного рулонного полотна? Ответ простой - ограничения геометрии и технологии. 1....",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/42"
+                       ],
+        "publishedAt":  "2026-03-01T14:23:41+00:00"
+    },
+    {
+        "slug":  "v-rezervuarostroenii-primenyayutsya-dva-osnovnyh-sposoba-montazha-stenki",
+        "url":  "/articles/v-rezervuarostroenii-primenyayutsya-dva-osnovnyh-sposoba-montazha-stenki/index.html",
+        "title":  "В резервуаростроении применяются два основных способа монтажа стенки",
+        "description":  "Рулонный метод или полистовая сборка - где что рациональнее : - рулонный метод - полистовая сборка И выбор - это не вопрос «кто как привык», а условия...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/43"
+                       ],
+        "publishedAt":  "2026-03-02T10:17:46+00:00"
+    },
+    {
+        "slug":  "kogda-rulonnyy-metod-stanovitsya-neracionalnym-dazhe-pri-srednem-obeme",
+        "url":  "/articles/kogda-rulonnyy-metod-stanovitsya-neracionalnym-dazhe-pri-srednem-obeme/index.html",
+        "title":  "Когда рулонный метод становится нерациональным даже при среднем объёме",
+        "description":  "Принято считать: Малые и средние объёмы - рулонный метод. Большие - уже смотрим по ситуации. Но на практике даже при 2000-5000 м³ рулон может быть не...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/44"
+                       ],
+        "publishedAt":  "2026-03-02T17:01:08+00:00"
+    },
+    {
+        "slug":  "pochemu-u-rvs-chasto-tipovye-diametry-i-otkuda-oni-berutsya",
+        "url":  "/articles/pochemu-u-rvs-chasto-tipovye-diametry-i-otkuda-oni-berutsya/index.html",
+        "title":  "Почему у РВС часто типовые диаметры и откуда они берутся",
+        "description":  "Иногда заказчик говорит: «Нам нужен объём 5000 м³, а диаметр сделайте любой - как удобнее». Но диаметр в РВС - это не произвольная цифра. Он напрямую...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/46"
+                       ],
+        "publishedAt":  "2026-03-03T07:07:44+00:00"
+    },
+    {
+        "slug":  "chto-vygodnee-uvelichit-diametr-ili-uvelichit-vysotu-pri-odnom-obeme",
+        "url":  "/articles/chto-vygodnee-uvelichit-diametr-ili-uvelichit-vysotu-pri-odnom-obeme/index.html",
+        "title":  "Что выгоднее: увеличить диаметр или увеличить высоту при одном объёме",
+        "description":  "? Когда задают объём, например 5000 м³, его можно получить разными способами: - больше диаметр, меньше высота - меньше диаметр, больше высота На бумаге...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/47"
+                       ],
+        "publishedAt":  "2026-03-03T10:11:39+00:00"
+    },
+    {
+        "slug":  "pochemu-bolshie-diametry-rvs-rezko-uvelichivayut-trebovaniya-k-ustoychivosti",
+        "url":  "/articles/pochemu-bolshie-diametry-rvs-rezko-uvelichivayut-trebovaniya-k-ustoychivosti/index.html",
+        "title":  "Почему большие диаметры РВС резко увеличивают требования к устойчивости",
+        "description":  "Иногда кажется: увеличили диаметр - просто получили больше объём. Но для оболочки резервуара это серьёзное изменение работы конструкции. 1. Жёсткость...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/48"
+                       ],
+        "publishedAt":  "2026-03-04T04:52:43+00:00"
+    },
+    {
+        "slug":  "vakuum-v-rvs-pochemu-net-v-tz-ne-osvobozhdaet-ot-trebovaniy-gost-31385-2023",
+        "url":  "/articles/vakuum-v-rvs-pochemu-net-v-tz-ne-osvobozhdaet-ot-trebovaniy-gost-31385-2023/index.html",
+        "title":  "Вакуум в РВС: почему «нет» в ТЗ не освобождает от требований ГОСТ 31385-2023",
+        "description":  "В большинстве технических заданий встречается запись: Вакуум - нет. И кажется, что вопрос закрыт. На деле же ГОСТ 31385-2023 не допускает такой «плюшки»....",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/49",
+                           "https://t.me/rvs_pro/50"
+                       ],
+        "publishedAt":  "2026-03-04T13:25:33+00:00"
+    },
+    {
+        "slug":  "kolca-zhestkosti-v-rvs-kogda-oni-obyazatelny-i-kak-ih-pravilno-rasschitat",
+        "url":  "/articles/kolca-zhestkosti-v-rvs-kogda-oni-obyazatelny-i-kak-ih-pravilno-rasschitat/index.html",
+        "title":  "Кольца жёсткости в РВС: когда они обязательны и как их правильно рассчитать",
+        "description":  "Нормативные требования ГОСТ 31385-2023 (п. 5.3.2) - если λ = D / t \u003e 260 (при t ≤ 8 мм) - минимум одно кольцо в каждой зоне : верхний пояс, промежуточный...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/51"
+                       ],
+        "publishedAt":  "2026-03-05T04:35:52+00:00"
+    },
+    {
+        "slug":  "seysmicheskiy-raschet-rvs-pochemu-eto-obyazatelno-i-kak-pravilno",
+        "url":  "/articles/seysmicheskiy-raschet-rvs-pochemu-eto-obyazatelno-i-kak-pravilno/index.html",
+        "title":  "Сейсмический расчёт РВС: почему это обязательно и как правильно",
+        "description":  "Сейсмическая нагрузка для резервуаров вертикальных стальных (РВС) часто недооценивается. Однако нормативы прямо требуют её учитывать в сейсмоопасных...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/52"
+                       ],
+        "publishedAt":  "2026-03-05T04:45:30+00:00"
+    },
+    {
+        "slug":  "snegovaya-nagruzka-v-raschete-rvs-chto-vazhno-uchityvat",
+        "url":  "/articles/snegovaya-nagruzka-v-raschete-rvs-chto-vazhno-uchityvat/index.html",
+        "title":  "Снеговая нагрузка в расчёте РВС: что важно учитывать",
+        "description":  "При расчёте вертикальных стальных резервуаров (РВС) снеговая нагрузка - обязательный режим для большинства климатических зон. Ошибки в её учёте могут...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/53"
+                       ],
+        "publishedAt":  "2026-03-05T07:00:01+00:00"
+    },
+    {
+        "slug":  "korrozionnaya-zashchita-rvs-kak-pravilno-vybrat-pokrytie-i-kontrolirovat-ego-s",
+        "url":  "/articles/korrozionnaya-zashchita-rvs-kak-pravilno-vybrat-pokrytie-i-kontrolirovat-ego-s/index.html",
+        "title":  "Коррозионная защита РВС: как правильно выбрать покрытие и контролировать его состояние",
+        "description":  "Коррозия для резервуара вертикального стального (РВС) - это не косметический дефект. Потеря даже долей миллиметра толщины стенки со временем снижает...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/54"
+                       ],
+        "publishedAt":  "2026-03-05T09:26:27+00:00"
+    },
+    {
+        "slug":  "temperaturnye-deformacii-rvs-pochemu-ih-nelzya-ignorirovat",
+        "url":  "/articles/temperaturnye-deformacii-rvs-pochemu-ih-nelzya-ignorirovat/index.html",
+        "title":  "Температурные деформации РВС: почему их нельзя игнорировать",
+        "description":  "Про температуру в расчёте резервуаров часто вспоминают в последнюю очередь. А зря. Даже обычный перепад температуры может дать миллиметры деформации и...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/55"
+                       ],
+        "publishedAt":  "2026-03-06T05:11:49+00:00"
+    },
+    {
+        "slug":  "pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy",
+        "url":  "/articles/pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy/index.html",
+        "title":  "Почему вертикальные швы стенки РВС делают с разбежкой",
+        "description":  "Если посмотреть на чертежи резервуаров, можно заметить одну вещь: вертикальные швы соседних поясов никогда не совпадают по одной линии. Это не случайность...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/56"
+                       ],
+        "publishedAt":  "2026-03-06T15:18:23+00:00"
+    },
+    {
+        "slug":  "pochemu-vysota-poyasov-rvs-obychno-1490-mm",
+        "url":  "/articles/pochemu-vysota-poyasov-rvs-obychno-1490-mm/index.html",
+        "title":  "Почему высота поясов РВС обычно ≈1490 мм",
+        "description":  "Если открыть чертежи резервуаров, можно заметить одну закономерность: высота поясов стенки почти всегда около 1490 мм. Это не требование ГОСТ и не «удобная...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/58"
+                       ],
+        "publishedAt":  "2026-03-07T08:40:35+00:00"
+    },
+    {
+        "slug":  "dyhatelnaya-armatura-rvs-zachem-ona-nuzhna-i-kak-ee-rasschityvayut",
+        "url":  "/articles/dyhatelnaya-armatura-rvs-zachem-ona-nuzhna-i-kak-ee-rasschityvayut/index.html",
+        "title":  "Дыхательная арматура РВС: зачем она нужна и как её рассчитывают",
+        "description":  "В резервуаре постоянно происходит обмен газовой среды. При закачке продукта давление растёт. При откачке или охлаждении возникает вакуум. Если газ не...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/59"
+                       ],
+        "publishedAt":  "2026-03-08T02:20:33+00:00"
+    },
+    {
+        "slug":  "pochemu-v-rvs-pochti-vsegda-ispolzuyut-dva-tipa-stali-09g2s-i-st3",
+        "url":  "/articles/pochemu-v-rvs-pochti-vsegda-ispolzuyut-dva-tipa-stali-09g2s-i-st3/index.html",
+        "title":  "Почему в РВС почти всегда используют два типа стали: 09Г2С и Ст3",
+        "description":  "Если посмотреть проекты резервуаров, почти везде встречаются одни и те же марки стали: 09Г2С Ст3сп5 Это не случайность и не «традиция проектировщиков». Эти...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/60"
+                       ],
+        "publishedAt":  "2026-03-08T13:38:13+00:00"
+    },
+    {
+        "slug":  "pochemu-dnishche-rvs-chashche-vsego-delayut-s-razuklonkoy",
+        "url":  "/articles/pochemu-dnishche-rvs-chashche-vsego-delayut-s-razuklonkoy/index.html",
+        "title":  "Почему днище РВС чаще всего делают с разуклонкой",
+        "description":  "Если посмотреть чертежи резервуаров, можно заметить: днище почти всегда имеет разуклонку от центра к стенке. Это не конструктивная «особенность», а...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/61"
+                       ],
+        "publishedAt":  "2026-03-08T17:45:12+00:00"
+    },
+    {
+        "slug":  "gost-31385-2023-osnovnoy-normativ-dlya-proektirovaniya-i-stroitelstva-vertikal",
+        "url":  "/articles/gost-31385-2023-osnovnoy-normativ-dlya-proektirovaniya-i-stroitelstva-vertikal/index.html",
+        "title":  "ГОСТ 31385-2023 - основной норматив для проектирования и строительства вертикальных стальных резервуаров",
+        "description":  "ГОСТ 31385-2023: что должен знать каждый специалист по РВС . Если работаете с РВС - этот документ определяет почти всё: от ТЗ до испытаний. 1⃣ Область...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/62"
+                       ],
+        "publishedAt":  "2026-03-09T04:22:19+00:00"
+    },
+    {
+        "slug":  "kolca-zhestkosti-odin-iz-klyuchevyh-elementov-ustoychivosti-rezervuara",
+        "url":  "/articles/kolca-zhestkosti-odin-iz-klyuchevyh-elementov-ustoychivosti-rezervuara/index.html",
+        "title":  "Кольца жёсткости - один из ключевых элементов устойчивости резервуара",
+        "description":  "Кольца жёсткости в РВС: зачем они нужны . Они предотвращают: • потерю устойчивости стенки • деформации при ветре • локальное смятие верхних поясов. 1⃣...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/64"
+                       ],
+        "publishedAt":  "2026-03-10T04:35:12+00:00"
+    },
+    {
+        "slug":  "pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy-65",
+        "url":  "/articles/pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy-65/index.html",
+        "title":  "Почему вертикальные швы стенки РВС делают с разбежкой",
+        "description":  "Если посмотреть на развертку стенки резервуара, можно заметить одну особенность: вертикальные швы соседних поясов не совпадают по одной линии. Это не...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/65"
+                       ],
+        "publishedAt":  "2026-03-10T14:12:53+00:00"
+    },
+    {
+        "slug":  "dnishche-rezervuara-kogda-primenyayut-kolcevye-okrayki-a-kogda-mozhno-oboytis",
+        "url":  "/articles/dnishche-rezervuara-kogda-primenyayut-kolcevye-okrayki-a-kogda-mozhno-oboytis/index.html",
+        "title":  "Днище резервуара: когда применяют кольцевые окрайки, а когда можно обойтись без них",
+        "description":  "При проектировании РВС один из первых конструктивных вопросов - тип днища. Используют два варианта: • днище с кольцевыми окрайками • днище без окраек...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/66"
+                       ],
+        "publishedAt":  "2026-03-11T04:59:46+00:00"
+    },
+    {
+        "slug":  "kak-vybirayut-tolshchinu-dnishcha-rvs-i-pochemu-centralnaya-chast-i-okrayka-ot",
+        "url":  "/articles/kak-vybirayut-tolshchinu-dnishcha-rvs-i-pochemu-centralnaya-chast-i-okrayka-ot/index.html",
+        "title":  "Как выбирают толщину днища РВС и почему центральная часть и окрайка отличаются",
+        "description":  "При проектировании резервуара днище никогда не рассматривают как один элемент. По ГОСТ 31385 оно делится на две зоны: • центральная часть (поле днища) •...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/67"
+                       ],
+        "publishedAt":  "2026-03-11T05:13:07+00:00"
+    },
+    {
+        "slug":  "pochemu-v-rezervuarah-pochti-vsegda-ispolzuyut-tipovye-diametry",
+        "url":  "/articles/pochemu-v-rezervuarah-pochti-vsegda-ispolzuyut-tipovye-diametry/index.html",
+        "title":  "Почему в резервуарах почти всегда используют типовые диаметры",
+        "description":  "Если открыть проекты РВС, можно заметить одну закономерность. Диаметры резервуаров почти всегда повторяются: 9 м 12 м 15 м 18 м 22.8 м 28.5 м 34.2 м 45.6 м...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/68"
+                       ],
+        "publishedAt":  "2026-03-11T08:27:08+00:00"
+    },
+    {
+        "slug":  "pochemu-rezervuary-2000-m-inogda-delayut-iz-dvuh-poloten",
+        "url":  "/articles/pochemu-rezervuary-2000-m-inogda-delayut-iz-dvuh-poloten/index.html",
+        "title":  "Почему резервуары 2000+ м³ иногда делают из двух полотен",
+        "description":  "Если посмотреть проекты РВС небольших объёмов, стенка обычно выполняется из одного полотна. Но начиная примерно с 2000 м³ часто можно встретить резервуары,...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/69"
+                       ],
+        "publishedAt":  "2026-03-12T04:44:50+00:00"
+    },
+    {
+        "slug":  "gidroispytaniya-rvs-chto-na-samom-dele-proveryayut-krome-germetichnosti",
+        "url":  "/articles/gidroispytaniya-rvs-chto-na-samom-dele-proveryayut-krome-germetichnosti/index.html",
+        "title":  "Гидроиспытания РВС: что на самом деле проверяют кроме герметичности",
+        "description":  "На практике гидроиспытания иногда воспринимают слишком упрощённо: залили резервуар водой, посмотрели - течи нет, значит всё нормально. Но для РВС это...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/70"
+                       ],
+        "publishedAt":  "2026-03-13T11:11:22+00:00"
+    },
+    {
+        "slug":  "pochemu-rezervuary-chashche-vsego-razrushayutsya-ne-po-stenke",
+        "url":  "/articles/pochemu-rezervuary-chashche-vsego-razrushayutsya-ne-po-stenke/index.html",
+        "title":  "Почему резервуары чаще всего разрушаются не по стенке",
+        "description":  "Когда говорят о прочности РВС, большинство сразу думает о стенке. Толщина поясов, ветровая устойчивость, вакуум, кольца жёсткости. Но статистика дефектов...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/71"
+                       ],
+        "publishedAt":  "2026-03-13T11:29:44+00:00"
+    },
+    {
+        "slug":  "pochemu-vakuum-odna-iz-samyh-opasnyh-nagruzok-dlya-rvs",
+        "url":  "/articles/pochemu-vakuum-odna-iz-samyh-opasnyh-nagruzok-dlya-rvs/index.html",
+        "title":  "Почему вакуум - одна из самых опасных нагрузок для РВС",
+        "description":  "Когда говорят о нагрузках на резервуар, чаще вспоминают: - гидростатическое давление - снег - ветер - сейсмику Но есть нагрузка, которая может обрушить...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/72"
+                       ],
+        "publishedAt":  "2026-03-13T11:38:09+00:00"
+    },
+    {
+        "slug":  "inogda-posle-zaversheniya-montazha-rvs-mozhno-zametit",
+        "url":  "/articles/inogda-posle-zaversheniya-montazha-rvs-mozhno-zametit/index.html",
+        "title":  "Иногда после завершения монтажа РВС можно заметить",
+        "description":  "Почему резервуары иногда «ведёт» после монтажа : - небольшие отклонения по вертикали - локальные выпучивания - неидеальную геометрию стенки И часто...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/73"
+                       ],
+        "publishedAt":  "2026-03-13T11:50:18+00:00"
+    },
+    {
+        "slug":  "pochemu-u-rezervuarov-poyavlyayutsya-skladki-na-stenke",
+        "url":  "/articles/pochemu-u-rezervuarov-poyavlyayutsya-skladki-na-stenke/index.html",
+        "title":  "Почему у резервуаров появляются «складки» на стенке",
+        "description":  "Иногда на резервуарах можно увидеть характерные вертикальные или диагональные складки на стенке. На первый взгляд кажется, что это дефект металла или...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/74"
+                       ],
+        "publishedAt":  "2026-03-14T04:04:01+00:00"
+    },
+    {
+        "slug":  "kakie-metody-svarki-ispolzuyut-pri-stroitelstve-rezervuarov",
+        "url":  "/articles/kakie-metody-svarki-ispolzuyut-pri-stroitelstve-rezervuarov/index.html",
+        "title":  "Какие методы сварки используют при строительстве резервуаров",
+        "description":  "Резервуары РВС - это десятки метров сварных швов. От качества сварки напрямую зависит герметичность и прочность всей конструкции. На практике при...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/75"
+                       ],
+        "publishedAt":  "2026-03-15T02:59:57+00:00"
+    },
+    {
+        "slug":  "zapustil-sayt-kalkulyator-po-rezervuarostroeniyu",
+        "url":  "/articles/zapustil-sayt-kalkulyator-po-rezervuarostroeniyu/index.html",
+        "title":  "Запустил сайт-калькулятор по резервуаростроению",
+        "description":  "Сделал отдельный сайт-калькулятор для тех, кто работает с резервуарами и хочет быстрее получать предварительные параметры без постоянных ручных прикидок....",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/76"
+                       ],
+        "publishedAt":  "2026-03-15T08:56:49+00:00"
+    },
+    {
+        "slug":  "rulonirovanie-rvs-gde-zakanchivaetsya-tehnologiya-i-nachinayutsya-oshibki-v-do",
+        "url":  "/articles/rulonirovanie-rvs-gde-zakanchivaetsya-tehnologiya-i-nachinayutsya-oshibki-v-do/index.html",
+        "title":  "Рулонирование РВС: где заканчивается технология и начинаются ошибки в документах",
+        "description":  "Вокруг рулонирования до сих пор много путаницы. Кто-то до сих пор считает, что это «старый» метод. Кто-то пытается оформить на него отдельный акт, как...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/77"
+                       ],
+        "publishedAt":  "2026-03-16T04:45:45+00:00"
+    },
+    {
+        "slug":  "nerazrushayushchiy-kontrol-pri-izgotovlenii-rvs",
+        "url":  "/articles/nerazrushayushchiy-kontrol-pri-izgotovlenii-rvs/index.html",
+        "title":  "Неразрушающий контроль при изготовлении РВС",
+        "description":  ": где заканчивается формальность и начинается реальное качество Когда говорят о качестве резервуара, многие до сих пор сводят всё к одной фразе: «Швы...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/78"
+                       ],
+        "publishedAt":  "2026-03-16T07:10:10+00:00"
+    },
+    {
+        "slug":  "laboratoriya-nk-pri-izgotovlenii-rvs-chto-proveryayut-gde-proveryayut-i-v-kako",
+        "url":  "/articles/laboratoriya-nk-pri-izgotovlenii-rvs-chto-proveryayut-gde-proveryayut-i-v-kako/index.html",
+        "title":  "Лаборатория НК при изготовлении РВС: что проверяют, где проверяют и в каком объёме",
+        "description":  "Когда в резервуаростроении говорят: «лаборатория всё проверила», обычно это звучит слишком обобщённо. На практике у лаборатории НК по РВС есть вполне...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/79",
+                           "https://t.me/rvs_pro/80"
+                       ],
+        "publishedAt":  "2026-03-16T09:21:00+00:00"
+    },
+    {
+        "slug":  "kakie-zony-rvs-laboratoriya-dolzhna-kontrolirovat-osobenno-vnimatelno",
+        "url":  "/articles/kakie-zony-rvs-laboratoriya-dolzhna-kontrolirovat-osobenno-vnimatelno/index.html",
+        "title":  "Какие зоны РВС лаборатория должна контролировать особенно внимательно",
+        "description":  "Когда говорят о неразрушающем контроле резервуара, часто создаётся ощущение, что все швы одинаково важны. Но на практике это не так. В РВС есть зоны, где...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/81"
+                       ],
+        "publishedAt":  "2026-03-17T05:19:21+00:00"
+    },
+    {
+        "slug":  "kogda-po-rezervuaru-govoryat",
+        "url":  "/articles/kogda-po-rezervuaru-govoryat/index.html",
+        "title":  "Когда по резервуару говорят",
+        "description":  "5 ошибок лаборатории НК при контроле РВС : «лаборатория всё проверила», это ещё вообще ничего не значит. Потому что сам факт контроля не гарантирует...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/82"
+                       ],
+        "publishedAt":  "2026-03-17T14:55:14+00:00"
+    },
+    {
+        "slug":  "pochemu-gorizontalnyy-rezervuar-eto-ne-prosto-malenkiy-rvs",
+        "url":  "/articles/pochemu-gorizontalnyy-rezervuar-eto-ne-prosto-malenkiy-rvs/index.html",
+        "title":  "Почему горизонтальный резервуар - это не “просто маленький РВС”",
+        "description":  "Когда речь заходит о резервуарах, многие по привычке мыслят через РВС. Но горизонтальный резервуар работает совсем по-другому. И главная ошибка здесь -...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/83"
+                       ],
+        "publishedAt":  "2026-03-18T04:26:50+00:00"
+    },
+    {
+        "slug":  "opory-gorizontalnogo-rezervuara-uzel-na-kotorom-chasto-ekonomyat-zrya",
+        "url":  "/articles/opory-gorizontalnogo-rezervuara-uzel-na-kotorom-chasto-ekonomyat-zrya/index.html",
+        "title":  "Опоры горизонтального резервуара: узел, на котором часто экономят зря",
+        "description":  "Когда смотрят на горизонтальный резервуар, чаще всего обсуждают: - толщину корпуса - сварные швы - патрубки - объём Но очень часто недооценивают именно...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/84"
+                       ],
+        "publishedAt":  "2026-03-18T08:22:36+00:00"
+    },
+    {
+        "slug":  "pochemu-rezervuar-na-bumage-normalnyy-a-na-montazhe-nachinayutsya-problemy",
+        "url":  "/articles/pochemu-rezervuar-na-bumage-normalnyy-a-na-montazhe-nachinayutsya-problemy/index.html",
+        "title":  "Почему резервуар “на бумаге” нормальный, а на монтаже начинаются проблемы",
+        "description":  "Одна из частых ошибок в резервуаростроении - рассматривать проект, изготовление и монтаж как отдельные этапы, а не как одну систему. На стадии расчёта и КМ...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/85"
+                       ],
+        "publishedAt":  "2026-03-20T11:27:47+00:00"
+    },
+    {
+        "slug":  "v-rezervuarostroenii-chasto-osnovnoe-vnimanie-uhodit-na-raschet-metall-svarku",
+        "url":  "/articles/v-rezervuarostroenii-chasto-osnovnoe-vnimanie-uhodit-na-raschet-metall-svarku/index.html",
+        "title":  "В резервуаростроении часто основное внимание уходит на расчёт, металл, сварку и монтаж",
+        "description":  "Почему ошибки в исполнительной документации вспоминают слишком поздно . Это понятно: именно там виден “физический” результат работы. Но на практике один из...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/86"
+                       ],
+        "publishedAt":  "2026-03-21T05:38:31+00:00"
+    },
+    {
+        "slug":  "pochemu-dazhe-horoshiy-proekt-rvs-mozhet-sozdat-problemy-v-cehu",
+        "url":  "/articles/pochemu-dazhe-horoshiy-proekt-rvs-mozhet-sozdat-problemy-v-cehu/index.html",
+        "title":  "Почему даже хороший проект РВС может создать проблемы в цеху",
+        "description":  "В проектной документации всё может выглядеть правильно: толщины подобраны, узлы проработаны, требования норм учтены. Но когда документация доходит до...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/87"
+                       ],
+        "publishedAt":  "2026-03-21T11:55:34+00:00"
+    },
+    {
+        "slug":  "pochemu-raschet-rvs-sam-po-sebe-eshche-ne-garantiruet-horoshiy-proekt",
+        "url":  "/articles/pochemu-raschet-rvs-sam-po-sebe-eshche-ne-garantiruet-horoshiy-proekt/index.html",
+        "title":  "Почему расчёт РВС сам по себе ещё не гарантирует хороший проект",
+        "description":  "В инженерной практике иногда есть опасная иллюзия: если расчёт выполнен корректно, значит проект уже можно считать хорошим. Но в резервуаростроении этого...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/88"
+                       ],
+        "publishedAt":  "2026-03-22T02:27:52+00:00"
+    },
+    {
+        "slug":  "gorizontalnye-rezervuary-po-kakim-normam-ih-voobshche-pravilno-proektirovat",
+        "url":  "/articles/gorizontalnye-rezervuary-po-kakim-normam-ih-voobshche-pravilno-proektirovat/index.html",
+        "title":  "Горизонтальные резервуары: по каким нормам их вообще правильно проектировать",
+        "description":  "Когда речь заходит о горизонтальных резервуарах, на практике часто возникает путаница: кто-то смотрит только на конструкцию, кто-то только на пожарные...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/89",
+                           "https://t.me/rvs_pro/90"
+                       ],
+        "publishedAt":  "2026-03-23T05:06:25+00:00"
+    },
+    {
+        "slug":  "gorizontalnyy-rezervuar-gde-chashche-vsego-oshibayutsya-eshche-do-rascheta",
+        "url":  "/articles/gorizontalnyy-rezervuar-gde-chashche-vsego-oshibayutsya-eshche-do-rascheta/index.html",
+        "title":  "Горизонтальный резервуар: где чаще всего ошибаются ещё до расчёта",
+        "description":  "Одна из самых частых проблем в работе с горизонтальными резервуарами начинается не на стадии расчёта толщин и не на стадии выпуска чертежей. Она начинается...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/91"
+                       ],
+        "publishedAt":  "2026-03-24T06:04:13+00:00"
+    },
+    {
+        "slug":  "gorizontalnye-rezervuary-s-chego-pravilno-nachinat-proektirovanie",
+        "url":  "/articles/gorizontalnye-rezervuary-s-chego-pravilno-nachinat-proektirovanie/index.html",
+        "title":  "Горизонтальные резервуары: с чего правильно начинать проектирование",
+        "description":  "При работе с горизонтальными резервуарами важна не только сама конструкция, но и правильный порядок принятия решений на старте проекта. На практике хороший...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/92"
+                       ],
+        "publishedAt":  "2026-03-25T05:31:05+00:00"
+    },
+    {
+        "slug":  "gorizontalnye-rezervuary-pochemu-opory-nuzhno-produmyvat-v-sostave-vsey-konstr",
+        "url":  "/articles/gorizontalnye-rezervuary-pochemu-opory-nuzhno-produmyvat-v-sostave-vsey-konstr/index.html",
+        "title":  "Горизонтальные резервуары: почему опоры нужно продумывать в составе всей конструкции",
+        "description":  "При проектировании горизонтального резервуара опоры часто воспринимают как вспомогательный элемент: есть корпус, есть днища, есть патрубки - значит опоры...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/93"
+                       ],
+        "publishedAt":  "2026-03-26T04:54:31+00:00"
+    },
+    {
+        "slug":  "raschet-tolshchiny-obechayki-gorizontalnogo-rezervuara-pod-vnutrennim-davlenie",
+        "url":  "/articles/raschet-tolshchiny-obechayki-gorizontalnogo-rezervuara-pod-vnutrennim-davlenie/index.html",
+        "title":  "Расчет толщины обечайки горизонтального резервуара под внутренним давлением",
+        "description":  "При работе с горизонтальными резервуарами важно сразу правильно определить нормативную ветку расчета. Если речь идет об атмосферном горизонтальном...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/96",
+                           "https://t.me/rvs_pro/97"
+                       ],
+        "publishedAt":  "2026-03-27T05:14:50+00:00"
+    },
+    {
+        "slug":  "ellipticheskie-dnishcha-gorizontalnogo-rezervuara-pochemu-ih-tozhe-nelzya-osta",
+        "url":  "/articles/ellipticheskie-dnishcha-gorizontalnogo-rezervuara-pochemu-ih-tozhe-nelzya-osta/index.html",
+        "title":  "Эллиптические днища горизонтального резервуара: почему их тоже нельзя “оставлять на потом”",
+        "description":  "При расчете горизонтального резервуара под внутренним избыточным давлением внимание часто в первую очередь уходит на обечайку. Это логично: именно...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/98"
+                       ],
+        "publishedAt":  "2026-03-28T08:10:45+00:00"
+    },
+    {
+        "slug":  "kak-schitat-tolshchinu-ellipticheskogo-dnishcha-gorizontalnogo-rezervuara",
+        "url":  "/articles/kak-schitat-tolshchinu-ellipticheskogo-dnishcha-gorizontalnogo-rezervuara/index.html",
+        "title":  "Как считать толщину эллиптического днища горизонтального резервуара",
+        "description":  "Когда рассчитывают горизонтальный резервуар под внутренним избыточным давлением, важно проверять не только обечайку, но и эллиптические днища. Если...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/99"
+                       ],
+        "publishedAt":  "2026-03-29T05:58:25+00:00"
+    },
+    {
+        "slug":  "kak-ocenit-nagruzku-ot-grunta-na-obechayku-podzemnogo-rezervuara",
+        "url":  "/articles/kak-ocenit-nagruzku-ot-grunta-na-obechayku-podzemnogo-rezervuara/index.html",
+        "title":  "Как оценить нагрузку от грунта на обечайку подземного резервуара",
+        "description":  "Когда проектируют подземный горизонтальный резервуар, важно учитывать не только внутреннее давление, но и наружную нагрузку от грунта. На практике это один...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/100"
+                       ],
+        "publishedAt":  "2026-03-30T05:27:45+00:00"
+    },
+    {
+        "slug":  "kakie-dnishcha-byvayut-u-gorizontalnogo-rezervuara-i-ot-chego-zavisit-ih-vybor",
+        "url":  "/articles/kakie-dnishcha-byvayut-u-gorizontalnogo-rezervuara-i-ot-chego-zavisit-ih-vybor/index.html",
+        "title":  "Какие днища бывают у горизонтального резервуара и от чего зависит их выбор",
+        "description":  "При проектировании горизонтального резервуара днище - это не просто элемент, который закрывает корпус. Тип днища влияет сразу на несколько вещей: -...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/101",
+                           "https://t.me/rvs_pro/102"
+                       ],
+        "publishedAt":  "2026-03-31T04:46:42+00:00"
+    },
+    {
+        "slug":  "kak-schitayutsya-homuty-ot-vsplytiya-podzemnogo-rezervuara",
+        "url":  "/articles/kak-schitayutsya-homuty-ot-vsplytiya-podzemnogo-rezervuara/index.html",
+        "title":  "Как считаются хомуты от всплытия подземного резервуара",
+        "description":  "Для подземного горизонтального резервуара хомуты нужны тогда, когда есть риск всплытия пустого или частично заполненного резервуара при высоком уровне...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/105",
+                           "https://t.me/rvs_pro/106"
+                       ],
+        "publishedAt":  "2026-04-01T05:16:26+00:00"
+    },
+    {
+        "slug":  "kak-proveryat-mestnuyu-prochnost-obechayki-v-zone-ustanovki-homuta",
+        "url":  "/articles/kak-proveryat-mestnuyu-prochnost-obechayki-v-zone-ustanovki-homuta/index.html",
+        "title":  "Как проверять местную прочность обечайки в зоне установки хомута",
+        "description":  "Когда подземный резервуар защищают от всплытия хомутами, недостаточно посчитать только общую выталкивающую силу воды и усилие в ленте. Следующий важный...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/107"
+                       ],
+        "publishedAt":  "2026-04-02T04:11:52+00:00"
+    },
+    {
+        "slug":  "kogda-pod-homuty-ot-vsplytiya-nuzhny-usilivayushchie-nakladki",
+        "url":  "/articles/kogda-pod-homuty-ot-vsplytiya-nuzhny-usilivayushchie-nakladki/index.html",
+        "title":  "Когда под хомуты от всплытия нужны усиливающие накладки",
+        "description":  "При проектировании подземного резервуара хомуты от всплытия часто сначала рассматривают как отдельный элемент: посчитали усилие, подобрали ленту, назначили...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/108",
+                           "https://t.me/rvs_pro/109"
+                       ],
+        "publishedAt":  "2026-04-03T04:53:04+00:00"
+    },
+    {
+        "slug":  "kogda-ankera-ot-vsplytiya-ne-reshayut-zadachu",
+        "url":  "/articles/kogda-ankera-ot-vsplytiya-ne-reshayut-zadachu/index.html",
+        "title":  "Когда анкера от всплытия не решают задачу",
+        "description":  "При расчете подземного резервуара борьбу со всплытием часто упрощают: посчитали выталкивающую силу → подобрали анкера или балласт → считают, что вопрос...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/110"
+                       ],
+        "publishedAt":  "2026-04-04T16:59:24+00:00"
+    },
+    {
+        "slug":  "kak-na-samom-dele-schitaetsya-obechayka-vertikalnogo-rezervuara",
+        "url":  "/articles/kak-na-samom-dele-schitaetsya-obechayka-vertikalnogo-rezervuara/index.html",
+        "title":  "Как на самом деле считается обечайка вертикального резервуара",
+        "description":  "Когда говорят: «посчитали стенку резервуара», чаще всего по факту имеют в виду только гидростатику. То есть: посчитали давление от столба продукта →...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/111"
+                       ],
+        "publishedAt":  "2026-04-05T04:09:07+00:00"
+    },
+    {
+        "slug":  "pochemu-minimalnaya-tolshchina-po-gost-eto-ne-zapas",
+        "url":  "/articles/pochemu-minimalnaya-tolshchina-po-gost-eto-ne-zapas/index.html",
+        "title":  "Почему минимальная толщина по ГОСТ - это не “запас”",
+        "description":  "Очень часто вижу одну и ту же логику: если по ГОСТ минимальная толщина 4 мм или 6 мм, значит этого и достаточно. Но это не совсем так. Потому что в...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/112"
+                       ],
+        "publishedAt":  "2026-04-06T06:37:51+00:00"
+    },
+    {
+        "slug":  "vidy-obogreva-rezervuara-i-produkta-chto-realno-rabotaet-a-chto-sozdaet-novye",
+        "url":  "/articles/vidy-obogreva-rezervuara-i-produkta-chto-realno-rabotaet-a-chto-sozdaet-novye/index.html",
+        "title":  "Виды обогрева резервуара и продукта: что реально работает, а что создает новые проблемы",
+        "description":  "Когда говорят про обогрев резервуара, очень часто все сводят к одной фразе: “Нужно просто подогреть продукт”. Но на практике вопрос стоит шире. Нужно...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/113",
+                           "https://t.me/rvs_pro/114"
+                       ],
+        "publishedAt":  "2026-04-08T06:30:07+00:00"
+    },
+    {
+        "slug":  "kak-rasschitat-vnutrenniy-zmeevik-obogreva-rezervuara",
+        "url":  "/articles/kak-rasschitat-vnutrenniy-zmeevik-obogreva-rezervuara/index.html",
+        "title":  "Как рассчитать внутренний змеевик обогрева резервуара",
+        "description":  "Когда говорят: “Поставим внутрь змеевик и все будет греться”, обычно забывают главный вопрос: а какая именно тепловая мощность нужна? Потому что внутренний...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/115",
+                           "https://t.me/rvs_pro/116"
+                       ],
+        "publishedAt":  "2026-04-09T09:22:46+00:00"
+    },
+    {
+        "slug":  "pochemu-obogrev-produkta-rabotaet-a-rezervuar-vse-ravno-ne-vyhodit-na-rezhim",
+        "url":  "/articles/pochemu-obogrev-produkta-rabotaet-a-rezervuar-vse-ravno-ne-vyhodit-na-rezhim/index.html",
+        "title":  "Почему обогрев продукта работает, а резервуар все равно не выходит на режим",
+        "description":  "Очень часто на объекте говорят так: “Подогрев есть, теплоноситель идет, а продукт все равно греется слишком долго”. И дальше обычно начинают искать...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/117"
+                       ],
+        "publishedAt":  "2026-04-11T06:50:12+00:00"
+    },
+    {
+        "slug":  "kak-rasschitat-obogrev-rezervuara-greyushchim-kabelem",
+        "url":  "/articles/kak-rasschitat-obogrev-rezervuara-greyushchim-kabelem/index.html",
+        "title":  "Как рассчитать обогрев резервуара греющим кабелем",
+        "description":  "Когда говорят: “Поставим кабель на стенку резервуара и все будет греться”, обычно пропускают главный этап: сначала считается не кабель, а тепловая задача....",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/118"
+                       ],
+        "publishedAt":  "2026-04-13T04:24:01+00:00"
+    },
+    {
+        "slug":  "molniepriemnik-na-rezervuare-kogda-on-realno-rabotaet-a-kogda-eto-prosto-shtyr",
+        "url":  "/articles/molniepriemnik-na-rezervuare-kogda-on-realno-rabotaet-a-kogda-eto-prosto-shtyr/index.html",
+        "title":  "Молниеприемник на резервуаре: когда он реально работает, а когда это просто “штырь для галочки”",
+        "description":  "Когда в проекте доходят до молниезащиты резервуара, очень часто логика такая: “Поставим молниеприемник - и вопрос закрыт”. Но по факту сам по себе...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/119"
+                       ],
+        "publishedAt":  "2026-04-14T16:44:46+00:00"
+    },
+    {
+        "slug":  "kak-rasschityvaetsya-vysota-molniepriemnika-na-rezervuare",
+        "url":  "/articles/kak-rasschityvaetsya-vysota-molniepriemnika-na-rezervuare/index.html",
+        "title":  "Как рассчитывается высота молниеприемника на резервуаре",
+        "description":  "Очень часто по молниезащите логика простая: “Поставим штырь 2-3 метра, и этого хватит”. Но высота молниеприемника не назначается “на глаз”. Она...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/120"
+                       ],
+        "publishedAt":  "2026-04-16T05:22:41+00:00"
+    },
+    {
+        "slug":  "bandazhi-na-bakah-akkumulyatorah-goryachey-vody-zachem-oni-nuzhny-i-chem-otlic",
+        "url":  "/articles/bandazhi-na-bakah-akkumulyatorah-goryachey-vody-zachem-oni-nuzhny-i-chem-otlic/index.html",
+        "title":  "Бандажи на баках-аккумуляторах горячей воды: зачем они нужны и чем отличаются от колец жесткости",
+        "description":  "Есть элементы, которые внешне можно принять за кольца жесткости. Но по факту они работают совсем по другой логике. Один из таких элементов - бандажи на...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/121",
+                           "https://t.me/rvs_pro/122"
+                       ],
+        "publishedAt":  "2026-04-19T03:48:38+00:00"
+    },
+    {
+        "slug":  "bandazhi-na-bake-akkumulyatore-kak-opredelit-kolichestvo-i-otmetki-ustanovki",
+        "url":  "/articles/bandazhi-na-bake-akkumulyatore-kak-opredelit-kolichestvo-i-otmetki-ustanovki/index.html",
+        "title":  "Бандажи на баке-аккумуляторе: как определить количество и отметки установки",
+        "description":  "После того как конструкция бандажа понятна, появляется следующий вопрос: сколько бандажей ставить и на каких отметках? Вот здесь не стоит идти по пути:...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/123",
+                           "https://t.me/rvs_pro/124"
+                       ],
+        "publishedAt":  "2026-04-20T13:28:23+00:00"
+    },
+    {
+        "slug":  "lestnicy-na-vertikalnyh-rezervuarah-pochemu-eto-ne-prosto-dostup-na-kryshu",
+        "url":  "/articles/lestnicy-na-vertikalnyh-rezervuarah-pochemu-eto-ne-prosto-dostup-na-kryshu/index.html",
+        "title":  "Лестницы на вертикальных резервуарах: почему это не просто “доступ на крышу”",
+        "description":  "Лестницу на резервуаре часто воспринимают как второстепенный элемент. Основное внимание обычно уходит на: - стенку; - днище; - крышу; - патрубки; - анкера;...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/125",
+                           "https://t.me/rvs_pro/126"
+                       ],
+        "publishedAt":  "2026-04-22T04:45:54+00:00"
+    },
+    {
+        "slug":  "okrayka-dnishcha-zachem-ona-voobshche-nuzhna-i-pochemu-eto-ne-prosto-list-poto",
+        "url":  "/articles/okrayka-dnishcha-zachem-ona-voobshche-nuzhna-i-pochemu-eto-ne-prosto-list-poto/index.html",
+        "title":  "Окрайка днища: зачем она вообще нужна и почему это не просто “лист потолще под стенкой”",
+        "description":  "Когда смотрят на днище резервуара, часто думают так: есть центральная часть, есть край под стенкой, ну значит по краю просто положили металл потолще. Но...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/127",
+                           "https://t.me/rvs_pro/128"
+                       ],
+        "publishedAt":  "2026-04-23T19:09:31+00:00"
+    },
+    {
+        "slug":  "patrubki-v-stenke-rezervuara-pochemu-eto-ne-prosto-vyrezat-otverstie-i-vvarit",
+        "url":  "/articles/patrubki-v-stenke-rezervuara-pochemu-eto-ne-prosto-vyrezat-otverstie-i-vvarit/index.html",
+        "title":  "Патрубки в стенке резервуара: почему это не просто “вырезать отверстие и вварить трубу”",
+        "description":  "Очень часто к патрубкам в стенке относятся слишком просто. Логика обычно такая: нужен ввод или вывод продукта → делаем отверстие в стенке → ввариваем...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/129",
+                           "https://t.me/rvs_pro/130"
+                       ],
+        "publishedAt":  "2026-04-27T04:29:42+00:00"
+    },
+    {
+        "slug":  "neravnomernaya-osadka-rezervuara-pochemu-problema-chasto-nachinaetsya-ne-v-met",
+        "url":  "/articles/neravnomernaya-osadka-rezervuara-pochemu-problema-chasto-nachinaetsya-ne-v-met/index.html",
+        "title":  "Неравномерная осадка резервуара: почему проблема часто начинается не в металле, а в основании",
+        "description":  "Когда на резервуаре появляются: - перекосы; - овальность; - локальные деформации; - напряженные зоны у днища и стенки; - проблемы с патрубками и...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/131",
+                           "https://t.me/rvs_pro/132"
+                       ],
+        "publishedAt":  "2026-04-28T04:50:19+00:00"
+    },
+    {
+        "slug":  "rulonnaya-ili-polistovaya-sborka-rvs-gde-kakaya-shema-deystvitelno-umestna",
+        "url":  "/articles/rulonnaya-ili-polistovaya-sborka-rvs-gde-kakaya-shema-deystvitelno-umestna/index.html",
+        "title":  "Рулонная или полистовая сборка РВС: где какая схема действительно уместна",
+        "description":  "Когда обсуждают изготовление резервуара, часто вопрос звучит очень просто: “Делаем рулонкой или полистово?” Но на практике это не просто выбор технологии....",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/133",
+                           "https://t.me/rvs_pro/134"
+                       ],
+        "publishedAt":  "2026-04-29T04:32:23+00:00"
+    },
+    {
+        "slug":  "lyuki-lazy-v-rezervuare-pochemu-eto-ne-prosto-otverstie-dlya-dostupa",
+        "url":  "/articles/lyuki-lazy-v-rezervuare-pochemu-eto-ne-prosto-otverstie-dlya-dostupa/index.html",
+        "title":  "Люки-лазы в резервуаре: почему это не просто “отверстие для доступа”",
+        "description":  "Люк-лаз в резервуаре часто воспринимают как обычный эксплуатационный элемент. Нужен доступ внутрь резервуара → поставили люк → закрыли вопрос. Но на...",
+        "category":  "rgs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/135"
+                       ],
+        "publishedAt":  "2026-04-30T08:53:57+00:00"
+    },
+    {
+        "slug":  "lyuk-i-teploizolyaciya-rezervuara",
+        "url":  "/articles/lyuk-i-teploizolyaciya-rezervuara/index.html",
+        "title":  "Люк и теплоизоляция резервуара",
+        "description":  "Люк и теплоизоляция Если резервуар утепленный, люк-лаз становится еще сложнее. Нужно продумать: - как обходится теплоизоляция; - как открыть крышку; - как...",
+        "category":  "rvs",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/136"
+                       ],
+        "publishedAt":  "2026-04-30T08:53:57+00:00"
+    },
+    {
+        "slug":  "sug-eto-uzhe-ne-obychnyy-rezervuar-a-sosud-pod-davleniem",
+        "url":  "/articles/sug-eto-uzhe-ne-obychnyy-rezervuar-a-sosud-pod-davleniem/index.html",
+        "title":  "СУГ - это уже не обычный резервуар, а сосуд под давлением",
+        "description":  "Когда говорят: “Нужно сделать емкость под СУГ”, очень часто слово “емкость” сбивает с толку. Потому что у многих сразу в голове появляется обычный...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/137",
+                           "https://t.me/rvs_pro/138"
+                       ],
+        "publishedAt":  "2026-05-02T15:55:01+00:00"
+    },
+    {
+        "slug":  "opory-gorizontalnoy-emkosti-pochemu-eto-ne-prosto-dve-sedlovye-podstavki",
+        "url":  "/articles/opory-gorizontalnoy-emkosti-pochemu-eto-ne-prosto-dve-sedlovye-podstavki/index.html",
+        "title":  "Опоры горизонтальной емкости: почему это не просто “две седловые подставки”",
+        "description":  "Когда проектируют горизонтальную емкость, например под СУГ, часто внимание уходит на корпус: - обечайку; - днища; - штуцера; - толщину стенки; - расчетное...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/139",
+                           "https://t.me/rvs_pro/140"
+                       ],
+        "publishedAt":  "2026-05-05T07:15:26+00:00"
+    },
+    {
+        "slug":  "ispytaniya-emkosti-sug-chto-proveryayut-i-v-kakom-obeme",
+        "url":  "/articles/ispytaniya-emkosti-sug-chto-proveryayut-i-v-kakom-obeme/index.html",
+        "title":  "Испытания емкости СУГ: что проверяют и в каком объеме",
+        "description":  "Когда речь идет про емкость для СУГ, нельзя воспринимать ее как обычный резервуар. СУГ хранится под избыточным давлением. А значит, емкость работает как...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/141"
+                       ],
+        "publishedAt":  "2026-05-07T05:24:47+00:00"
+    },
+    {
+        "slug":  "chto-smotryat-pri-gidroispytanii",
+        "url":  "/articles/chto-smotryat-pri-gidroispytanii/index.html",
+        "title":  "Что смотрят при гидроиспытании",
+        "description":  "Во время испытания проверяют: - нет ли течи; - нет ли потения швов; - нет ли видимых деформаций; - нет ли падения давления; - нет ли остаточных деформаций...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/142"
+                       ],
+        "publishedAt":  "2026-05-07T05:24:47+00:00"
+    },
+    {
+        "slug":  "chto-oformlyaetsya-posle-ispytaniy",
+        "url":  "/articles/chto-oformlyaetsya-posle-ispytaniy/index.html",
+        "title":  "Что оформляется после испытаний",
+        "description":  "После испытаний должны быть оформлены: - протоколы контроля сварных соединений; - результаты ВИК; - результаты УЗК или РК; - протокол гидравлического или...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/143"
+                       ],
+        "publishedAt":  "2026-05-07T05:24:47+00:00"
+    },
+    {
+        "slug":  "diafragmy-i-kolca-zhestkosti-na-rgs-zachem-oni-nuzhny-i-gde-chashche-vsego-osh",
+        "url":  "/articles/diafragmy-i-kolca-zhestkosti-na-rgs-zachem-oni-nuzhny-i-gde-chashche-vsego-osh/index.html",
+        "title":  "Диафрагмы и кольца жесткости на РГС: зачем они нужны и где чаще всего ошибаются",
+        "description":  "В горизонтальных стальных резервуарах часто встречаются два элемента: - диафрагмы; - кольца жесткости. Внешне для неспециалиста это просто “усиление внутри...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/145",
+                           "https://t.me/rvs_pro/146"
+                       ],
+        "publishedAt":  "2026-05-13T04:49:01+00:00"
+    },
+    {
+        "slug":  "kak-rasschityvayutsya-diafragmy-na-rgs",
+        "url":  "/articles/kak-rasschityvayutsya-diafragmy-na-rgs/index.html",
+        "title":  "Как рассчитываются диафрагмы на РГС",
+        "description":  "После того как мы разобрали, зачем на РГС применяют диафрагмы, логичный вопрос: а как их вообще считать? Здесь важно сразу разделить два момента. Диафрагма...",
+        "category":  "sug",
+        "sourceUrls":  [
+                           "https://t.me/rvs_pro/147",
+                           "https://t.me/rvs_pro/148"
+                       ],
+        "publishedAt":  "2026-05-14T02:34:45+00:00"
+    }
 ]

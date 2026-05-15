@@ -119,7 +119,7 @@ function makeTitle(text, category, id) {
     .filter(Boolean);
   const directSubjectTitle = lines.find((line) => /^люк и теплоизоляция\b/i.test(line));
   if (directSubjectTitle) return "Люк и теплоизоляция резервуара";
-  const title = chooseThematicTitle(lines, category) ?? `${CATEGORIES[category].label}: материал из Telegram ${id}`;
+  const title = chooseThematicTitle(lines, category) ?? `${CATEGORIES[category].label}: инженерный материал ${id}`;
   return normalizeTitle(title).replace(/[.?!:;,\s]+$/g, "").slice(0, 110);
 }
 
@@ -269,7 +269,7 @@ async function fetchAllMessages() {
   for (let page = 0; page < 30 && url && !seenPages.has(url); page += 1) {
     seenPages.add(url);
     const response = await fetchWithRetry(url);
-    if (!response.ok) throw new Error(`Telegram returned ${response.status} for ${url}`);
+    if (!response.ok) throw new Error(`Remote source returned ${response.status} for ${url}`);
     const html = await response.text();
 
     for (const message of parseMessages(html)) {
@@ -292,7 +292,7 @@ async function fetchWithRetry(url) {
         headers: { "User-Agent": "Mozilla/5.0 article-importer" },
       });
       if (response.ok) return response;
-      lastError = new Error(`Telegram returned ${response.status} for ${url}`);
+      lastError = new Error(`Remote source returned ${response.status} for ${url}`);
     } catch (error) {
       lastError = error;
     }
@@ -649,7 +649,7 @@ function renderConsultationCta() {
   return `<section class="consultation-note">
     <h2>Нужна консультация или проект?</h2>
     <p>Если Вам нужна консультация, расчет или проект по резервуару, обращайтесь, всегда помогу. Можно разобрать исходные данные, проверить принятое решение или подготовить проектную документацию.</p>
-    <div class="cta-actions"><a class="btn btn-primary" href="https://t.me/rvs_pro">Написать в Telegram</a><a class="btn" href="${ARTICLES_INDEX}">Смотреть другие статьи</a></div>
+    <div class="cta-actions"><a class="btn btn-primary" href="https://t.me/rvs_pro">Получить консультацию</a><a class="btn" href="${ARTICLES_INDEX}">Другие статьи</a></div>
   </section>`;
 }
 
@@ -701,7 +701,7 @@ ${METRIKA}
 <body>
 ${topbar()}
 ${body}
-<footer class="kb-footer"><div class="kb-shell"><div>© Резервуаростроение. Статьи из Telegram-канала, подготовленные для локальной SEO-структуры.</div><div><a href="${ARTICLES_INDEX}">Все статьи</a> · <a href="https://t.me/${CHANNEL}">Telegram</a></div></div></footer>
+<footer class="kb-footer"><div class="kb-shell"><div>© Резервуаростроение. Инженерные материалы и расчеты по резервуарам.</div><div><a href="/articles/index.html">Все статьи</a> · <a href="https://t.me/rvs_pro">Связаться</a></div></div></footer>
 </body>
 </html>`;
 }
@@ -806,7 +806,7 @@ async function writeArticle(article, related) {
       </div>
       <div class="hero-aside">
         <h2>Редакционная версия</h2>
-        <p>Материал взят из Telegram-канала, очищен от формата короткого поста и дополнен расчетными пояснениями для статьи на сайте.</p>
+        <p>Материал подготовлен как инженерная статья: с акцентом на исходные данные, расчетную логику, проектные проверки и типовые ошибки.</p>
         <p><a class="btn" href="${article.sourceUrls[0]}">Открыть пост</a></p>
       </div>
     </section>
@@ -828,7 +828,7 @@ async function writeArticle(article, related) {
   <aside class="article-side">
     <section class="side-card"><h2>Раздел</h2><p>${escapeHtml(category.intro)}</p></section>
     <section class="side-card"><h2>Похожие статьи</h2><ul class="link-list">${related.map((item) => `<li><a href="/articles/${item.slug}/index.html">${escapeHtml(item.title)}</a></li>`).join("")}</ul></section>
-    <section class="side-card"><h2>Telegram</h2><p>Оригинальные публикации остаются в канале, а на сайте они работают как поисковые страницы.</p></section>
+    <section class="side-card"><h2>Консультация</h2><p>Если нужна проверка расчета, проектное решение или консультация по резервуару, можно обратиться за инженерной помощью.</p></section>
   </aside>
 </main>`;
 
@@ -884,9 +884,9 @@ async function writeIndex(articles) {
 <main class="kb-shell knowledge-home">
   <section class="hero-card hero-home">
     <div class="hero-copy">
-      <div class="chip">Telegram → сайт</div>
+      <div class="chip">Инженерные статьи</div>
       <h1>Статьи по резервуаростроению</h1>
-      <p class="lead">Локальная версия раздела статей, перенесенных из Telegram-канала. Материалы разделены на РВС, РГС и СУГ, чтобы каждая тема работала как отдельная SEO-страница.</p>
+      <p class="lead">Раздел статей по резервуаростроению. Материалы разделены на РВС, РГС и СУГ, чтобы быстро найти нужную инженерную тему.</p>
       <div class="hero-actions"><a class="btn btn-primary" href="#rvs">РВС</a><a class="btn" href="#rgs">РГС</a><a class="btn" href="#sug">СУГ</a></div>
     </div>
     <div class="hero-aside">
@@ -900,7 +900,7 @@ async function writeIndex(articles) {
   </section>
   <section class="toolbar">
     <label class="search-box"><span>Поиск по статьям</span><input id="article-search" type="search" placeholder="Например: диафрагма, днище, давление, СУГ"></label>
-      <div class="toolbar-note">Импортировано ${articles.length} материалов. Страницы очищены от Telegram-оформления, дополнены расчетными блоками и разложены по инженерным разделам.</div>
+      <div class="toolbar-note">Выберите раздел и откройте материал по нужной инженерной теме.</div>
   </section>
   ${groups.map((group) => `
   <section class="cluster-section" id="${group.slug}">
@@ -912,7 +912,7 @@ async function writeIndex(articles) {
       </div>
       <span class="small-chip">${group.articles.length} материалов</span>
     </div>
-    <div class="knowledge-grid">${group.articles.map(renderCard).join("") || `<article class="knowledge-card"><h3>Материалы пока не найдены</h3><p>Если в Telegram появятся публикации с явными признаками раздела ${group.label}, импортер добавит их сюда.</p></article>`}</div>
+    <div class="knowledge-grid">${group.articles.map(renderCard).join("") || `<article class="knowledge-card"><h3>Материалы в подготовке</h3><p>Материал подготовлен как инженерная статья: с акцентом на исходные данные, расчетную логику, проектные проверки и типовые ошибки.</p></article>`}</div>
   </section>`).join("")}
 </main>
 <script>
@@ -931,7 +931,7 @@ async function writeIndex(articles) {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "Статьи по резервуаростроению",
-      description: "Статьи по РВС, РГС и СУГ из Telegram-канала Резервуаростроение, подготовленные для локального SEO-раздела.",
+      description: "Статьи по РВС, РГС и СУГ для проектирования, проверки и эксплуатации резервуаров.",
       url: `${BASE_URL}/articles/`,
       inLanguage: "ru-RU",
       dateModified: TODAY,
@@ -952,7 +952,7 @@ async function writeIndex(articles) {
 
   await fs.writeFile(path.join(ROOT, "index.html"), pageShell({
     title: "Статьи по резервуаростроению: РВС, РГС, СУГ",
-    description: "Локальный раздел статей по РВС, РГС и СУГ, перенесенных из Telegram-канала Резервуаростроение.",
+    description: "Раздел статей по РВС, РГС и СУГ для инженерной практики резервуаростроения.",
     canonical: `${BASE_URL}/articles/`,
     body,
     schema,
@@ -1001,7 +1001,7 @@ async function main() {
     publishedAt: article.publishedAt,
   })), null, 2));
 
-  console.log(`Imported ${articles.length} articles from ${messages.length} Telegram posts into ${ROOT}`);
+  console.log(`Prepared ${articles.length} articles into ${ROOT}`);
 }
 
 main().catch((error) => {
