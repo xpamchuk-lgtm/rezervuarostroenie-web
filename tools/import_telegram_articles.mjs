@@ -1,4 +1,4 @@
-import fs from "node:fs/promises";
+﻿import fs from "node:fs/promises";
 import path from "node:path";
 
 const CHANNEL = "rvs_pro";
@@ -683,7 +683,7 @@ function pageShell({ title, description, canonical, type = "website", body, sche
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${escapeHtml(title)}</title>
 <meta name="description" content="${escapeHtml(description)}">
-<meta name="robots" content="noindex,follow,max-snippet:-1,max-image-preview:large">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <link rel="canonical" href="${canonical}">
 <meta property="og:type" content="${type}">
 <meta property="og:title" content="${escapeHtml(title)}">
@@ -900,7 +900,7 @@ async function writeIndex(articles) {
   </section>
   <section class="toolbar">
     <label class="search-box"><span>Поиск по статьям</span><input id="article-search" type="search" placeholder="Например: диафрагма, днище, давление, СУГ"></label>
-      <div class="toolbar-note">Импортировано ${articles.length} материалов. Страницы уже очищены от Telegram-оформления, дополнены расчетными блоками и пока помечены noindex для редакторской проверки.</div>
+      <div class="toolbar-note">Импортировано ${articles.length} материалов. Страницы очищены от Telegram-оформления, дополнены расчетными блоками и разложены по инженерным разделам.</div>
   </section>
   ${groups.map((group) => `
   <section class="cluster-section" id="${group.slug}">
