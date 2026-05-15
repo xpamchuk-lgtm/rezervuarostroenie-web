@@ -81,9 +81,15 @@ export default function Home() {
             </div>
 
             {card.status === "active" && card.to ? (
-              <Link className="btn primary" to={card.to}>
-                Открыть калькулятор
-              </Link>
+              card.to.startsWith("/") && !card.to.includes("/articles/") ? (
+                <Link className="btn primary" to={card.to}>
+                  Открыть калькулятор
+                </Link>
+              ) : (
+                <a className="btn primary" href={card.to}>
+                  Открыть раздел
+                </a>
+              )
             ) : (
               <button className="btn disabled" type="button" disabled>
                 Скоро

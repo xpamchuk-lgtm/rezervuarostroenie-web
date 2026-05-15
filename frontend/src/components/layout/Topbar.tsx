@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import ProjectOrderButton from "../ProjectOrderButton";
 
 export default function Topbar() {
   return (
@@ -22,8 +23,10 @@ export default function Topbar() {
             Калькуляторы
           </NavLink>
           <a href="/baza-znaniy/">База знаний</a>
+          <a href="/articles/index.html">Статьи</a>
           <a href="/#workflow">Как пользоваться</a>
           <a href="/#norms">Нормативная база</a>
+          <ProjectOrderButton source="topbar" compact />
         </nav>
       </div>
     </header>

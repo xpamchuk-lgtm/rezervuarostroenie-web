@@ -128,7 +128,7 @@
 <noscript>
 <div><img alt="" src="https://mc.yandex.ru/watch/107707633" style="position:absolute; left:-9999px;"/></div>
 </noscript>
-<header class="kb-topbar"><div class="kb-shell kb-topbar-inner"><a class="kb-brand" href="/"><img alt="Резервуаростроение" src="/logo.png"/><div><strong>Резервуаростроение</strong><span>База знаний по расчёту резервуаров</span></div></a><nav class="kb-nav"><a href="/">Калькуляторы</a><a href="/calc/rvs">РВС калькулятор</a><a class="active" href="/baza-znaniy/">База знаний</a></nav></div></header>
+<header class="kb-topbar"><div class="kb-shell kb-topbar-inner"><a class="kb-brand" href="/"><img alt="Резервуаростроение" src="/logo.png"/><div><strong>Резервуаростроение</strong><span>База знаний по расчёту резервуаров</span></div></a><nav class="kb-nav"><a href="/">Калькуляторы</a><a href="/calc/rvs">РВС калькулятор</a><a class="active" href="/baza-znaniy/">База знаний</a><a href="/baza-znaniy/#normativnaya-baza">Нормативная база</a><a href="/articles/index.html">Статьи</a><button class="btn kb-project-order-btn" type="button" data-project-order-open>Заказать проект КМ/КМД</button></nav></div></header>
 <main class="kb-shell knowledge-home">
 <section class="hero-card hero-home">
 <div class="hero-copy">
@@ -159,6 +159,24 @@
 </div>
 </div>
 <ul class="bullet-list"><li>ГОСТ 31385-2023 — профильный стандарт по вертикальным стальным резервуарам; перед выпуском документации проверяют область применения, комплект требований и актуальную редакцию документа.</li><li>СП 20.13330 — документ по нагрузкам и воздействиям; для снега, ветра и сочетаний нагрузок используют редакцию, действующую на дату расчёта.</li><li>СП 22.13330 — документ по основаниям и осадкам; фактическую оценку основания выполняют по материалам инженерно-геологических изысканий.</li><li>СП 14.13330 — документ для строительства в сейсмических районах; при сейсмической проверке учитывают площадку, грунты и расчётную модель резервуара.</li><li>СП 16.13330 — документ по стальным конструкциям; его используют для общих расчётных положений по стали и проверок несущих элементов.</li></ul>
+</section>
+<section id="normativnaya-baza" class="cluster-section kb-engineering-upgrade">
+  <div class="cluster-head">
+    <div>
+      <div class="chip">Нормативная база</div>
+      <h2>Рабочие документы для расчёта резервуаров</h2>
+      <p>Раздел собран как инженерный навигатор: какой документ за что отвечает и какие формулы обычно связывают статью с расчетом. Перед выпуском проекта проверяют актуальную редакцию, изменения и область применения.</p>
+    </div>
+    <span class="small-chip">обновлено 2026-05-15</span>
+  </div>
+  <div class="knowledge-grid">
+    <article class="knowledge-card"><h3>ГОСТ 31385-2023</h3><p>Вертикальные цилиндрические стальные резервуары для нефти и нефтепродуктов: проектирование, изготовление, монтаж, испытания, приемка, защита от коррозии.</p></article>
+    <article class="knowledge-card"><h3>СП 20.13330.2016</h3><p>Нагрузки и воздействия: снег, ветер, температурные воздействия и расчетные сочетания нагрузок.</p></article>
+    <article class="knowledge-card"><h3>СП 22.13330.2016</h3><p>Основания и фундаменты: расчетное сопротивление, среднее давление, осадки и требования к инженерно-геологическим данным.</p></article>
+    <article class="knowledge-card"><h3>СП 14.13330.2018</h3><p>Сейсмические районы: расчетная сейсмичность площадки, грунты, горизонтальные воздействия и устойчивость резервуара.</p></article>
+    <article class="knowledge-card"><h3>СП 16.13330.2017</h3><p>Стальные конструкции: расчетные сопротивления, прочность, устойчивость, сварные соединения и элементы каркаса.</p></article>
+    <article class="knowledge-card"><h3>ТР ТС 032/2013 и ГОСТ 34347-2017</h3><p>Для емкостей и сосудов под избыточным давлением, включая случаи СУГ, когда объект выходит за рамки обычного атмосферного резервуара.</p></article>
+  </div>
 </section>
 <section class="cluster-section">
 <div class="cluster-head">
@@ -283,5 +301,79 @@
         });
       });
     </script>
+<div class="kb-order-backdrop" data-project-order-modal hidden>
+  <div class="kb-order-modal" role="dialog" aria-modal="true" aria-labelledby="kb-order-title">
+    <div class="kb-order-head">
+      <div>
+        <div class="kb-order-kicker">Проектирование</div>
+        <h2 id="kb-order-title">Заказать проект КМ/КМД</h2>
+      </div>
+      <button class="kb-order-close" type="button" aria-label="Закрыть" data-project-order-close>×</button>
+    </div>
+    <form class="kb-order-form" data-project-order-form>
+      <label>Номер телефона<input name="phone" placeholder="+7 ..." required /></label>
+      <label>Почта<input name="email" type="email" placeholder="mail@example.ru" required /></label>
+      <label>Прикрепить ТЗ<input name="tz_file" type="file" accept=".doc,.docx,.pdf,.xls,.xlsx,.txt" /></label>
+      <label>Комментарий<textarea name="comment" placeholder="Тип резервуара, объем, город, срочность, дополнительные требования"></textarea></label>
+      <div class="kb-order-message" data-project-order-message hidden></div>
+      <div class="kb-order-actions">
+        <button class="btn kb-project-order-btn" type="submit">Отправить заявку</button>
+        <button class="btn" type="button" data-project-order-close>Закрыть</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(() => {
+  const modal = document.querySelector('[data-project-order-modal]');
+  const openers = document.querySelectorAll('[data-project-order-open]');
+  const closers = document.querySelectorAll('[data-project-order-close]');
+  const form = document.querySelector('[data-project-order-form]');
+  const message = document.querySelector('[data-project-order-message]');
+  const setMessage = (text, ok) => {
+    if (!message) return;
+    message.hidden = !text;
+    message.textContent = text || '';
+    message.className = ok ? 'kb-order-message success' : 'kb-order-message error';
+  };
+  const close = () => {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.classList.remove('kb-order-lock');
+  };
+  const open = () => {
+    if (!modal) return;
+    modal.hidden = false;
+    document.body.classList.add('kb-order-lock');
+    modal.querySelector('input[name="phone"]')?.focus();
+  };
+  openers.forEach((button) => button.addEventListener('click', open));
+  closers.forEach((button) => button.addEventListener('click', close));
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) close();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && !modal.hidden) close();
+  });
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submit = form.querySelector('button[type="submit"]');
+    submit.disabled = true;
+    setMessage('', true);
+    const data = new FormData(form);
+    data.append('source', 'knowledge-base');
+    try {
+      const response = await fetch('/api/project-order', { method: 'POST', body: data });
+      if (!response.ok) throw new Error(await response.text());
+      form.reset();
+      setMessage('Заявка отправлена. Мы свяжемся с вами по указанным контактам.', true);
+    } catch (error) {
+      setMessage('Не удалось отправить заявку. Проверьте контакты или попробуйте позже.', false);
+    } finally {
+      submit.disabled = false;
+    }
+  });
+})();
+</script>
 </body>
 </html>

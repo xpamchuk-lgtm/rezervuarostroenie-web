@@ -133,7 +133,7 @@
 <header class="kb-topbar">
 <div class="kb-shell kb-topbar-inner">
 <a class="kb-brand" href="/"><img alt="Резервуаростроение" src="/logo.png"/><div><strong>Резервуаростроение</strong><span>База знаний по расчёту резервуаров</span></div></a>
-<nav class="kb-nav"><a href="/">Калькуляторы</a><a href="/calc/rvs">РВС калькулятор</a><a class="active" href="/baza-znaniy/">База знаний</a></nav>
+<nav class="kb-nav"><a href="/">Калькуляторы</a><a href="/calc/rvs">РВС калькулятор</a><a class="active" href="/baza-znaniy/">База знаний</a><a href="/baza-znaniy/#normativnaya-baza">Нормативная база</a><a href="/articles/index.html">Статьи</a><button class="btn kb-project-order-btn" type="button" data-project-order-open>Заказать проект КМ/КМД</button></nav>
 </div>
 </header>
 <main class="kb-shell article-layout">
@@ -156,7 +156,7 @@
 </section>
 <section class="toc-card">
 <h2>Навигация по материалу</h2>
-<ol class="toc-list"><li><a href="#quick-answer">Краткий ответ</a></li><li><a href="#when-use">Когда открывать эту страницу</a></li><li><a href="#norm-base">Нормативная база</a></li><li><a href="#formulas">Формулы и параметры</a></li><li><a href="#algorithm">Как читать сейсмический результат</a></li><li><a href="#example">Пример предварительной оценки</a></li><li><a href="#remarks">Практические замечания</a></li><li><a href="#faq">FAQ</a></li></ol>
+<ol class="toc-list"><li><a href="#quick-answer">Краткий ответ</a></li><li><a href="#when-use">Когда открывать эту страницу</a></li><li><a href="#norm-base">Нормативная база</a></li><li><a href="#formulas">Формулы и параметры</a></li><li><a href="#engineering-formulas">Инженерный блок</a></li><li><a href="#algorithm">Как читать сейсмический результат</a></li><li><a href="#example">Пример предварительной оценки</a></li><li><a href="#remarks">Практические замечания</a></li><li><a href="#faq">FAQ</a></li></ol>
 </section>
 <section id="when-use">
 <h2>Что стоит проверить до расчёта</h2>
@@ -185,6 +185,29 @@
 <p>На практике инженер редко спорит о самой формуле — споры чаще возникают вокруг исходных данных: плотности продукта, реального уровня заполнения, района строительства, схемы опирания и принятых коэффициентов. Поэтому формула полезна только тогда, когда рядом записан полный набор исходных параметров.</p>
 </div>
 </div>
+</section>
+<section id="engineering-formulas" class="kb-engineering-upgrade calculation-section">
+  <h2>Инженерные формулы по теме</h2>
+  <p>Для материала «Сейсмичность района для резервуара: от карты к расчётной модели» ниже приведён расчетный минимум по сейсмического воздействия. Это не заменяет рабочий расчет, но убирает пустые формулировки и показывает, какие зависимости инженер должен проверить первыми.</p>
+  <div class="calc-sheet">
+      <div class="calc-row">
+        <div class="calc-label">Сейсмическая сила</div>
+        <div class="calc-formula">Fс = kс · G</div>
+        <p>Коэффициент назначают по расчетной сейсмичности, грунтам и расчетной схеме.</p>
+      </div>
+      <div class="calc-row">
+        <div class="calc-label">Опрокидывающий момент</div>
+        <div class="calc-formula">Mс = Fс · zц</div>
+        <p>Определяет требования к устойчивости корпуса и анкерному креплению.</p>
+      </div>
+      <div class="calc-row">
+        <div class="calc-label">Разделение массы жидкости</div>
+        <div class="calc-formula">G = Gимп + Gконв</div>
+        <p>Для заполненных резервуаров учитывают импульсную и конвективную составляющие.</p>
+      </div>
+    <div class="calc-conclusion">Проверочный вывод: значения подставляют из задания, расчетной схемы и действующих нормативов; итоговое решение фиксируют в расчётной записке.</div>
+  </div>
+  <div class="strong-note"><strong>Нормативная привязка:</strong><ul class="bullet-list"><li>СП 14.13330.2018</li><li>ГОСТ 31385-2023</li><li>СП 20.13330.2016</li></ul></div>
 </section>
 <section id="algorithm">
 <h2>Как читать сейсмический результат</h2>
@@ -222,5 +245,79 @@
 </aside>
 </main>
 <footer class="kb-footer"><div class="kb-shell"><div>© Резервуаростроение. База знаний по расчёту и проектированию резервуаров.</div><div><a href="/baza-znaniy/">Все статьи</a> · <a href="/calc/rvs">Калькулятор РВС</a></div></div></footer>
+<div class="kb-order-backdrop" data-project-order-modal hidden>
+  <div class="kb-order-modal" role="dialog" aria-modal="true" aria-labelledby="kb-order-title">
+    <div class="kb-order-head">
+      <div>
+        <div class="kb-order-kicker">Проектирование</div>
+        <h2 id="kb-order-title">Заказать проект КМ/КМД</h2>
+      </div>
+      <button class="kb-order-close" type="button" aria-label="Закрыть" data-project-order-close>×</button>
+    </div>
+    <form class="kb-order-form" data-project-order-form>
+      <label>Номер телефона<input name="phone" placeholder="+7 ..." required /></label>
+      <label>Почта<input name="email" type="email" placeholder="mail@example.ru" required /></label>
+      <label>Прикрепить ТЗ<input name="tz_file" type="file" accept=".doc,.docx,.pdf,.xls,.xlsx,.txt" /></label>
+      <label>Комментарий<textarea name="comment" placeholder="Тип резервуара, объем, город, срочность, дополнительные требования"></textarea></label>
+      <div class="kb-order-message" data-project-order-message hidden></div>
+      <div class="kb-order-actions">
+        <button class="btn kb-project-order-btn" type="submit">Отправить заявку</button>
+        <button class="btn" type="button" data-project-order-close>Закрыть</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(() => {
+  const modal = document.querySelector('[data-project-order-modal]');
+  const openers = document.querySelectorAll('[data-project-order-open]');
+  const closers = document.querySelectorAll('[data-project-order-close]');
+  const form = document.querySelector('[data-project-order-form]');
+  const message = document.querySelector('[data-project-order-message]');
+  const setMessage = (text, ok) => {
+    if (!message) return;
+    message.hidden = !text;
+    message.textContent = text || '';
+    message.className = ok ? 'kb-order-message success' : 'kb-order-message error';
+  };
+  const close = () => {
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.classList.remove('kb-order-lock');
+  };
+  const open = () => {
+    if (!modal) return;
+    modal.hidden = false;
+    document.body.classList.add('kb-order-lock');
+    modal.querySelector('input[name="phone"]')?.focus();
+  };
+  openers.forEach((button) => button.addEventListener('click', open));
+  closers.forEach((button) => button.addEventListener('click', close));
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) close();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && !modal.hidden) close();
+  });
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submit = form.querySelector('button[type="submit"]');
+    submit.disabled = true;
+    setMessage('', true);
+    const data = new FormData(form);
+    data.append('source', 'knowledge-base');
+    try {
+      const response = await fetch('/api/project-order', { method: 'POST', body: data });
+      if (!response.ok) throw new Error(await response.text());
+      form.reset();
+      setMessage('Заявка отправлена. Мы свяжемся с вами по указанным контактам.', true);
+    } catch (error) {
+      setMessage('Не удалось отправить заявку. Проверьте контакты или попробуйте позже.', false);
+    } finally {
+      submit.disabled = false;
+    }
+  });
+})();
+</script>
 </body>
 </html>
