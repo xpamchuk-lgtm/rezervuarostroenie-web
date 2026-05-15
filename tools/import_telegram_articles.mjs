@@ -886,16 +886,8 @@ async function writeIndex(articles) {
     <div class="hero-copy">
       <div class="chip">Инженерные статьи</div>
       <h1>Статьи по резервуаростроению</h1>
-      <p class="lead">Раздел статей по резервуаростроению. Материалы разделены на РВС, РГС и СУГ, чтобы быстро найти нужную инженерную тему.</p>
+      <p class="lead">Практические материалы по расчету, проектированию, изготовлению и проверке резервуаров.</p>
       <div class="hero-actions"><a class="btn btn-primary" href="#rvs">РВС</a><a class="btn" href="#rgs">РГС</a><a class="btn" href="#sug">СУГ</a></div>
-    </div>
-    <div class="hero-aside">
-      <h2>Что дальше</h2>
-      <ul class="check-list">
-        <li>выбрать коммерчески важные статьи;</li>
-        <li>добавить внутренние ссылки на услуги и калькуляторы;</li>
-        <li>после редакторской вычитки открыть индексацию.</li>
-      </ul>
     </div>
   </section>
   <section class="toolbar">
