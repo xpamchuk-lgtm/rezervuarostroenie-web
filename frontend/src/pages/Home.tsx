@@ -68,7 +68,7 @@ export default function Home() {
         </div>
 
         <div className="hero-brand card pad" aria-label="Бренд блок">
-          <img src="/logo.png" alt="Резервуаростроение" className="hero-logo" />
+          <img src="/logo-256.png" alt="Резервуаростроение" className="hero-logo" width={220} height={168} decoding="async" />
         </div>
       </section>
 

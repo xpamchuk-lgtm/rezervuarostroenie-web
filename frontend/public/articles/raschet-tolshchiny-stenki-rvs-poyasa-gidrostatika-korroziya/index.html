@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Расчет толщины стенки РВС: пояса, гидростатика и припуск на коррозию | Резервуаростроение</title>
+<meta name="description" content="Инженерная статья о расчете толщины стенки РВС: гидростатическое давление, расчет по поясам, припуск на коррозию, минусовой допуск и пример проверки.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<link rel="canonical" href="https://rezervuarostroenie.ru/articles/raschet-tolshchiny-stenki-rvs-poyasa-gidrostatika-korroziya/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Расчет толщины стенки РВС: пояса, гидростатика и припуск на коррозию | Резервуаростроение">
+<meta property="og:description" content="Как инженерно читать расчет стенки РВС: от уровня продукта и плотности до номинальной толщины листа по каждому поясу.">
+<meta property="og:url" content="https://rezervuarostroenie.ru/articles/raschet-tolshchiny-stenki-rvs-poyasa-gidrostatika-korroziya/">
+<meta property="og:image" content="https://rezervuarostroenie.ru/articles/raschet-tolshchiny-stenki-rvs-poyasa-gidrostatika-korroziya/cover.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" sizes="32x32" type="image/png" href="/favicon-32x32.png">
+<link rel="icon" sizes="16x16" type="image/png" href="/favicon-16x16.png">
+<link rel="icon" sizes="any" href="/favicon.ico">
+<link rel="stylesheet" href="/knowledge-base.css">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {
+        if (document.scripts[j].src === r) { return; }
+      }
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+  })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107707633', 'ym');
+  ym(107707633, 'init', { ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer:document.referrer, url:location.href, accurateTrackBounce:true, trackLinks:true });
+</script>
+<!-- /Yandex.Metrika counter -->
+<script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Расчет толщины стенки РВС: пояса, гидростатика и припуск на коррозию",
+    "description": "Инженерная статья о расчете толщины стенки РВС: гидростатическое давление, расчет по поясам, припуск на коррозию, минусовой допуск и пример проверки.",
+    "author": {"@type":"Organization","name":"Резервуаростроение"},
+    "publisher": {"@type":"Organization","name":"Резервуаростроение","logo":{"@type":"ImageObject","url":"https://rezervuarostroenie.ru/logo.png"}},
+    "mainEntityOfPage": "https://rezervuarostroenie.ru/articles/raschet-tolshchiny-stenki-rvs-poyasa-gidrostatika-korroziya/",
+    "datePublished": "2026-05-17",
+    "dateModified": "2026-05-17",
+    "articleSection": "РВС",
+    "inLanguage": "ru-RU"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Резервуаростроение","item":"https://rezervuarostroenie.ru/"},
+      {"@type":"ListItem","position":2,"name":"Статьи","item":"https://rezervuarostroenie.ru/articles/"},
+      {"@type":"ListItem","position":3,"name":"Расчет толщины стенки РВС","item":"https://rezervuarostroenie.ru/articles/raschet-tolshchiny-stenki-rvs-poyasa-gidrostatika-korroziya/"}
+    ]
+  }
+]</script>
+</head>
+<body>
+<header class="kb-topbar">
+  <div class="kb-shell kb-topbar-inner">
+    <a class="kb-brand" href="/"><img src="/logo-96.png" alt="Резервуаростроение" width="46" height="35" decoding="async"><span><strong>Резервуаростроение</strong><span>Инженерные материалы и расчеты</span></span></a>
+    <nav class="kb-nav" aria-label="Основная навигация"><a href="/">Главная</a><a href="/calc/rvs">РВС калькулятор</a><a href="/calc/rgs">РГС калькулятор</a><a href="/baza-znaniy/">База знаний</a><a class="active" href="/articles/">Статьи</a></nav>
+  </div>
+</header>
+<main class="kb-shell article-layout">
+  <article class="article-main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="/">Главная</a><span class="crumb-sep">/</span><a href="/articles/">Статьи</a><span class="crumb-sep">/</span><span>Расчет толщины стенки РВС</span></nav>
+    <section class="hero-card hero-article">
+      <div class="hero-copy">
+        <div class="chip">РВС</div>
+        <h1>Расчет толщины стенки РВС: пояса, гидростатика и припуск на коррозию</h1>
+        <p class="lead">Толщина стенки РВС не выбирается одной цифрой на весь резервуар. Нижние пояса работают при большем гидростатическом давлении, верхние - при меньшем, а итоговая номинальная толщина зависит еще от коррозионного припуска, минусового допуска проката, сварного соединения и минимальных конструктивных требований.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="/calc/rvs">Открыть калькулятор РВС</a><a class="btn" href="/articles/">Ко всем статьям</a></div>
+      </div>
+      <div class="hero-aside">
+        <img src="cover.png" alt="Расчет толщины стенки РВС по поясам" width="640" height="360" loading="eager" decoding="async" style="border-radius:14px;border:1px solid rgba(15,47,74,.12);margin-bottom:16px">
+        <h2>Практический смысл</h2>
+        <p>Задача расчета - не просто получить миллиметры. Нужно понять, какой пояс определяет металлоемкость, где нужен запас, а где лишняя толщина только увеличивает стоимость.</p>
+      </div>
+    </section>
+
+    <section class="editorial-section">
+      <h2>С чего начинается расчет</h2>
+      <p>Первый шаг - не формула, а исходные данные. Для расчета стенки нужны геометрия резервуара, высота налива, плотность продукта, расчетная температура металла, материал стенки, коэффициент сварного соединения, коррозионный припуск и требования к сроку службы.</p>
+      <p>Если хотя бы один из этих параметров взят «по привычке», расчет может выглядеть красивым, но фактически не отвечать условиям эксплуатации. Особенно опасны ошибки в плотности продукта, расчетной высоте налива и коррозионном припуске нижних поясов.</p>
+    </section>
+
+    <section class="editorial-section">
+      <h2>Почему стенка считается по поясам</h2>
+      <p>Гидростатическое давление растет с глубиной. Поэтому нижний пояс воспринимает максимальное давление от столба продукта, а верхний - значительно меньшее. Назначать одинаковую толщину по всей высоте обычно нерационально: снизу может не хватить прочности, а сверху получится лишняя масса металла.</p>
+      <p>В расчетной записке по каждому поясу нужно показать свою расчетную высоту столба жидкости, требуемую расчетную толщину, принятый коррозионный припуск и выбранную номинальную толщину листа.</p>
+    </section>
+
+    <section class="calculation-section">
+      <h2>Основные расчетные зависимости</h2>
+      <p>Ниже приведена инженерная логика проверки. В рабочем проекте расчет выполняют по принятой нормативной методике, классу резервуара, материалу, расчетным сочетаниям и требованиям задания.</p>
+      <div class="calc-sheet">
+        <div class="calc-row"><div class="calc-label">Гидростатическое давление на уровне проверки:</div><div class="calc-formula">p<sub>i</sub> = ρ · g · h<sub>i</sub></div></div>
+        <div class="calc-row"><div class="calc-label">Окружное напряжение в тонкостенной оболочке:</div><div class="calc-formula">σ<sub>θ</sub> = <span class="formula-frac"><span>p<sub>i</sub> · R</span><span>t<sub>eff</sub></span></span></div></div>
+        <div class="calc-row"><div class="calc-label">Эффективная толщина после вычета припусков:</div><div class="calc-formula">t<sub>eff</sub> = t<sub>nom</sub> - c - Δt<sub>minus</sub></div></div>
+        <div class="calc-row"><div class="calc-label">Условие прочности по стенке:</div><div class="calc-formula">σ<sub>θ</sub> ≤ [σ] · φ</div></div>
+        <div class="calc-row"><div class="calc-label">Ориентировочная требуемая толщина:</div><div class="calc-formula">t<sub>req</sub> ≥ <span class="formula-frac"><span>p<sub>i</sub> · R</span><span>[σ] · φ</span></span> + c + Δt<sub>minus</sub></div></div>
+        <div class="calc-conclusion">Проверочный вывод: расчетная толщина показывает минимум по прочности, но номинальный лист выбирают с учетом стандартного сортамента, минимальных требований стандарта, коррозии, минусового допуска и технологичности изготовления.</div>
+      </div>
+    </section>
+
+    <section class="editorial-section">
+      <h2>Что входит в толщину листа</h2>
+      <p>В разговоре часто смешивают три разных величины: расчетную, конструктивную и номинальную толщину. Из-за этого появляются ошибки в спецификации металла и в проверке фактических замеров при обследовании.</p>
+      <table class="mini-table">
+        <tr><th>Величина</th><td><strong>Расчетная толщина</strong> - минимальная толщина, которая требуется по прочности и устойчивости при заданных нагрузках.</td></tr>
+        <tr><th>Припуск на коррозию</th><td>Добавляется к расчетной толщине, если среда и срок службы требуют учитывать потерю металла.</td></tr>
+        <tr><th>Минусовой допуск</th><td>Учитывает допустимое отклонение фактической толщины листа от номинальной по прокату.</td></tr>
+        <tr><th>Номинальная толщина</th><td>Толщина листа, которую указывают в чертеже и спецификации. Она должна перекрывать расчетную потребность и требования стандарта.</td></tr>
+      </table>
+    </section>
+
+    <section class="editorial-section">
+      <h2>Пример расчета для нижнего пояса</h2>
+      <p>Возьмем упрощенный пример, чтобы показать логику. Данные условные: диаметр резервуара 22 м, радиус 11 м, расчетная высота столба продукта у нижнего пояса 11,5 м, плотность продукта 850 кг/м³, допускаемое напряжение с учетом материала и расчетной схемы принято 160 МПа, коэффициент сварного соединения 0,85, коррозионный припуск 1,0 мм, минусовой допуск 0,3 мм.</p>
+      <div class="calc-sheet">
+        <div class="calc-row"><div class="calc-label">Гидростатическое давление:</div><div class="calc-formula">p = 850 · 9,81 · 11,5 = 95 873 Па = 0,0959 МПа</div></div>
+        <div class="calc-row"><div class="calc-label">Толщина по прочности без припусков:</div><div class="calc-formula">t = <span class="formula-frac"><span>0,0959 · 11 000</span><span>160 · 0,85</span></span> = 7,76 мм</div></div>
+        <div class="calc-row"><div class="calc-label">С учетом коррозии и минусового допуска:</div><div class="calc-formula">t<sub>req</sub> = 7,76 + 1,0 + 0,3 = 9,06 мм</div></div>
+        <div class="calc-row"><div class="calc-label">Принятие листа:</div><div class="calc-formula">t<sub>nom</sub> = 10 мм</div></div>
+        <div class="calc-conclusion">Заключение: для нижнего пояса в этом примере лист 8 мм не проходит по требуемой толщине, а ближайшее разумное решение - 10 мм при условии выполнения остальных проверок по стандарту и проекту.</div>
+      </div>
+    </section>
+
+    <section class="editorial-section">
+      <h2>Что проверить дополнительно</h2>
+      <ul class="bullet-list">
+        <li>минимальную конструктивную толщину стенки для объема и класса резервуара;</li>
+        <li>устойчивость стенки при ветре, вакууме и монтажных состояниях;</li>
+        <li>работу уторного узла и нижнего пояса рядом с днищем;</li>
+        <li>ослабления и местные усиления в зоне патрубков, люков и технологических врезок;</li>
+        <li>расчетную температуру металла и пригодность выбранной стали;</li>
+        <li>соответствие выбранных толщин сортаменту, технологии рулонирования или полистовой сборки.</li>
+      </ul>
+    </section>
+
+    <section class="editorial-section">
+      <h2>Типовые ошибки</h2>
+      <ul class="bullet-list">
+        <li>считать стенку только по нижнему поясу и механически переносить результат выше;</li>
+        <li>не учитывать минусовой допуск проката при сравнении расчетной и номинальной толщины;</li>
+        <li>принимать коррозионный припуск одинаковым для всех зон без анализа среды и покрытия;</li>
+        <li>подбирать толщину по прочности, но забывать устойчивость стенки;</li>
+        <li>не связывать расчет стенки с патрубками, монтажными нагрузками и фактической технологией изготовления.</li>
+      </ul>
+    </section>
+
+    <section class="editorial-section">
+      <h2>Практический вывод</h2>
+      <p>Расчет толщины стенки РВС - это не одна формула, а последовательность проверок по каждому поясу. Сначала определяют давление от продукта, затем получают требуемую толщину по прочности, добавляют коррозионный припуск и минусовой допуск, после чего выбирают номинальный лист и проверяют конструктивные ограничения.</p>
+      <p>Правильный расчет должен отвечать на три вопроса: какая толщина нужна по прочности, какая толщина должна быть назначена в проекте и какие дополнительные проверки могут сделать этот пояс определяющим.</p>
+    </section>
+
+    <section class="editorial-section norm-section">
+      <h2>Нормативная документация</h2>
+      <p>Для рабочего проекта нужно сверять актуальные редакции документов, изменения и область применения. Обычно для расчета стенки РВС используют:</p>
+      <ul class="bullet-list">
+        <li><strong>ГОСТ 31385-2023</strong> - вертикальные цилиндрические стальные резервуары для нефти и нефтепродуктов: требования к проектированию, изготовлению, монтажу, испытаниям и приемке.</li>
+        <li><strong>СП 20.13330</strong> - нагрузки и воздействия, включая ветровые, снеговые, температурные и расчетные сочетания.</li>
+        <li><strong>СП 16.13330</strong> - общая расчетная логика для стальных конструкций, прочность и устойчивость элементов.</li>
+        <li><strong>ГОСТ 27751</strong> - надежность строительных конструкций и оснований, общие положения по расчетным ситуациям и предельным состояниям.</li>
+      </ul>
+    </section>
+
+    <section class="consultation-note">
+      <h2>Нужна консультация или проект?</h2>
+      <p>Если Вам нужна консультация, расчет толщин стенки РВС или проект резервуара, обращайтесь, всегда помогу. Можно проверить исходные данные, подобрать толщины по поясам или разобрать уже готовый расчет.</p>
+      <div class="cta-actions"><a class="btn btn-primary" href="https://t.me/rvs_pro">Написать в Telegram</a><a class="btn" href="/calc/rvs">Проверить расчет</a></div>
+    </section>
+  </article>
+
+  <aside class="article-side">
+    <section class="side-card"><h2>Раздел</h2><p>РВС: расчет стенки, подбор толщин, проектные проверки и инженерная логика выбора металла.</p></section>
+    <section class="side-card"><h2>Похожие статьи</h2><ul class="link-list"><li><a href="/articles/tolshchina-dnishcha-rvs-po-gost-31385-2023/">Толщина днища РВС по ГОСТ 31385-2023</a></li><li><a href="/articles/korrozionnaya-zashchita-rvs-kak-pravilno-vybrat-pokrytie-i-kontrolirovat-ego-s/">Коррозионная защита РВС</a></li><li><a href="/articles/utornyy-uzel-rvs-samaya-napryazhennaya-zona-konstrukcii/">Уторный узел РВС</a></li><li><a href="/articles/kogda-schitayut-rvs-osnovnoy-akcent-vsegda-na-gidrostatiku/">Гидростатика и устойчивость РВС</a></li></ul></section>
+    <section class="side-card"><h2>Что нужно для расчета</h2><p>Диаметр, высота налива, плотность продукта, марка стали, расчетная температура, коррозионный припуск, допуск проката и требования к сроку службы.</p></section>
+  </aside>
+</main>
+<footer class="kb-footer"><div class="kb-shell"><div>© Резервуаростроение. Инженерные материалы и расчеты по резервуарам.</div><div><a href="/articles/">Все статьи</a> · <a href="https://t.me/rvs_pro">Связаться</a></div></div></footer>
+</body>
+</html>

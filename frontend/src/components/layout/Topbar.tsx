@@ -8,9 +8,12 @@ export default function Topbar() {
       <div className="topbar-inner">
         <Link to="/" className="brand">
           <img
-            src="/logo.png"
+            src="/logo-96.png"
             alt="Резервуаростроение"
             className="topbar-logo"
+            width={46}
+            height={35}
+            decoding="async"
           />
           <div className="brand-text">
             <div className="brand-title">Резервуаростроение</div>
@@ -23,7 +26,7 @@ export default function Topbar() {
             Калькуляторы
           </NavLink>
           <a href="/baza-znaniy/">База знаний</a>
-          <a href="/articles/index.html">Статьи</a>
+          <a href="/articles/">Статьи</a>
           <a href="/#workflow">Как пользоваться</a>
           <a href="/#norms">Нормативная база</a>
           <ProjectOrderButton source="topbar" compact />
@@ -32,3 +35,4 @@ export default function Topbar() {
     </header>
   );
 }
+

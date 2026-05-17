@@ -147,8 +147,27 @@ img{max-width:100%;display:block}
 }
 .consultation-note h2{margin:0 0 10px;font-size:24px;line-height:1.2}
 .consultation-note p{margin:0;color:#37546f}
+.floating-consultation{
+  position:fixed;
+  left:50%;
+  bottom:18px;
+  z-index:40;
+  width:min(920px,calc(100% - 32px));
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:16px 22px;
+  padding:16px 18px;
+  border-color:rgba(30,111,174,.32);
+  box-shadow:0 18px 44px rgba(15,47,74,.2);
+  transform:translateX(-50%);
+}
+.floating-consultation h2{font-size:20px;margin:0 0 4px}
+.floating-consultation .cta-actions{margin:0;flex-wrap:nowrap}
+.floating-consultation .btn{white-space:nowrap}
+body.has-floating-consultation{padding-bottom:118px}
 @media (max-width:1100px){.article-layout{grid-template-columns:1fr}.knowledge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-card,.subsection-grid,.toc-card .toc-list{grid-template-columns:1fr}}
-@media (max-width:760px){.kb-shell{padding:0 16px}.kb-topbar-inner{align-items:flex-start;padding:12px 0}.hero-copy h1{font-size:32px}.knowledge-grid,.formula-grid,.anchor-grid,.toolbar,.subsection-grid,.toc-card .toc-list{grid-template-columns:1fr}.cluster-head,.cta-panel{display:grid}.hero-card,.article-main>section:not(.hero-card),.side-card,.cluster-section,.toolbar,.anchor-strip,.toc-card{padding:18px}.kb-brand strong{font-size:18px}}
+@media (max-width:760px){.kb-shell{padding:0 16px}.kb-topbar-inner{align-items:flex-start;padding:12px 0}.hero-copy h1{font-size:32px}.knowledge-grid,.formula-grid,.anchor-grid,.toolbar,.subsection-grid,.toc-card .toc-list{grid-template-columns:1fr}.cluster-head,.cta-panel{display:grid}.hero-card,.article-main>section:not(.hero-card),.side-card,.cluster-section,.toolbar,.anchor-strip,.toc-card{padding:18px}.kb-brand strong{font-size:18px}.floating-consultation{bottom:10px;width:calc(100% - 20px);grid-template-columns:1fr;padding:14px}.floating-consultation h2{font-size:18px}.floating-consultation p{font-size:14px;line-height:1.45}.floating-consultation .cta-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.floating-consultation .btn{min-height:42px;padding:10px 12px;font-size:13px}body.has-floating-consultation{padding-bottom:170px}}
 
 .kb-project-order-btn{
   background:#1e6fae;

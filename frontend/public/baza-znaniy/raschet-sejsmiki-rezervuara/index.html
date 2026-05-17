@@ -126,8 +126,8 @@
 </noscript>
 <header class="kb-topbar">
 <div class="kb-shell kb-topbar-inner">
-<a class="kb-brand" href="/"><img alt="Резервуаростроение" src="/logo.png"/><div><strong>Резервуаростроение</strong><span>База знаний по расчёту резервуаров</span></div></a>
-<nav class="kb-nav"><a href="/">Калькуляторы</a><a href="/calc/rvs">РВС калькулятор</a><a class="active" href="/baza-znaniy/">База знаний</a><a href="/baza-znaniy/#normativnaya-baza">Нормативная база</a><a href="/articles/index.html">Статьи</a><button class="btn kb-project-order-btn" type="button" data-project-order-open>Заказать проект КМ/КМД</button></nav>
+<a class="kb-brand" href="/"><img alt="Резервуаростроение" src="/logo-96.png" width="46" height="35" decoding="async"/><div><strong>Резервуаростроение</strong><span>База знаний по расчёту резервуаров</span></div></a>
+<nav class="kb-nav" aria-label="Основная навигация"><a href="/">Калькуляторы</a><a href="/calc/rvs">РВС калькулятор</a><a class="active" href="/baza-znaniy/">База знаний</a><a href="/baza-znaniy/#normativnaya-baza">Нормативная база</a><a href="/articles/">Статьи</a><button class="btn kb-project-order-btn" type="button" data-project-order-open>Заказать проект КМ/КМД</button></nav>
 </div>
 </header>
 <main class="kb-shell article-layout">
@@ -247,12 +247,12 @@
       </div>
       <button class="kb-order-close" type="button" aria-label="Закрыть" data-project-order-close>×</button>
     </div>
-    <form class="kb-order-form" data-project-order-form>
+    <form class="kb-order-form" data-project-order-form><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
       <label>Номер телефона<input name="phone" placeholder="+7 ..." required /></label>
       <label>Почта<input name="email" type="email" placeholder="mail@example.ru" required /></label>
       <label>Прикрепить ТЗ<input name="tz_file" type="file" accept=".doc,.docx,.pdf,.xls,.xlsx,.txt" /></label>
       <label>Комментарий<textarea name="comment" placeholder="Тип резервуара, объем, город, срочность, дополнительные требования"></textarea></label>
-      <div class="kb-order-message" data-project-order-message hidden></div>
+      <div class="kb-order-message" data-project-order-message aria-live="polite" hidden></div>
       <div class="kb-order-actions">
         <button class="btn kb-project-order-btn" type="submit">Отправить заявку</button>
         <button class="btn" type="button" data-project-order-close>Закрыть</button>
@@ -267,6 +267,7 @@
   const closers = document.querySelectorAll('[data-project-order-close]');
   const form = document.querySelector('[data-project-order-form]');
   const message = document.querySelector('[data-project-order-message]');
+  let lastProjectOrderOpener = null;
   const setMessage = (text, ok) => {
     if (!message) return;
     message.hidden = !text;
@@ -277,14 +278,16 @@
     if (!modal) return;
     modal.hidden = true;
     document.body.classList.remove('kb-order-lock');
+    lastProjectOrderOpener?.focus();
   };
-  const open = () => {
+  const open = (opener) => {
     if (!modal) return;
+    lastProjectOrderOpener = opener || document.activeElement;
     modal.hidden = false;
     document.body.classList.add('kb-order-lock');
     modal.querySelector('input[name="phone"]')?.focus();
   };
-  openers.forEach((button) => button.addEventListener('click', open));
+  openers.forEach((button) => button.addEventListener('click', () => open(button)));
   closers.forEach((button) => button.addEventListener('click', close));
   modal?.addEventListener('click', (event) => {
     if (event.target === modal) close();
@@ -302,6 +305,8 @@
     try {
       const response = await fetch('/api/project-order', { method: 'POST', body: data });
       if (!response.ok) throw new Error(await response.text());
+      const payload = await response.json().catch(() => null);
+      if (payload && payload.mail_sent === false) throw new Error('Заявка сохранена, но письмо не отправлено. Проверьте настройки SMTP.');
       form.reset();
       setMessage('Заявка отправлена. Мы свяжемся с вами по указанным контактам.', true);
     } catch (error) {

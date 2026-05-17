@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Seo from "../components/Seo";
+import ProjectOrderButton from "../components/ProjectOrderButton";
 
 type SectionId = "main" | "shell" | "bottom" | "roof" | "metal" | "insulation" | "results";
 
@@ -1762,15 +1763,16 @@ function setMainField<K extends keyof MainState>(key: K, value: MainState[K]) {
               </div>
 
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
-                <button className="btn primary" type="button" onClick={() => downloadReport("/api/rvs/strength-report", "rvs_strength_report.docx")} disabled={reportLoading !== null}>
-                  {reportLoading === "/api/rvs/strength-report" ? "Формирование..." : "Сформировать экспертный отчёт по прочности"}
+                <button className="btn" type="button" onClick={() => downloadReport("/api/rvs/strength-report", "rvs_strength_report.docx")} disabled={reportLoading !== null}>
+                  {reportLoading === "/api/rvs/strength-report" ? "Формирование..." : "Сформировать отчёт"}
                 </button>
                 <button className="btn" type="button" onClick={() => downloadReport("/api/rvs/foundation-report", "rvs_foundation_report.docx")} disabled={reportLoading !== null}>
                   {reportLoading === "/api/rvs/foundation-report" ? "Формирование..." : "Сформировать отчёт по основанию"}
                 </button>
                 <button className="btn" type="button" onClick={() => downloadReport("/api/rvs/terms-of-reference", "rvs_terms_of_reference.docx")} disabled={reportLoading !== null}>
-                  {reportLoading === "/api/rvs/terms-of-reference" ? "Формирование..." : "Сформировать профессиональное ТЗ"}
+                  {reportLoading === "/api/rvs/terms-of-reference" ? "Формирование..." : "Сформировать ТЗ"}
                 </button>
+                <ProjectOrderButton source="rvs-results" />
               </div>
             </>
           )}
@@ -1830,7 +1832,7 @@ function setMainField<K extends keyof MainState>(key: K, value: MainState[K]) {
 
         <main className="grid" style={{ gap: 16 }}>
           <div className="card pad">
-            <div style={{ fontWeight: 900, fontSize: 26 }}>Вертикальный стальной резервуар (РВС)</div>
+            <h1 style={{ fontWeight: 900, fontSize: 26, margin: 0 }}>Вертикальный стальной резервуар (РВС)</h1>
             <div className="muted" style={{ marginTop: 6 }}>Калькулятор предназначен для предварительного инженерного расчёта геометрических и конструктивных параметров вертикальных стальных резервуаров (РВС). Позволяет определить основные размеры резервуара, параметры днища и кровли, а также выполнить ориентировочный подбор элементов конструкции.</div>
           </div>
           {renderSection()}

@@ -11,6 +11,16 @@ RgsHeadType = Literal["flat", "cone", "truncated_cone"]
 RgsMaterial = Literal["09G2S", "St3"]
 RgsSoilPreset = Literal["sand_coarse", "sand_medium", "sand_fine", "loam", "clay"]
 RgsRingMode = Literal["auto", "manual"]
+RgsRingProfile = Literal["flat_bar", "angle_equal", "channel", "ibeam"]
+RgsStiffenerType = Literal["ring", "diaphragm"]
+
+
+class RGSNozzle(BaseModel):
+    name: str = ""
+    count: int = 0
+    dn_mm: float = 0.0
+    length_mm: float = 0.0
+    thickness_mm: float = 0.0
 
 
 class RVSRequest(BaseModel):
@@ -45,16 +55,16 @@ class RGSRequest(BaseModel):
     seis_level: str = "B"
     D: float = Field(..., description="Внутренний диаметр, м")
     total_length_m: float = Field(..., description="Общая длина резервуара, м")
-    head_type: RgsHeadType = "flat"
+    head_type: RgsHeadType = "truncated_cone"
     head_projection_m: float = 0.0
     head_small_diameter_m: float = 0.0
 
     material: RgsMaterial = "09G2S"
     shell_nominal_mm: float = 8.0
     head_nominal_mm: float = 8.0
-    corr_mm: float = 2.0
+    corr_mm: float = 0.0
     minus_tolerance_mm: float = 0.8
-    head_allowances_mm: float = 0.8
+    head_allowances_mm: float = 0.0
     sigma_work_mpa: float | None = None
     sigma_test_mpa: float | None = None
     e_mpa: float | None = None
@@ -71,6 +81,8 @@ class RGSRequest(BaseModel):
 
     support_count: int = 2
     saddle_width_m: float = 0.6
+    support_height_m: float = 0.2
+    support_weight_each_kg: float = 0.0
     R0_kPa: float = 200.0
 
     ring_mode: RgsRingMode = "manual"
@@ -79,6 +91,14 @@ class RGSRequest(BaseModel):
     ring_shell_course_mm: float = 1490.0
     ring_end_clearance_mm: float = 500.0
     ring_section_cm2: float = 10.34
+    ring_profile: RgsRingProfile = "angle_equal"
+    ring_profile_height_mm: float = 75.0
+    ring_profile_width_mm: float = 75.0
+    ring_profile_web_mm: float = 6.0
+    ring_profile_flange_mm: float = 6.0
+    ring_flat_bar_on_edge: bool = True
+    ring_stiffener_type: RgsStiffenerType = "ring"
+    diaphragm_brace_count: int = 3
 
     rib_count: int = 8
     rib_height_mm: float = 50.0
@@ -89,6 +109,7 @@ class RGSRequest(BaseModel):
     nozzle_dn_mm: float = 0.0
     nozzle_length_mm: float = 0.0
     nozzle_thickness_mm: float = 0.0
+    nozzles: List[RGSNozzle] = Field(default_factory=list)
 
     insulation_enabled: bool = False
     insulation_thickness_mm: float = 0.0
@@ -108,6 +129,7 @@ class RGSRequest(BaseModel):
     soil_void_ratio: float | None = None
     gamma_f: float = 1.15
     groundwater: bool = False
+    groundwater_level_m: float = 0.0
     groundwater_density_kg_m3: float = 1000.0
 
     strap_spacing_m: float = 2.5

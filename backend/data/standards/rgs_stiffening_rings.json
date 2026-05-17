@@ -53,6 +53,28 @@
       ]
     },
     {
+      "id": "GOST_R_52857_5_2007",
+      "title": "ГОСТ Р 52857.5-2007. Сосуды и аппараты. Нормы и методы расчёта на прочность. Расчёт обечаек и днищ от воздействия опорных нагрузок",
+      "role": "Расчётная база для проверки зон действия опорных нагрузок и седловых опор горизонтальных сосудов.",
+      "local_file": "backend/data/standards/gost_r_52857.5-2007.pdf",
+      "calculator_use": [
+        "support load case",
+        "saddle reaction and bearing pressure protocol",
+        "future local shell stress check near supports"
+      ]
+    },
+    {
+      "id": "GOST_34347_2017",
+      "title": "ГОСТ 34347-2017. Сосуды и аппараты стальные сварные. Общие технические условия",
+      "role": "Общие технические требования к сварным сосудам и конструктивные требования к опорам.",
+      "local_file": "backend/data/standards/gost-34347-2017-sosudy-i-apparaty-stalnye-svarnye-obshhie-tehnicheskie-usloviya.docx",
+      "calculator_use": [
+        "support construction reference",
+        "welded vessel documentation",
+        "support attachment requirements"
+      ]
+    },
+    {
       "id": "SP_20",
       "title": "СП 20.13330. Нагрузки и воздействия",
       "role": "General load combinations and environmental load basis.",

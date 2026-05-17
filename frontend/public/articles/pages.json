@@ -1,5 +1,24 @@
 ﻿[
     {
+        "slug":  "raschet-tolshchiny-stenki-rvs-poyasa-gidrostatika-korroziya",
+        "url":  "/articles/raschet-tolshchiny-stenki-rvs-poyasa-gidrostatika-korroziya/index.html",
+        "title":  "Расчет толщины стенки РВС: пояса, гидростатика и припуск на коррозию",
+        "description":  "Толщина стенки РВС не выбирается одной цифрой на весь резервуар. Нижние пояса работают при большем гидростатическом давлении, верхние - при меньшем.",
+        "category":  "rvs",
+        "sourceUrls":  [],
+        "publishedAt":  "2026-05-17T00:00:00+00:00"
+    },    {
+        "slug":  "geodezicheskiy-kontrol-rvs-osadka-kren-ovalnost",
+        "url":  "/articles/geodezicheskiy-kontrol-rvs-osadka-kren-ovalnost/index.html",
+        "title":  "Геодезический контроль РВС: осадка, крен и овальность",
+        "description":  "После монтажа и гидроиспытаний резервуар может выглядеть нормально, но геодезия показывает неравномерную осадку, крен, овальность и зоны риска.",
+        "category":  "rvs",
+        "sourceUrls":  [
+
+                       ],
+        "publishedAt":  "2026-05-15T00:00:00+00:00"
+    },
+    {
         "slug":  "tipovye-oshibki-proektirovaniya-rvs-po-gost-31385-2023",
         "url":  "/articles/tipovye-oshibki-proektirovaniya-rvs-po-gost-31385-2023/index.html",
         "title":  "Типовые ошибки проектирования РВС по ГОСТ 31385-2023",
@@ -439,17 +458,6 @@
                            "https://t.me/rvs_pro/64"
                        ],
         "publishedAt":  "2026-03-10T04:35:12+00:00"
-    },
-    {
-        "slug":  "pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy-65",
-        "url":  "/articles/pochemu-vertikalnye-shvy-stenki-rvs-delayut-s-razbezhkoy-65/index.html",
-        "title":  "Почему вертикальные швы стенки РВС делают с разбежкой",
-        "description":  "Если посмотреть на развертку стенки резервуара, можно заметить одну особенность: вертикальные швы соседних поясов не совпадают по одной линии. Это не...",
-        "category":  "rvs",
-        "sourceUrls":  [
-                           "https://t.me/rvs_pro/65"
-                       ],
-        "publishedAt":  "2026-03-10T14:12:53+00:00"
     },
     {
         "slug":  "dnishche-rezervuara-kogda-primenyayut-kolcevye-okrayki-a-kogda-mozhno-oboytis",
